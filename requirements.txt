@@ -1,0 +1,4 @@
+# Analysis and charts. Everything else uses the Python standard library
+# (urllib, json, csv, re, gzip), so these are the only third-party deps.
+matplotlib>=3.5
+numpy>=1.20

@@ -1,0 +1,491 @@
+subreddit,query,harvested,status
+vibecoding,vibe coded,400,ok
+vibecoding,vibe coding,333,ok
+vibecoding,ai generated website,148,ok
+vibecoding,ai generated site,95,ok
+vibecoding,looks ai generated,156,ok
+vibecoding,ai slop,372,ok
+vibecoding,ai website,316,ok
+vibecoding,ai landing page,309,ok
+vibecoding,generic ai,298,ok
+vibecoding,all look the same,283,ok
+ChatGPTCoding,vibe coded,153,ok
+ChatGPTCoding,vibe coding,374,ok
+ChatGPTCoding,ai generated website,21,ok
+ChatGPTCoding,ai generated site,12,ok
+ChatGPTCoding,looks ai generated,16,ok
+ChatGPTCoding,ai slop,29,ok
+ChatGPTCoding,ai website,252,ok
+ChatGPTCoding,ai landing page,23,ok
+ChatGPTCoding,generic ai,34,ok
+ChatGPTCoding,all look the same,58,ok
+cursor,vibe coded,256,ok
+cursor,vibe coding,358,ok
+cursor,ai generated website,12,ok
+cursor,ai generated site,7,ok
+cursor,looks ai generated,27,ok
+cursor,ai slop,32,ok
+cursor,ai website,134,ok
+cursor,ai landing page,25,ok
+cursor,generic ai,32,ok
+cursor,all look the same,65,ok
+lovable,vibe coded,324,ok
+lovable,vibe coding,342,ok
+lovable,ai generated website,31,ok
+lovable,ai generated site,25,ok
+lovable,looks ai generated,19,ok
+lovable,ai slop,13,ok
+lovable,ai website,282,ok
+lovable,ai landing page,102,ok
+lovable,generic ai,45,ok
+lovable,all look the same,52,ok
+boltnewbuilders,vibe coded,60,ok
+boltnewbuilders,vibe coding,133,ok
+boltnewbuilders,ai generated website,8,ok
+boltnewbuilders,ai generated site,3,ok
+boltnewbuilders,looks ai generated,8,ok
+boltnewbuilders,ai slop,2,ok
+boltnewbuilders,ai website,62,ok
+boltnewbuilders,ai landing page,17,ok
+boltnewbuilders,generic ai,11,ok
+boltnewbuilders,all look the same,6,ok
+windsurf,vibe coded,8,ok
+windsurf,vibe coding,65,ok
+windsurf,ai generated website,2,ok
+windsurf,ai generated site,0,ok
+windsurf,looks ai generated,0,ok
+windsurf,ai slop,3,ok
+windsurf,ai website,11,ok
+windsurf,ai landing page,0,ok
+windsurf,generic ai,8,ok
+windsurf,all look the same,12,ok
+Codeium,vibe coded,4,ok
+Codeium,vibe coding,16,ok
+Codeium,ai generated website,0,ok
+Codeium,ai generated site,0,ok
+Codeium,looks ai generated,0,ok
+Codeium,ai slop,0,ok
+Codeium,ai website,6,ok
+Codeium,ai landing page,2,ok
+Codeium,generic ai,4,ok
+Codeium,all look the same,5,ok
+replit,vibe coded,130,ok
+replit,vibe coding,304,ok
+replit,ai generated website,13,ok
+replit,ai generated site,4,ok
+replit,looks ai generated,13,ok
+replit,ai slop,12,ok
+replit,ai website,150,ok
+replit,ai landing page,27,ok
+replit,generic ai,24,ok
+replit,all look the same,43,ok
+v0dev,vibe coded,0,skip_dead
+v0dev,vibe coding,0,skip_dead
+v0dev,ai generated website,0,skip_dead
+v0dev,ai generated site,0,skip_dead
+v0dev,looks ai generated,0,skip_dead
+v0dev,ai slop,0,skip_dead
+v0dev,ai website,0,skip_dead
+v0dev,ai landing page,0,skip_dead
+v0dev,generic ai,0,skip_dead
+v0dev,all look the same,0,skip_dead
+base44,vibe coded,56,ok
+base44,vibe coding,123,ok
+base44,ai generated website,7,ok
+base44,ai generated site,3,ok
+base44,looks ai generated,2,ok
+base44,ai slop,1,ok
+base44,ai website,74,ok
+base44,ai landing page,16,ok
+base44,generic ai,17,ok
+base44,all look the same,17,ok
+AI_Agents,vibe coded,74,ok
+AI_Agents,vibe coding,244,ok
+AI_Agents,ai generated website,32,ok
+AI_Agents,ai generated site,16,ok
+AI_Agents,looks ai generated,35,ok
+AI_Agents,ai slop,98,ok
+AI_Agents,ai website,360,ok
+AI_Agents,ai landing page,76,ok
+AI_Agents,generic ai,319,ok
+AI_Agents,all look the same,209,ok
+ClaudeCode,vibe coded,355,ok
+ClaudeCode,vibe coding,357,ok
+ClaudeCode,ai generated website,20,ok
+ClaudeCode,ai generated site,25,ok
+ClaudeCode,looks ai generated,41,ok
+ClaudeCode,ai slop,151,ok
+ClaudeCode,ai website,244,ok
+ClaudeCode,ai landing page,55,ok
+ClaudeCode,generic ai,120,ok
+ClaudeCode,all look the same,219,ok
+aipromptprogramming,vibe coded,47,ok
+aipromptprogramming,vibe coding,157,ok
+aipromptprogramming,ai generated website,9,ok
+aipromptprogramming,ai generated site,8,ok
+aipromptprogramming,looks ai generated,10,ok
+aipromptprogramming,ai slop,20,ok
+aipromptprogramming,ai website,145,ok
+aipromptprogramming,ai landing page,23,ok
+aipromptprogramming,generic ai,97,ok
+aipromptprogramming,all look the same,36,ok
+ChatGPT,vibe coded,153,ok
+ChatGPT,vibe coding,374,ok
+ChatGPT,ai generated website,203,ok
+ChatGPT,ai generated site,110,ok
+ChatGPT,looks ai generated,250,ok
+ChatGPT,ai slop,373,ok
+ChatGPT,ai website,358,ok
+ChatGPT,ai landing page,96,ok
+ChatGPT,generic ai,364,ok
+ChatGPT,all look the same,332,ok
+ChatGPTPro,vibe coded,6,ok
+ChatGPTPro,vibe coding,57,ok
+ChatGPTPro,ai generated website,28,ok
+ChatGPTPro,ai generated site,12,ok
+ChatGPTPro,looks ai generated,27,ok
+ChatGPTPro,ai slop,5,ok
+ChatGPTPro,ai website,248,ok
+ChatGPTPro,ai landing page,20,ok
+ChatGPTPro,generic ai,116,ok
+ChatGPTPro,all look the same,67,ok
+ChatGPTcomplaints,vibe coded,14,ok
+ChatGPTcomplaints,vibe coding,16,ok
+ChatGPTcomplaints,ai generated website,3,ok
+ChatGPTcomplaints,ai generated site,0,ok
+ChatGPTcomplaints,looks ai generated,12,ok
+ChatGPTcomplaints,ai slop,17,ok
+ChatGPTcomplaints,ai website,60,ok
+ChatGPTcomplaints,ai landing page,6,ok
+ChatGPTcomplaints,generic ai,60,ok
+ChatGPTcomplaints,all look the same,155,ok
+OpenAI,vibe coded,58,ok
+OpenAI,vibe coding,139,ok
+OpenAI,ai generated website,63,ok
+OpenAI,ai generated site,16,ok
+OpenAI,looks ai generated,61,ok
+OpenAI,ai slop,112,ok
+OpenAI,ai website,363,ok
+OpenAI,ai landing page,24,ok
+OpenAI,generic ai,161,ok
+OpenAI,all look the same,204,ok
+ClaudeAI,vibe coded,400,ok
+ClaudeAI,vibe coding,356,ok
+ClaudeAI,ai generated website,78,ok
+ClaudeAI,ai generated site,42,ok
+ClaudeAI,looks ai generated,111,ok
+ClaudeAI,ai slop,216,ok
+ClaudeAI,ai website,323,ok
+ClaudeAI,ai landing page,97,ok
+ClaudeAI,generic ai,319,ok
+ClaudeAI,all look the same,317,ok
+claude,vibe coded,18,ok
+claude,vibe coding,104,ok
+claude,ai generated website,2,ok
+claude,ai generated site,2,ok
+claude,looks ai generated,8,ok
+claude,ai slop,23,ok
+claude,ai website,51,ok
+claude,ai landing page,7,ok
+claude,generic ai,46,ok
+claude,all look the same,54,ok
+Anthropic,vibe coded,31,ok
+Anthropic,vibe coding,81,ok
+Anthropic,ai generated website,3,ok
+Anthropic,ai generated site,2,ok
+Anthropic,looks ai generated,4,ok
+Anthropic,ai slop,15,ok
+Anthropic,ai website,65,ok
+Anthropic,ai landing page,11,ok
+Anthropic,generic ai,25,ok
+Anthropic,all look the same,60,ok
+ClaudeCowork,vibe coded,1,ok
+ClaudeCowork,vibe coding,10,ok
+ClaudeCowork,ai generated website,1,ok
+ClaudeCowork,ai generated site,1,ok
+ClaudeCowork,looks ai generated,2,ok
+ClaudeCowork,ai slop,6,ok
+ClaudeCowork,ai website,5,ok
+ClaudeCowork,ai landing page,4,ok
+ClaudeCowork,generic ai,5,ok
+ClaudeCowork,all look the same,10,ok
+GeminiAI,vibe coded,0,skip_dead
+GeminiAI,vibe coding,0,skip_dead
+GeminiAI,ai generated website,0,skip_dead
+GeminiAI,ai generated site,0,skip_dead
+GeminiAI,looks ai generated,0,skip_dead
+GeminiAI,ai slop,0,skip_dead
+GeminiAI,ai website,0,skip_dead
+GeminiAI,ai landing page,0,skip_dead
+GeminiAI,generic ai,0,skip_dead
+GeminiAI,all look the same,0,skip_dead
+GoogleGeminiAI,vibe coded,28,ok
+GoogleGeminiAI,vibe coding,52,ok
+GoogleGeminiAI,ai generated website,20,ok
+GoogleGeminiAI,ai generated site,9,ok
+GoogleGeminiAI,looks ai generated,24,ok
+GoogleGeminiAI,ai slop,20,ok
+GoogleGeminiAI,ai website,111,ok
+GoogleGeminiAI,ai landing page,13,ok
+GoogleGeminiAI,generic ai,63,ok
+GoogleGeminiAI,all look the same,57,ok
+GoogleGemini,vibe coded,0,ok
+GoogleGemini,vibe coding,31,ok
+GoogleGemini,ai generated website,0,ok
+GoogleGemini,ai generated site,1,ok
+GoogleGemini,looks ai generated,1,ok
+GoogleGemini,ai slop,6,ok
+GoogleGemini,ai website,8,ok
+GoogleGemini,ai landing page,2,ok
+GoogleGemini,generic ai,1,ok
+GoogleGemini,all look the same,5,ok
+grok,vibe coded,14,ok
+grok,vibe coding,34,ok
+grok,ai generated website,20,ok
+grok,ai generated site,13,ok
+grok,looks ai generated,48,ok
+grok,ai slop,78,ok
+grok,ai website,114,ok
+grok,ai landing page,7,ok
+grok,generic ai,41,ok
+grok,all look the same,129,ok
+Perplexity,vibe coded,0,ok
+Perplexity,vibe coding,3,ok
+Perplexity,ai generated website,0,ok
+Perplexity,ai generated site,0,ok
+Perplexity,looks ai generated,1,ok
+Perplexity,ai slop,0,ok
+Perplexity,ai website,3,ok
+Perplexity,ai landing page,0,ok
+Perplexity,generic ai,3,ok
+Perplexity,all look the same,4,ok
+perplexity_ai,vibe coded,13,ok
+perplexity_ai,vibe coding,18,ok
+perplexity_ai,ai generated website,10,ok
+perplexity_ai,ai generated site,2,ok
+perplexity_ai,looks ai generated,3,ok
+perplexity_ai,ai slop,9,ok
+perplexity_ai,ai website,102,ok
+perplexity_ai,ai landing page,2,ok
+perplexity_ai,generic ai,23,ok
+perplexity_ai,all look the same,27,ok
+artificial,vibe coded,25,ok
+artificial,vibe coding,95,ok
+artificial,ai generated website,66,ok
+artificial,ai generated site,25,ok
+artificial,looks ai generated,65,ok
+artificial,ai slop,97,ok
+artificial,ai website,353,ok
+artificial,ai landing page,24,ok
+artificial,generic ai,124,ok
+artificial,all look the same,159,ok
+ArtificialInteligence,vibe coded,51,ok
+ArtificialInteligence,vibe coding,229,ok
+ArtificialInteligence,ai generated website,155,ok
+ArtificialInteligence,ai generated site,83,ok
+ArtificialInteligence,looks ai generated,124,ok
+ArtificialInteligence,ai slop,278,ok
+ArtificialInteligence,ai website,345,ok
+ArtificialInteligence,ai landing page,64,ok
+ArtificialInteligence,generic ai,329,ok
+ArtificialInteligence,all look the same,335,ok
+singularity,vibe coded,30,ok
+singularity,vibe coding,82,ok
+singularity,ai generated website,27,ok
+singularity,ai generated site,19,ok
+singularity,looks ai generated,56,ok
+singularity,ai slop,133,ok
+singularity,ai website,274,ok
+singularity,ai landing page,7,ok
+singularity,generic ai,78,ok
+singularity,all look the same,362,ok
+LocalLLaMA,vibe coded,180,ok
+LocalLLaMA,vibe coding,361,ok
+LocalLLaMA,ai generated website,35,ok
+LocalLLaMA,ai generated site,21,ok
+LocalLLaMA,looks ai generated,58,ok
+LocalLLaMA,ai slop,152,ok
+LocalLLaMA,ai website,359,ok
+LocalLLaMA,ai landing page,27,ok
+LocalLLaMA,generic ai,237,ok
+LocalLLaMA,all look the same,339,ok
+webdev,vibe coded,246,ok
+webdev,vibe coding,360,ok
+webdev,ai generated website,112,ok
+webdev,ai generated site,46,ok
+webdev,looks ai generated,39,ok
+webdev,ai slop,98,ok
+webdev,ai website,341,ok
+webdev,ai landing page,182,ok
+webdev,generic ai,98,ok
+webdev,all look the same,364,ok
+web_design,vibe coded,12,ok
+web_design,vibe coding,11,ok
+web_design,ai generated website,22,ok
+web_design,ai generated site,6,ok
+web_design,looks ai generated,0,ok
+web_design,ai slop,2,ok
+web_design,ai website,271,ok
+web_design,ai landing page,40,ok
+web_design,generic ai,9,ok
+web_design,all look the same,96,ok
+Frontend,vibe coded,14,ok
+Frontend,vibe coding,34,ok
+Frontend,ai generated website,8,ok
+Frontend,ai generated site,1,ok
+Frontend,looks ai generated,3,ok
+Frontend,ai slop,3,ok
+Frontend,ai website,83,ok
+Frontend,ai landing page,21,ok
+Frontend,generic ai,2,ok
+Frontend,all look the same,79,ok
+userexperience,vibe coded,0,ok
+userexperience,vibe coding,0,ok
+userexperience,ai generated website,1,ok
+userexperience,ai generated site,0,ok
+userexperience,looks ai generated,0,ok
+userexperience,ai slop,1,ok
+userexperience,ai website,15,ok
+userexperience,ai landing page,2,ok
+userexperience,generic ai,1,ok
+userexperience,all look the same,20,ok
+UI_Design,vibe coded,22,ok
+UI_Design,vibe coding,18,ok
+UI_Design,ai generated website,7,ok
+UI_Design,ai generated site,0,ok
+UI_Design,looks ai generated,2,ok
+UI_Design,ai slop,5,ok
+UI_Design,ai website,58,ok
+UI_Design,ai landing page,33,ok
+UI_Design,generic ai,8,ok
+UI_Design,all look the same,49,ok
+graphic_design,vibe coded,2,ok
+graphic_design,vibe coding,9,ok
+graphic_design,ai generated website,29,ok
+graphic_design,ai generated site,6,ok
+graphic_design,looks ai generated,33,ok
+graphic_design,ai slop,81,ok
+graphic_design,ai website,236,ok
+graphic_design,ai landing page,15,ok
+graphic_design,generic ai,40,ok
+graphic_design,all look the same,384,ok
+css,vibe coded,2,ok
+css,vibe coding,6,ok
+css,ai generated website,1,ok
+css,ai generated site,0,ok
+css,looks ai generated,0,ok
+css,ai slop,0,ok
+css,ai website,27,ok
+css,ai landing page,6,ok
+css,generic ai,1,ok
+css,all look the same,83,ok
+nocode,vibe coded,204,ok
+nocode,vibe coding,351,ok
+nocode,ai generated website,50,ok
+nocode,ai generated site,12,ok
+nocode,looks ai generated,16,ok
+nocode,ai slop,10,ok
+nocode,ai website,339,ok
+nocode,ai landing page,0,giveup
+nocode,generic ai,78,ok
+nocode,all look the same,59,ok
+NoCodeSaaS,vibe coded,76,ok
+NoCodeSaaS,vibe coding,145,ok
+NoCodeSaaS,ai generated website,16,ok
+NoCodeSaaS,ai generated site,4,ok
+NoCodeSaaS,looks ai generated,4,ok
+NoCodeSaaS,ai slop,8,ok
+NoCodeSaaS,ai website,169,ok
+NoCodeSaaS,ai landing page,61,ok
+NoCodeSaaS,generic ai,39,ok
+NoCodeSaaS,all look the same,27,ok
+SaaS,vibe coded,400,ok
+SaaS,vibe coding,343,ok
+SaaS,ai generated website,392,ok
+SaaS,ai generated site,213,ok
+SaaS,looks ai generated,164,ok
+SaaS,ai slop,354,ok
+SaaS,ai website,333,ok
+SaaS,ai landing page,312,ok
+SaaS,generic ai,306,ok
+SaaS,all look the same,329,ok
+microsaas,vibe coded,274,ok
+microsaas,vibe coding,351,ok
+microsaas,ai generated website,107,ok
+microsaas,ai generated site,68,ok
+microsaas,looks ai generated,31,ok
+microsaas,ai slop,112,ok
+microsaas,ai website,345,ok
+microsaas,ai landing page,336,ok
+microsaas,generic ai,311,ok
+microsaas,all look the same,221,ok
+micro_saas,vibe coded,140,ok
+micro_saas,vibe coding,198,ok
+micro_saas,ai generated website,47,ok
+micro_saas,ai generated site,34,ok
+micro_saas,looks ai generated,15,ok
+micro_saas,ai slop,62,ok
+micro_saas,ai website,352,ok
+micro_saas,ai landing page,282,ok
+micro_saas,generic ai,221,ok
+micro_saas,all look the same,108,ok
+SideProject,vibe coded,400,ok
+SideProject,vibe coding,359,ok
+SideProject,ai generated website,397,ok
+SideProject,ai generated site,273,ok
+SideProject,looks ai generated,158,ok
+SideProject,ai slop,363,ok
+SideProject,ai website,349,ok
+SideProject,ai landing page,344,ok
+SideProject,generic ai,313,ok
+SideProject,all look the same,355,ok
+IndieHackers,vibe coded,243,ok
+IndieHackers,vibe coding,361,ok
+IndieHackers,ai generated website,65,ok
+IndieHackers,ai generated site,22,ok
+IndieHackers,looks ai generated,21,ok
+IndieHackers,ai slop,52,ok
+IndieHackers,ai website,356,ok
+IndieHackers,ai landing page,339,ok
+IndieHackers,generic ai,193,ok
+IndieHackers,all look the same,132,ok
+indiebiz,vibe coded,13,ok
+indiebiz,vibe coding,20,ok
+indiebiz,ai generated website,17,ok
+indiebiz,ai generated site,5,ok
+indiebiz,looks ai generated,11,ok
+indiebiz,ai slop,7,ok
+indiebiz,ai website,262,ok
+indiebiz,ai landing page,62,ok
+indiebiz,generic ai,60,ok
+indiebiz,all look the same,67,ok
+EntrepreneurRideAlong,vibe coded,35,ok
+EntrepreneurRideAlong,vibe coding,88,ok
+EntrepreneurRideAlong,ai generated website,93,ok
+EntrepreneurRideAlong,ai generated site,41,ok
+EntrepreneurRideAlong,looks ai generated,16,ok
+EntrepreneurRideAlong,ai slop,39,ok
+EntrepreneurRideAlong,ai website,360,ok
+EntrepreneurRideAlong,ai landing page,286,ok
+EntrepreneurRideAlong,generic ai,142,ok
+EntrepreneurRideAlong,all look the same,344,ok
+roastmystartup,vibe coded,37,ok
+roastmystartup,vibe coding,43,ok
+roastmystartup,ai generated website,45,ok
+roastmystartup,ai generated site,21,ok
+roastmystartup,looks ai generated,7,ok
+roastmystartup,ai slop,26,ok
+roastmystartup,ai website,363,ok
+roastmystartup,ai landing page,317,ok
+roastmystartup,generic ai,151,ok
+roastmystartup,all look the same,33,ok
+alphaandbetausers,vibe coded,48,ok
+alphaandbetausers,vibe coding,73,ok
+alphaandbetausers,ai generated website,23,ok
+alphaandbetausers,ai generated site,21,ok
+alphaandbetausers,looks ai generated,7,ok
+alphaandbetausers,ai slop,22,ok
+alphaandbetausers,ai website,371,ok
+alphaandbetausers,ai landing page,155,ok
+alphaandbetausers,generic ai,208,ok
+alphaandbetausers,all look the same,48,ok

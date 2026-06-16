@@ -1,0 +1,34 @@
+On-topic items harvested (unique): 46971
+Design-context subset: 32822 (69.9% of corpus)
+  ...of those, negative-aesthetic sentiment: 9682 (29.5%)
+Subreddits represented: 47
+Top subs by on-topic volume: SideProject:3311, SaaS:3146, vibecoding:2710, ChatGPT:2613, ClaudeAI:2259, microsaas:2156, ArtificialInteligence:1993, webdev:1886, indiehackers:1784, LocalLLaMA:1769, ClaudeCode:1587, AI_Agents:1463, micro_saas:1459, EntrepreneurRideAlong:1444, lovable:1235
+
+TOP TELLS (share of design-context items, with negative-sentiment co-occurrence):
+   13.1%  n= 4290  'All looks the same' / template / cookie-cutter   (neg 91%)
+   13.0%  n= 4267  'Screams AI' / soulless / slop   (neg 48%)
+    2.7%  n=  879  Emoji / ✨ sparkles / 🚀 in copy   (neg 33%)
+    2.2%  n=  725  shadcn / Tailwind default kit   (neg 41%)
+    2.0%  n=  667  Too many animations / Framer fade-ins   (neg 40%)
+    1.6%  n=  512  Three-column feature cards   (neg 41%)
+    1.3%  n=  435  Dark mode + neon glow   (neg 41%)
+    1.2%  n=  397  Gradients everywhere / gradient text   (neg 59%)
+    0.9%  n=  291  Stock illustrations / clipart   (neg 40%)
+    0.7%  n=  234  Purple / violet (the 'AI purple')   (neg 68%)
+    0.6%  n=  203  Mesh / blob / aurora backgrounds   (neg 28%)
+    0.6%  n=  197  Same hero: huge headline + 2 buttons   (neg 43%)
+    0.5%  n=  160  Centered everything / endless whitespace   (neg 39%)
+    0.5%  n=  157  Rounded corners / pill buttons   (neg 50%)
+    0.4%  n=  115  Generic sans font (Inter / Geist)   (neg 57%)
+    0.3%  n=   94  Glassmorphism / frosted glass   (neg 66%)
+    0.1%  n=   21  Bento grid   (neg 62%)
+
+Topic growth (vibe-coding posts per 10k posts/yr, all subs):
+  2020:      7 /    83355 = 0.84 per 10k
+  2021:     15 /    95214 = 1.58 per 10k
+  2022:     42 /   200509 = 2.09 per 10k
+  2023:     52 /   286851 = 1.81 per 10k
+  2024:  17225 /   619811 = 277.91 per 10k
+  2025:  17726 /   527641 = 335.95 per 10k
+
+charts: True

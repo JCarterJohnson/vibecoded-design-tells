@@ -1,0 +1,485 @@
+subreddit,query,year,matched
+vibecoding,vibe coding,2024,8133
+vibecoding,vibe coding,2025,9767
+vibecoding,vibe coded,2024,8133
+vibecoding,vibe coded,2025,9767
+vibecoding,ai generated website,2024,207
+vibecoding,ai generated website,2025,325
+vibecoding,ai slop,2024,107
+vibecoding,ai slop,2025,364
+ChatGPTCoding,vibe coding,2022,2
+ChatGPTCoding,vibe coding,2023,1
+ChatGPTCoding,vibe coding,2024,806
+ChatGPTCoding,vibe coding,2025,62
+ChatGPTCoding,vibe coded,2022,2
+ChatGPTCoding,vibe coded,2023,1
+ChatGPTCoding,vibe coded,2024,806
+ChatGPTCoding,vibe coded,2025,62
+ChatGPTCoding,ai generated website,2022,12
+ChatGPTCoding,ai generated website,2023,20
+ChatGPTCoding,ai generated website,2024,60
+ChatGPTCoding,ai generated website,2025,6
+ChatGPTCoding,ai slop,2023,1
+ChatGPTCoding,ai slop,2024,28
+ChatGPTCoding,ai slop,2025,8
+cursor,vibe coding,2024,988
+cursor,vibe coding,2025,258
+cursor,vibe coded,2024,988
+cursor,vibe coded,2025,258
+cursor,ai generated website,2023,10
+cursor,ai generated website,2024,32
+cursor,ai generated website,2025,8
+cursor,ai slop,2024,12
+cursor,ai slop,2025,24
+lovable,vibe coding,2024,583
+lovable,vibe coding,2025,436
+lovable,vibe coded,2024,583
+lovable,vibe coded,2025,436
+lovable,ai generated website,2024,63
+lovable,ai generated website,2025,52
+lovable,ai slop,2024,7
+lovable,ai slop,2025,19
+boltnewbuilders,vibe coding,2024,167
+boltnewbuilders,vibe coding,2025,54
+boltnewbuilders,vibe coded,2024,167
+boltnewbuilders,vibe coded,2025,54
+boltnewbuilders,ai generated website,2023,2
+boltnewbuilders,ai generated website,2024,19
+boltnewbuilders,ai generated website,2025,3
+boltnewbuilders,ai slop,2024,1
+boltnewbuilders,ai slop,2025,2
+windsurf,vibe coding,2024,70
+windsurf,vibe coding,2025,30
+windsurf,vibe coded,2024,70
+windsurf,vibe coded,2025,30
+windsurf,ai generated website,2024,3
+windsurf,ai generated website,2025,2
+windsurf,ai slop,2024,2
+windsurf,ai slop,2025,2
+Codeium,vibe coding,2024,28
+Codeium,vibe coded,2024,28
+replit,vibe coding,2024,326
+replit,vibe coding,2025,184
+replit,vibe coded,2024,326
+replit,vibe coded,2025,184
+replit,ai generated website,2024,33
+replit,ai generated website,2025,17
+replit,ai slop,2024,4
+replit,ai slop,2025,9
+base44,vibe coding,2024,74
+base44,vibe coding,2025,123
+base44,vibe coded,2024,74
+base44,vibe coded,2025,123
+base44,ai generated website,2024,6
+base44,ai generated website,2025,13
+base44,ai slop,2024,2
+AI_Agents,vibe coding,2024,173
+AI_Agents,vibe coding,2025,253
+AI_Agents,ai generated website,2022,1
+AI_Agents,ai generated website,2023,4
+AI_Agents,ai generated website,2024,111
+AI_Agents,ai generated website,2025,107
+AI_Agents,ai slop,2024,31
+AI_Agents,ai slop,2025,80
+ClaudeCode,vibe coding,2024,376
+ClaudeCode,vibe coding,2025,1304
+ClaudeCode,vibe coded,2024,376
+ClaudeCode,vibe coded,2025,1304
+ClaudeCode,ai generated website,2024,10
+ClaudeCode,ai generated website,2025,85
+ClaudeCode,ai slop,2024,22
+ClaudeCode,ai slop,2025,164
+aipromptprogramming,vibe coding,2024,216
+aipromptprogramming,vibe coding,2025,44
+aipromptprogramming,vibe coded,2024,216
+aipromptprogramming,vibe coded,2025,44
+aipromptprogramming,ai generated website,2022,5
+aipromptprogramming,ai generated website,2023,7
+aipromptprogramming,ai generated website,2024,40
+aipromptprogramming,ai generated website,2025,7
+aipromptprogramming,ai slop,2024,20
+aipromptprogramming,ai slop,2025,3
+ChatGPT,vibe coding,2021,3
+ChatGPT,vibe coding,2022,19
+ChatGPT,vibe coding,2023,16
+ChatGPT,vibe coding,2024,541
+ChatGPT,vibe coding,2025,220
+ChatGPT,ai slop,2022,1
+ChatGPT,ai slop,2023,12
+ChatGPT,ai slop,2024,237
+ChatGPT,ai slop,2025,166
+ChatGPTPro,vibe coding,2022,2
+ChatGPTPro,vibe coding,2023,1
+ChatGPTPro,vibe coding,2024,60
+ChatGPTPro,vibe coding,2025,24
+ChatGPTPro,vibe coded,2022,2
+ChatGPTPro,vibe coded,2023,1
+ChatGPTPro,vibe coded,2024,60
+ChatGPTPro,vibe coded,2025,24
+ChatGPTPro,ai generated website,2022,22
+ChatGPTPro,ai generated website,2023,37
+ChatGPTPro,ai generated website,2024,48
+ChatGPTPro,ai generated website,2025,3
+ChatGPTPro,ai slop,2024,8
+ChatGPTPro,ai slop,2025,2
+ChatGPTcomplaints,vibe coding,2024,5
+ChatGPTcomplaints,vibe coding,2025,56
+ChatGPTcomplaints,vibe coded,2024,5
+ChatGPTcomplaints,vibe coded,2025,56
+ChatGPTcomplaints,ai generated website,2024,2
+ChatGPTcomplaints,ai generated website,2025,18
+ChatGPTcomplaints,ai slop,2024,2
+ChatGPTcomplaints,ai slop,2025,20
+OpenAI,vibe coding,2021,2
+OpenAI,vibe coding,2023,1
+OpenAI,vibe coding,2024,190
+OpenAI,vibe coding,2025,86
+OpenAI,vibe coded,2021,2
+OpenAI,vibe coded,2023,1
+OpenAI,vibe coded,2024,190
+OpenAI,vibe coded,2025,86
+OpenAI,ai generated website,2021,14
+OpenAI,ai generated website,2022,72
+OpenAI,ai generated website,2023,47
+OpenAI,ai generated website,2024,51
+OpenAI,ai generated website,2025,31
+OpenAI,ai slop,2023,3
+OpenAI,ai slop,2024,55
+OpenAI,ai slop,2025,72
+ClaudeAI,vibe coding,2023,3
+ClaudeAI,vibe coding,2024,1081
+ClaudeAI,vibe coding,2025,1285
+ClaudeAI,vibe coded,2023,3
+ClaudeAI,vibe coded,2024,1081
+ClaudeAI,vibe coded,2025,1285
+ClaudeAI,ai generated website,2022,4
+ClaudeAI,ai generated website,2023,32
+ClaudeAI,ai generated website,2024,91
+ClaudeAI,ai generated website,2025,139
+ClaudeAI,ai slop,2024,51
+ClaudeAI,ai slop,2025,204
+claude,vibe coding,2024,22
+claude,vibe coding,2025,129
+claude,vibe coded,2024,22
+claude,vibe coded,2025,129
+claude,ai generated website,2024,5
+claude,ai generated website,2025,19
+claude,ai slop,2024,4
+claude,ai slop,2025,20
+Anthropic,vibe coding,2023,1
+Anthropic,vibe coding,2024,71
+Anthropic,vibe coding,2025,80
+Anthropic,vibe coded,2023,1
+Anthropic,vibe coded,2024,71
+Anthropic,vibe coded,2025,80
+Anthropic,ai generated website,2023,2
+Anthropic,ai generated website,2024,13
+Anthropic,ai generated website,2025,9
+Anthropic,ai slop,2024,1
+Anthropic,ai slop,2025,15
+ClaudeCowork,vibe coding,2025,11
+ClaudeCowork,vibe coded,2025,11
+ClaudeCowork,ai generated website,2025,4
+ClaudeCowork,ai slop,2025,6
+GeminiAI,vibe coding,2024,190
+GeminiAI,vibe coding,2025,161
+GeminiAI,vibe coded,2024,190
+GeminiAI,vibe coded,2025,161
+GeminiAI,ai generated website,2023,3
+GeminiAI,ai generated website,2024,57
+GeminiAI,ai generated website,2025,38
+GoogleGeminiAI,vibe coding,2024,60
+GoogleGeminiAI,vibe coding,2025,39
+GoogleGeminiAI,vibe coded,2024,60
+GoogleGeminiAI,vibe coded,2025,39
+GoogleGeminiAI,ai generated website,2023,6
+GoogleGeminiAI,ai generated website,2024,26
+GoogleGeminiAI,ai generated website,2025,17
+GoogleGeminiAI,ai slop,2024,5
+GoogleGeminiAI,ai slop,2025,17
+GoogleGemini,vibe coding,2024,3
+GoogleGemini,vibe coding,2025,31
+GoogleGemini,vibe coded,2024,3
+GoogleGemini,vibe coded,2025,31
+GoogleGemini,ai generated website,2024,1
+GoogleGemini,ai generated website,2025,2
+GoogleGemini,ai slop,2025,6
+grok,vibe coding,2024,58
+grok,vibe coding,2025,25
+grok,vibe coded,2024,58
+grok,vibe coded,2025,25
+grok,ai generated website,2023,1
+grok,ai generated website,2024,35
+grok,ai generated website,2025,31
+grok,ai slop,2024,19
+grok,ai slop,2025,65
+Perplexity,vibe coding,2024,1
+Perplexity,vibe coding,2025,3
+Perplexity,vibe coded,2024,1
+Perplexity,vibe coded,2025,3
+perplexity_ai,vibe coding,2024,17
+perplexity_ai,vibe coding,2025,22
+perplexity_ai,vibe coded,2024,17
+perplexity_ai,vibe coded,2025,22
+perplexity_ai,ai generated website,2023,8
+perplexity_ai,ai generated website,2024,15
+perplexity_ai,ai generated website,2025,7
+perplexity_ai,ai slop,2024,5
+perplexity_ai,ai slop,2025,5
+artificial,vibe coding,2020,1
+artificial,vibe coding,2021,2
+artificial,vibe coding,2022,2
+artificial,vibe coding,2023,2
+artificial,vibe coding,2024,77
+artificial,vibe coding,2025,67
+artificial,vibe coded,2020,1
+artificial,vibe coded,2021,2
+artificial,vibe coded,2022,2
+artificial,vibe coded,2023,2
+artificial,vibe coded,2024,77
+artificial,vibe coded,2025,67
+artificial,ai generated website,2020,6
+artificial,ai generated website,2021,24
+artificial,ai generated website,2022,88
+artificial,ai generated website,2023,44
+artificial,ai generated website,2024,37
+artificial,ai generated website,2025,33
+artificial,ai slop,2023,5
+artificial,ai slop,2024,63
+artificial,ai slop,2025,49
+ArtificialInteligence,vibe coding,2021,1
+ArtificialInteligence,vibe coding,2022,4
+ArtificialInteligence,vibe coding,2023,4
+ArtificialInteligence,vibe coding,2024,199
+ArtificialInteligence,vibe coding,2025,172
+ArtificialInteligence,vibe coded,2021,1
+ArtificialInteligence,vibe coded,2022,4
+ArtificialInteligence,vibe coded,2023,4
+ArtificialInteligence,vibe coded,2024,199
+ArtificialInteligence,vibe coded,2025,172
+ArtificialInteligence,ai generated website,2020,13
+ArtificialInteligence,ai generated website,2021,32
+ArtificialInteligence,ai generated website,2022,185
+ArtificialInteligence,ai generated website,2023,208
+ArtificialInteligence,ai generated website,2024,107
+ArtificialInteligence,ai generated website,2025,82
+singularity,vibe coding,2021,2
+singularity,vibe coding,2022,2
+singularity,vibe coding,2023,4
+singularity,vibe coding,2024,110
+singularity,vibe coding,2025,52
+singularity,vibe coded,2021,2
+singularity,vibe coded,2022,2
+singularity,vibe coded,2023,4
+singularity,vibe coded,2024,110
+singularity,vibe coded,2025,52
+singularity,ai generated website,2020,1
+singularity,ai generated website,2021,7
+singularity,ai generated website,2022,37
+singularity,ai generated website,2023,33
+singularity,ai generated website,2024,29
+singularity,ai generated website,2025,7
+singularity,ai slop,2023,8
+singularity,ai slop,2024,92
+singularity,ai slop,2025,53
+LocalLLaMA,vibe coding,2023,7
+LocalLLaMA,vibe coding,2024,305
+LocalLLaMA,vibe coding,2025,432
+LocalLLaMA,vibe coded,2023,7
+LocalLLaMA,vibe coded,2024,305
+LocalLLaMA,vibe coded,2025,432
+LocalLLaMA,ai generated website,2022,19
+LocalLLaMA,ai generated website,2023,47
+LocalLLaMA,ai generated website,2024,78
+LocalLLaMA,ai generated website,2025,61
+LocalLLaMA,ai slop,2022,1
+LocalLLaMA,ai slop,2023,8
+LocalLLaMA,ai slop,2024,59
+LocalLLaMA,ai slop,2025,106
+webdev,vibe coding,2020,3
+webdev,vibe coding,2021,2
+webdev,vibe coding,2022,4
+webdev,vibe coding,2023,1
+webdev,vibe coding,2024,453
+webdev,vibe coding,2025,456
+webdev,vibe coded,2020,3
+webdev,vibe coded,2021,2
+webdev,vibe coded,2022,4
+webdev,vibe coded,2023,1
+webdev,vibe coded,2024,453
+webdev,vibe coded,2025,456
+webdev,ai generated website,2020,2
+webdev,ai generated website,2021,10
+webdev,ai generated website,2022,37
+webdev,ai generated website,2023,81
+webdev,ai generated website,2024,168
+webdev,ai generated website,2025,128
+webdev,ai slop,2023,2
+webdev,ai slop,2024,44
+webdev,ai slop,2025,91
+web_design,vibe coding,2021,2
+web_design,vibe coding,2022,1
+web_design,vibe coding,2024,13
+web_design,vibe coding,2025,15
+web_design,vibe coded,2021,2
+web_design,vibe coded,2022,1
+web_design,vibe coded,2024,13
+web_design,vibe coded,2025,15
+web_design,ai generated website,2020,1
+web_design,ai generated website,2021,3
+web_design,ai generated website,2022,17
+web_design,ai generated website,2023,13
+web_design,ai generated website,2024,21
+web_design,ai generated website,2025,18
+web_design,ai slop,2025,2
+Frontend,vibe coding,2020,1
+Frontend,vibe coding,2022,1
+Frontend,vibe coding,2024,31
+Frontend,vibe coding,2025,33
+Frontend,vibe coded,2020,1
+Frontend,vibe coded,2022,1
+Frontend,vibe coded,2024,31
+Frontend,vibe coded,2025,33
+Frontend,ai slop,2025,3
+userexperience,vibe coding,2025,1
+userexperience,vibe coded,2025,1
+userexperience,ai generated website,2021,1
+userexperience,ai generated website,2022,1
+userexperience,ai generated website,2023,1
+userexperience,ai slop,2025,1
+UI_Design,vibe coding,2024,13
+UI_Design,vibe coding,2025,33
+UI_Design,vibe coded,2024,13
+UI_Design,vibe coded,2025,33
+UI_Design,ai generated website,2022,1
+UI_Design,ai generated website,2023,4
+UI_Design,ai generated website,2024,2
+UI_Design,ai generated website,2025,6
+UI_Design,ai slop,2025,5
+graphic_design,vibe coding,2023,3
+graphic_design,vibe coding,2024,29
+graphic_design,vibe coding,2025,4
+graphic_design,vibe coded,2023,3
+graphic_design,vibe coded,2024,29
+graphic_design,vibe coded,2025,4
+graphic_design,ai generated website,2020,1
+graphic_design,ai generated website,2021,4
+graphic_design,ai generated website,2022,14
+graphic_design,ai generated website,2023,24
+graphic_design,ai generated website,2024,37
+graphic_design,ai generated website,2025,13
+graphic_design,ai slop,2023,3
+graphic_design,ai slop,2024,46
+graphic_design,ai slop,2025,42
+css,vibe coding,2024,5
+css,vibe coding,2025,7
+css,vibe coded,2024,5
+css,vibe coded,2025,7
+css,ai generated website,2023,2
+css,ai generated website,2024,1
+css,ai generated website,2025,3
+nocode,vibe coding,2024,449
+nocode,vibe coding,2025,366
+nocode,ai generated website,2021,3
+nocode,ai generated website,2022,28
+nocode,ai generated website,2023,29
+nocode,ai generated website,2024,76
+nocode,ai generated website,2025,83
+nocode,ai slop,2024,2
+nocode,ai slop,2025,9
+NoCodeSaaS,vibe coding,2023,2
+NoCodeSaaS,vibe coding,2024,120
+NoCodeSaaS,vibe coding,2025,135
+NoCodeSaaS,vibe coded,2023,2
+NoCodeSaaS,vibe coded,2024,120
+NoCodeSaaS,vibe coded,2025,135
+NoCodeSaaS,ai generated website,2022,9
+NoCodeSaaS,ai generated website,2023,4
+NoCodeSaaS,ai generated website,2024,34
+NoCodeSaaS,ai generated website,2025,23
+microsaas,vibe coding,2023,1
+microsaas,vibe coding,2024,374
+microsaas,vibe coding,2025,469
+microsaas,vibe coded,2023,1
+microsaas,vibe coded,2024,374
+microsaas,vibe coded,2025,469
+microsaas,ai slop,2024,45
+microsaas,ai slop,2025,96
+micro_saas,vibe coding,2024,71
+micro_saas,vibe coding,2025,337
+micro_saas,vibe coded,2024,71
+micro_saas,vibe coded,2025,337
+micro_saas,ai slop,2024,5
+micro_saas,ai slop,2025,69
+IndieHackers,vibe coding,2023,2
+IndieHackers,vibe coding,2024,542
+IndieHackers,vibe coding,2025,201
+IndieHackers,vibe coded,2023,2
+IndieHackers,vibe coded,2024,542
+IndieHackers,vibe coded,2025,201
+IndieHackers,ai generated website,2021,3
+IndieHackers,ai generated website,2022,23
+IndieHackers,ai generated website,2023,58
+IndieHackers,ai generated website,2024,213
+IndieHackers,ai generated website,2025,14
+indiebiz,vibe coding,2024,28
+indiebiz,vibe coding,2025,14
+indiebiz,vibe coded,2024,28
+indiebiz,vibe coded,2025,14
+indiebiz,ai generated website,2020,5
+indiebiz,ai generated website,2021,3
+indiebiz,ai generated website,2022,19
+indiebiz,ai generated website,2023,26
+indiebiz,ai generated website,2024,31
+indiebiz,ai generated website,2025,16
+indiebiz,ai slop,2024,2
+indiebiz,ai slop,2025,7
+EntrepreneurRideAlong,vibe coding,2020,1
+EntrepreneurRideAlong,vibe coding,2021,1
+EntrepreneurRideAlong,vibe coding,2022,4
+EntrepreneurRideAlong,vibe coding,2023,2
+EntrepreneurRideAlong,vibe coding,2024,74
+EntrepreneurRideAlong,vibe coding,2025,79
+EntrepreneurRideAlong,vibe coded,2020,1
+EntrepreneurRideAlong,vibe coded,2021,1
+EntrepreneurRideAlong,vibe coded,2022,4
+EntrepreneurRideAlong,vibe coded,2023,2
+EntrepreneurRideAlong,vibe coded,2024,74
+EntrepreneurRideAlong,vibe coded,2025,79
+EntrepreneurRideAlong,ai generated website,2020,5
+EntrepreneurRideAlong,ai generated website,2021,13
+EntrepreneurRideAlong,ai generated website,2022,97
+EntrepreneurRideAlong,ai generated website,2023,106
+EntrepreneurRideAlong,ai generated website,2024,74
+EntrepreneurRideAlong,ai generated website,2025,40
+EntrepreneurRideAlong,ai slop,2024,12
+EntrepreneurRideAlong,ai slop,2025,34
+roastmystartup,vibe coding,2020,1
+roastmystartup,vibe coding,2023,1
+roastmystartup,vibe coding,2024,46
+roastmystartup,vibe coding,2025,65
+roastmystartup,vibe coded,2020,1
+roastmystartup,vibe coded,2023,1
+roastmystartup,vibe coded,2024,46
+roastmystartup,vibe coded,2025,65
+roastmystartup,ai generated website,2020,1
+roastmystartup,ai generated website,2021,1
+roastmystartup,ai generated website,2022,19
+roastmystartup,ai generated website,2023,62
+roastmystartup,ai generated website,2024,62
+roastmystartup,ai generated website,2025,34
+roastmystartup,ai slop,2023,1
+roastmystartup,ai slop,2024,8
+roastmystartup,ai slop,2025,24
+alphaandbetausers,vibe coding,2022,1
+alphaandbetausers,vibe coding,2024,47
+alphaandbetausers,vibe coding,2025,101
+alphaandbetausers,vibe coded,2022,1
+alphaandbetausers,vibe coded,2024,47
+alphaandbetausers,vibe coded,2025,101
+alphaandbetausers,ai generated website,2020,4
+alphaandbetausers,ai generated website,2021,5
+alphaandbetausers,ai generated website,2022,36
+alphaandbetausers,ai generated website,2023,24
+alphaandbetausers,ai generated website,2024,44
+alphaandbetausers,ai generated website,2025,57
