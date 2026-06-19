@@ -29,6 +29,14 @@ The conversation barely existed before 2024. Measured as share of posts (not raw
 
 ![Scanned by sub](chart_scanned_by_sub.png)
 
+## The skill
+
+The same findings are packaged as `unslop-ui`, a Claude skill that flags and removes
+these patterns while building or auditing a site. It includes a standalone scanner
+(`skill/scripts/devibe_scan.py`) that greps a codebase and prints findings with a vibe
+score, usable on its own or in CI. See [skill/README.md](skill/README.md) to install it
+or run the scanner.
+
 ## How to reproduce
 
 Run in this order. Each script is sequential and resumable (the harvesters checkpoint and dedupe by id), and writes its outputs into this folder.
