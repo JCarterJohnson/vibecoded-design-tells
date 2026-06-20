@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>vibecoded-design-tells</title>
+<style>
+  /* Deliberate, restrained, scanner-clean: ink on warm-white-but-not-cream-beige,
+     one teal-leaning ink accent, system stack used on purpose, no gradient/glow/emoji. */
+  :root{
+    --paper:#f7f7f4; --ink:#1c1d22; --mut:#5c5e66; --line:#e2e2dc; --accent:#0f5a52; --accent-2:#b6532f;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:72px 28px 90px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  h1{font-size:34px;font-weight:700;letter-spacing:-.5px;margin:14px 0 10px;line-height:1.12}
+  .lede{font-size:18px;color:var(--mut);max-width:620px}
+  .rule{height:1px;background:var(--line);margin:34px 0}
+  .cards{display:grid;gap:14px}
+  a.card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:8px;
+    padding:18px 20px;background:#fff;transition:border-color .15s}
+  a.card:hover{border-color:var(--accent)}
+  a.card .t{font-size:17px;font-weight:600;display:flex;align-items:center;gap:9px}
+  a.card .t .arr{font-family:var(--mono);color:var(--accent)}
+  a.card .d{font-size:14px;color:var(--mut);margin-top:5px}
+  .meta{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:8px}
+  .meta b{color:var(--ink);font-weight:600}
+  footer{margin-top:40px;font-size:13px;color:var(--mut)}
+  footer a{color:var(--accent)}
+</style></head>
+<body>
+  <main class="wrap">
+    <div class="kicker">Reddit data &middot; 2020&ndash;2026</div>
+    <h1>What makes a site look AI-generated, measured.</h1>
+    <p class="lede">An analysis of about 3.2 million posts across 47 AI and SaaS subreddits, ranking the visual cues people name as "AI slop," plus a Claude skill and scanner that remove them.</p>
+    <p class="meta"><b>3,214,533</b> posts scanned &nbsp;&middot;&nbsp; <b>46,971</b> on-topic &nbsp;&middot;&nbsp; <b>3,033</b> comments from <b>125</b> threads</p>
+
+    <div class="rule"></div>
+
+    <div class="cards">
+      <a class="card" href="demo/demo.html">
+        <div class="t">Animated demo <span class="arr">&rarr;</span></div>
+        <div class="d">One prompt becomes four distinct deliberate designs from the same content, all scanner-clean. Shows the audit and the rebuild end to end.</div>
+      </a>
+      <a class="card" href="skill/">
+        <div class="t">The skill and scanner <span class="arr">&rarr;</span></div>
+        <div class="d">unslop-ui: removes the AI tells and forces a deliberate choice. Importable into Claude, with a standalone scanner you can run in CI. Download the .skill or read the source.</div>
+      </a>
+      <a class="card" href="https://github.com/JCarterJohnson/vibecoded-design-tells#readme">
+        <div class="t">The data and method <span class="arr">&rarr;</span></div>
+        <div class="d">The full corpus, the ranked-tell tables, the charts, and the harvest and analysis scripts. Reproducible against the public Arctic Shift archive.</div>
+      </a>
+    </div>
+
+    <footer>Source and dataset on <a href="https://github.com/JCarterJohnson/vibecoded-design-tells">GitHub</a>. It removes the tells; you bring the taste.</footer>
+  </main>
+</body></html>
