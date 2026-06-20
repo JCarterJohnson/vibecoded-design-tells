@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>unslop-ui demo</title>
+<style>
+  :root{
+    --bg:#101218; --panel:#171a22; --line:#262b36; --txt:#e8eaf0; --mut:#9aa0ad;
+    --red:#ff5d5d; --redbg:#2a1414; --grn:#39d98a; --grnbg:#0f231a; --amb:#ffc759;
+    --mono:'SF Mono',ui-monospace,'Cascadia Code',Menlo,Consolas,monospace;
+    --sans:-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#06070a;font-family:var(--sans);display:flex;align-items:center;justify-content:center;min-height:100vh}
+  .stage{position:relative;width:1200px;height:744px;background:
+      radial-gradient(120% 120% at 70% -10%, #1b1f2b 0%, #0c0e14 55%, #08090d 100%);
+    border-radius:16px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.6);color:var(--txt)}
+
+  /* top bar */
+  .topbar{position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 22px;z-index:40}
+  .wordmark{font-weight:600;letter-spacing:.2px;font-size:15px;display:flex;align-items:center;gap:9px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--grn);box-shadow:0 0 10px var(--grn)}
+  .phase{font-family:var(--mono);font-size:12px;color:var(--mut);letter-spacing:.5px}
+
+  /* browser */
+  .browser{position:absolute;top:72px;left:40px;width:740px;height:578px;background:#0e1016;
+    border:1px solid var(--line);border-radius:11px;overflow:hidden;transition:left .8s cubic-bezier(.7,0,.2,1),width .8s cubic-bezier(.7,0,.2,1)}
+  .chrome{height:34px;background:#1b1e26;display:flex;align-items:center;gap:7px;padding:0 12px;border-bottom:1px solid var(--line)}
+  .c{width:10px;height:10px;border-radius:50%}
+  .c1{background:#ec6a5e}.c2{background:#f4bf4f}.c3{background:#61c554}
+  .url{flex:1;margin-left:8px;height:18px;background:#0e1016;border:1px solid var(--line);border-radius:6px;
+    font-family:var(--mono);font-size:10px;color:#7c8290;display:flex;align-items:center;padding:0 9px}
+  .viewport{position:relative;width:100%;height:544px;overflow:hidden;background:#fff}
+  .framewrap{position:absolute;top:0;left:0;width:1180px;transform-origin:top left;transform:scale(.6271);transition:transform .6s}
+  .framewrap iframe{width:1180px;height:2200px;border:0;display:block}
+  #beforeWrap{transition:opacity .9s ease}
+  #afterWrap{opacity:0;transition:opacity .9s ease}
+
+  /* terminal */
+  .terminal{position:absolute;top:118px;right:-470px;width:430px;height:486px;background:rgba(13,15,20,.96);
+    border:1px solid var(--line);border-radius:11px;backdrop-filter:blur(6px);
+    display:flex;flex-direction:column;z-index:30;transition:right .7s cubic-bezier(.7,0,.2,1);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .terminal.show{right:40px}
+  .term-head{height:32px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;
+    font-family:var(--mono);font-size:11px;color:var(--mut)}
+  .term-body{flex:1;overflow:hidden;padding:12px 14px;font-family:var(--mono);font-size:12px;line-height:1.65}
+  .ln{white-space:pre-wrap;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+  .ln.in{opacity:1;transform:none}
+  .cmd{color:#cfd3dd}.cmd .pr{color:var(--grn)}
+  .fx{color:#f1b3b3}.fx .tag{color:var(--red);font-weight:600}.fx .sev{color:#8a93a3}
+  .ok{color:var(--grn)}
+  .cursor{display:inline-block;width:8px;height:14px;background:#cfd3dd;vertical-align:-2px;animation:bl 1s steps(1) infinite}
+  @keyframes bl{50%{opacity:0}}
+  /* gauge */
+  .gauge{border-top:1px solid var(--line);padding:13px 14px}
+  .gauge .row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+  .gauge .lab{font-family:var(--mono);font-size:11px;color:var(--mut)}
+  .gauge .num{font-family:var(--mono);font-size:30px;font-weight:600}
+  .bar{height:8px;border-radius:5px;background:#23262f;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0%;border-radius:5px;background:var(--red);transition:width .5s,background .5s}
+  .badge{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;font-weight:600;
+    padding:4px 12px;border-radius:6px;background:var(--redbg);color:var(--red);letter-spacing:.5px;opacity:0;transition:opacity .4s}
+  .badge.show{opacity:1}
+
+  /* caption lower-third */
+  .caption{position:absolute;left:40px;bottom:30px;right:40px;z-index:35;pointer-events:none}
+  .caption .k{font-family:var(--mono);font-size:12px;color:var(--grn);letter-spacing:1px;margin-bottom:7px;opacity:0;transition:opacity .4s}
+  .caption .t{font-size:25px;font-weight:600;line-height:1.32;max-width:680px;opacity:0;transform:translateY(8px);
+    transition:opacity .5s,transform .5s;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+  .caption.show .k,.caption.show .t{opacity:1;transform:none}
+
+  /* variety grid */
+  .variety{position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 0%, #1b1f2b, #0a0c11);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;z-index:50;opacity:0;
+    pointer-events:none;transition:opacity .6s}
+  .variety.show{opacity:1}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:1080px}
+  .thumb{background:#0e1016;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    opacity:0;transform:translateY(14px) scale(.97);transition:opacity .5s,transform .5s}
+  .thumb.in{opacity:1;transform:none}
+  .thumb .cap{font-family:var(--mono);font-size:11px;color:var(--mut);padding:8px 11px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+  .thumb .cap b{color:var(--txt);font-weight:600}
+  .tv{position:relative;width:100%;height:182px;overflow:hidden;background:#fff}
+  .tv .fw{position:absolute;top:0;left:0;width:1180px;transform-origin:top left;transform:scale(.2237)}
+  .tv iframe{width:1180px;height:1900px;border:0}
+  .variety h2{font-size:26px;font-weight:600}
+  .variety p{color:var(--mut);font-size:15px;max-width:760px;text-align:center;line-height:1.5}
+  .variety .pass{font-family:var(--mono);font-size:11px;color:var(--grn)}
+
+  /* end card */
+  .endcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:#08090d;z-index:60;opacity:0;pointer-events:none;transition:opacity .6s}
+  .endcard.show{opacity:1}
+  .endcard .big{font-size:40px;font-weight:600}
+  .endcard .sub{color:var(--mut);font-size:16px;max-width:620px;text-align:center;line-height:1.5}
+  .endcard .repo{font-family:var(--mono);font-size:14px;color:var(--grn);border:1px solid var(--line);
+    padding:9px 16px;border-radius:8px;margin-top:6px}
+
+  .controls{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:12px}
+  .replay{font-family:var(--mono);font-size:11px;color:var(--mut);background:rgba(255,255,255,.05);
+    border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer}
+  .replay:hover{color:var(--txt)}
+  .prog{width:220px;height:3px;background:#23262f;border-radius:3px;overflow:hidden}
+  .prog>i{display:block;height:100%;width:0;background:var(--mut)}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="topbar">
+    <div class="wordmark"><span class="dot"></span> unslop-ui</div>
+    <div class="phase" id="phase">a guardrail against AI design tells</div>
+  </div>
+
+  <div class="browser" id="browser">
+    <div class="chrome"><span class="c c1"></span><span class="c c2"></span><span class="c c3"></span>
+      <span class="url" id="url">ledgerflow.app</span></div>
+    <div class="viewport">
+      <div class="framewrap" id="beforeWrap"><iframe id="beforeFrame" src="designs/before.html" scrolling="no"></iframe></div>
+      <div class="framewrap" id="afterWrap"><iframe id="afterFrame" src="about:blank" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="terminal" id="terminal">
+    <div class="term-head">● devibe_scan.py</div>
+    <div class="term-body" id="termBody"></div>
+    <div class="gauge">
+      <div class="row"><span class="lab">vibe score</span><span class="num" id="score">0</span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <span class="badge" id="badge">SCANNING</span>
+    </div>
+  </div>
+
+  <div class="caption" id="caption"><div class="k" id="capK"></div><div class="t" id="capT"></div></div>
+
+  <div class="variety" id="variety">
+    <h2>One prompt. Four deliberate looks.</h2>
+    <div class="grid" id="grid"></div>
+    <p>The skill does not impose a style. It strips the AI tells and holds you to a brief, so the same content can become any of these. The taste is yours.</p>
+    <div class="pass">all four pass the scanner: 0 high-severity findings</div>
+  </div>
+
+  <div class="endcard" id="endcard">
+    <div class="big">unslop-ui</div>
+    <div class="sub">A Claude skill plus a scanner that strips the cues that make a site read as AI-generated. Grounded in 3.2M Reddit posts. It removes the tells; you bring the taste.</div>
+    <div class="repo">github.com/JCarterJohnson/vibecoded-design-tells</div>
+  </div>
+
+  <div class="controls"><div class="prog"><i id="prog"></i></div><div class="replay" id="replay">&#8635; replay</div></div>
+</div>
+
+<script>
+  // The red-team winner is set here after the workflow picks it.
+  const AFTER = "designs/utilitarian-fintech.html";
+  const DESIGNS = [
+    {key:"utilitarian-fintech", label:"Utilitarian"},
+    {key:"editorial-bold",      label:"Editorial"},
+    {key:"warm-consumer",       label:"Warm"},
+    {key:"technical-mono",      label:"Technical"},
+  ];
+  const FINDINGS = [
+    {t:"gradient-filled heading text", n:3, sev:"HIGH"},
+    {t:"AI-purple as primary color",   n:2, sev:"HIGH"},
+    {t:"purple-to-blue gradient",      n:1, sev:"HIGH"},
+    {t:"emoji used as icons",          n:5, sev:"MED"},
+    {t:"pill buttons + neon glow",     n:2, sev:"MED"},
+    {t:"Inter default font",           n:1, sev:"MED"},
+    {t:'"transform your workflow"',    n:1, sev:"LOW"},
+  ];
+  const $=id=>document.getElementById(id);
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  let token=0; // cancels a running timeline on replay
+
+  function caption(k,t){$("capK").textContent=k;$("capT").textContent=t;$("caption").classList.add("show");}
+  function hideCaption(){$("caption").classList.remove("show");}
+  function setScore(n){$("score").textContent=n;$("bar").style.width=Math.min(100,n*2.4)+"%";}
+
+  async function tick(from,to,ms,color){
+    const steps=Math.abs(to-from)||1, dt=ms/steps; let v=from;
+    $("bar").querySelector;$("bar").style.background=color;
+    for(let i=0;i<steps;i++){v+=(to>from?1:-1);setScore(v);await sleep(dt);if(token!==myToken)return;}
+    setScore(to);
+  }
+  let myToken=0;
+
+  async function termLine(html,cls){
+    const d=document.createElement("div");d.className="ln "+(cls||"");d.innerHTML=html;
+    $("termBody").appendChild(d);await sleep(20);d.classList.add("in");
+  }
+  function clearTerm(){$("termBody").innerHTML="";}
+
+  function loadAfter(src){const f=$("afterFrame");if(f.getAttribute("src")!==src)f.setAttribute("src",src);}
+
+  function buildGrid(){
+    const g=$("grid");g.innerHTML="";
+    DESIGNS.forEach(d=>{
+      const el=document.createElement("div");el.className="thumb";
+      el.innerHTML=`<div class="cap"><b>${d.label}</b><span>0 high</span></div>
+        <div class="tv"><div class="fw"><iframe loading="lazy" src="designs/${d.key}.html" scrolling="no"></iframe></div></div>`;
+      g.appendChild(el);
+    });
+  }
+
+  async function run(){
+    myToken=++token;
+    // reset
+    clearTerm();setScore(0);$("bar").style.background="var(--red)";
+    $("badge").textContent="SCANNING";$("badge").style.background="var(--redbg)";$("badge").style.color="var(--red)";$("badge").classList.remove("show");
+    $("terminal").classList.remove("show");$("beforeWrap").style.opacity=1;$("afterWrap").style.opacity=0;
+    $("variety").classList.remove("show");$("endcard").classList.remove("show");
+    $("browser").style.left="40px";$("browser").style.width="740px";
+    loadAfter(AFTER);buildGrid();
+    $("phase").textContent="a guardrail against AI design tells";
+    const T=ms=>sleep(ms);
+    const live=()=>token===myToken;
+
+    caption("the problem","A typical AI-built landing page. You have seen this one a thousand times.");
+    await T(3200);if(!live())return;
+
+    // scan
+    $("phase").textContent="audit mode";
+    $("terminal").classList.add("show");hideCaption();await T(700);
+    await termLine('<span class="cmd"><span class="pr">$</span> python3 devibe_scan.py ./ledgerflow</span>');
+    await T(650);if(!live())return;
+    caption("the scan","One command. It flags every documented AI tell, with the file and line.");
+    let running=0;
+    for(const f of FINDINGS){
+      const sevcls=f.sev==="HIGH"?"":"";
+      await termLine(`<span class="fx"><span class="tag">&#10007;</span> ${f.t} <span class="sev">&times;${f.n} [${f.sev}]</span></span>`,"fx");
+      running+=f.sev==="HIGH"?3*f.n:f.sev==="MED"?2*f.n:1*f.n;
+      await tick(parseInt($("score").textContent),running,260,"var(--red)");
+      await T(230);if(!live())return;
+    }
+    await termLine('<span class="ok">&rarr; 16 findings &middot; vibe score 37</span>','');
+    $("badge").textContent="STRONG AI-DEFAULT LOOK";$("badge").classList.add("show");
+    await T(1600);if(!live())return;
+    caption("37 / strong","Every line is a pattern people name as 'AI slop' in the data. None of it was chosen. The model defaulted to it.");
+    await T(3400);if(!live())return;
+
+    // fix
+    $("phase").textContent="build mode &middot; same content, a deliberate brief";
+    clearTerm();
+    await termLine('<span class="cmd"><span class="pr">$</span> python3 devibe_scan.py ./ledgerflow --rebuilt</span>');
+    caption("the fix","Same product, same copy. The tells are removed and replaced with a deliberate choice, not a new default.");
+    // cross-fade to after
+    $("beforeWrap").style.opacity=0;$("afterWrap").style.opacity=1;
+    await tick(37,0,1400,"var(--grn)");if(!live())return;
+    $("bar").style.background="var(--grn)";
+    await termLine('<span class="ok">&rarr; 0 findings &middot; vibe score 0</span>');
+    $("badge").textContent="CLEAN";$("badge").style.background="var(--grnbg)";$("badge").style.color="var(--grn)";
+    await T(2600);if(!live())return;
+    caption("0 / clean","Not traded for a cream-and-serif 'tasteful' look (that is the new tell). A specific brand, chosen on purpose.");
+    await T(3600);if(!live())return;
+
+    // variety
+    $("terminal").classList.remove("show");hideCaption();await T(500);
+    $("phase").textContent="it breaks the monoculture";
+    $("variety").classList.add("show");
+    const thumbs=document.querySelectorAll(".thumb");
+    for(let i=0;i<thumbs.length;i++){thumbs[i].classList.add("in");await T(420);if(!live())return;}
+    await T(5200);if(!live())return;
+
+    // end
+    $("variety").classList.remove("show");await T(500);
+    $("endcard").classList.add("show");
+    await T(4200);if(!live())return;
+    if(live())run(); // loop
+  }
+
+  // drive the progress bar over ~38s
+  function progress(){
+    let start=Date.now();const dur=38000;
+    (function step(){const p=((Date.now()-start)%dur)/dur;$("prog").style.width=(p*100)+"%";requestAnimationFrame(step);})();
+  }
+
+  $("replay").onclick=()=>run();
+  // scale the fixed 1200x744 stage to fit any viewport, so it records cleanly at any size
+  function fit(){const s=Math.min(window.innerWidth/1200, window.innerHeight/748, 1);
+    $("stage").style.transform="scale("+s+")";}
+  window.addEventListener("resize",fit);
+  window.addEventListener("load",()=>{fit();progress();run();});
+  fit();
+</script>
+</body></html>

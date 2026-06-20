@@ -31,11 +31,15 @@ The conversation barely existed before 2024. Measured as share of posts (not raw
 
 ## The skill
 
-The same findings are packaged as `unslop-ui`, a Claude skill that flags and removes
-these patterns while building or auditing a site. It includes a standalone scanner
-(`skill/scripts/devibe_scan.py`) that greps a codebase and prints findings with a vibe
-score, usable on its own or in CI. See [skill/README.md](skill/README.md) to install it
-or run the scanner.
+The same findings are packaged as `unslop-ui`, a Claude skill that strips these patterns
+while building or auditing a site. It does not impose a look. It removes the AI tells
+(including the newer cream-plus-serif-plus-sage "tasteful default" that just trading one
+default for another produces) and forces a deliberate, project-specific choice instead.
+It includes a standalone scanner (`skill/scripts/devibe_scan.py`) that greps a codebase,
+prints findings with a vibe score, and gates CI on the exit code. See
+[skill/README.md](skill/README.md) to install it or run the scanner, and the
+[animated demo](demo/demo.html), where one prompt becomes four distinct deliberate
+designs that all pass the scanner.
 
 ## How to reproduce
 

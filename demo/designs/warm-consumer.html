@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LedgerFlow — Know exactly who owes you, and when.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Type decision: Bricolage Grotesque (characterful contemporary grotesque) for display,
+     Source Sans 3 (warm humanist sans) for body. A real display+body pairing, chosen on
+     purpose: not the no-choice sans defaults, not the overexposed tasteful-serif defaults. -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ------------------------------------------------------------------
+     LedgerFlow — warm consumer direction.
+     Palette sampled from fired terracotta + unglazed stoneware in warm
+     afternoon light. One confident warm brand color (terracotta brick),
+     earth-family status colors. No cream+serif+sage default; no AI purple.
+     ------------------------------------------------------------------ */
+  :root {
+    /* brand: terracotta / fired clay */
+    --brand:        #c8553d;   /* terracotta brick — the one confident warm color */
+    --brand-deep:   #a8412e;   /* pressed deeper for hover/contrast */
+    --brand-soft:   #f6d9cf;   /* watered-down clay wash for fills */
+
+    /* warm neutral ramp, pulled toward coral (NOT beige-cream) */
+    --bg:           #fff6f2;   /* warm peach-white page */
+    --surface:      #ffffff;   /* clean card surface */
+    --surface-warm: #fbede6;   /* secondary warm panel */
+    --line:         #f0d9cf;   /* hairline, warm */
+    --line-strong:  #e4c3b6;
+
+    /* ink: wet-clay browns, not pure black */
+    --ink:          #3d2b23;   /* primary text */
+    --ink-soft:     #6b554b;   /* secondary text */
+    --ink-faint:    #9a8377;   /* tertiary / captions */
+
+    /* earth-family status colors (deliberately not sage-on-cream) */
+    --paid:         #6f6f1f;   /* mustard-olive */
+    --paid-bg:      #eef0d8;
+    --sent:         #b9791a;   /* warm ochre */
+    --sent-bg:      #f8e9cf;
+    --overdue:      #c8553d;   /* brand brick doubles as alert */
+    --overdue-bg:   #f7ddd4;
+
+    /* spacing scale — single consistent rhythm (1 unit = 4px) */
+    --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+    --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+
+    /* radius — small intentional scale by role, not one big value */
+    --r-sm: 6px;   /* chips, inputs */
+    --r-md: 10px;  /* buttons, table */
+    --r-lg: 16px;  /* cards, panels */
+
+    --shadow-card: 0 1px 2px rgba(61,43,35,.05), 0 8px 24px rgba(61,43,35,.07);
+    --maxw: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0;
+    overflow-wrap: break-word;   /* never run past the container */
+    hyphens: none;
+  }
+
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: var(--s-5);
+    padding-right: var(--s-5);
+  }
+
+  /* ---------------- header ---------------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: saturate(140%) blur(8px);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-4);
+    height: 68px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: var(--s-3);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700; font-size: 20px; letter-spacing: -0.02em;
+    color: var(--ink); text-decoration: none;
+  }
+  .mark {
+    width: 30px; height: 30px; border-radius: 8px; flex: none;
+    background: var(--brand);
+    display: grid; place-items: center;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+  }
+  .mark span {
+    width: 13px; height: 13px; border-radius: 3px;
+    border: 2.5px solid #fff; border-right-color: transparent; border-bottom-color: transparent;
+    transform: rotate(45deg);
+  }
+  .nav-links { display: flex; align-items: center; gap: var(--s-6); }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 500; font-size: 16px; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-weight: 600; font-size: 16px; color: var(--brand-deep);
+    text-decoration: none; padding: var(--s-2) var(--s-4);
+    border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  }
+  .nav-cta:hover { border-color: var(--brand); background: var(--brand-soft); }
+
+  /* ---------------- buttons ---------------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600; font-size: 17px; line-height: 1;
+    padding: 15px var(--s-5);
+    border-radius: var(--r-md);
+    border: 1px solid transparent;
+    cursor: pointer; text-decoration: none;
+    transition: background .15s ease, border-color .15s ease, transform .05s ease;
+  }
+  .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 1px 2px rgba(168,65,46,.35); }
+  .btn-primary:hover { background: var(--brand-deep); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn-ghost:hover { border-color: var(--ink-faint); background: var(--surface-warm); }
+
+  /* ---------------- hero ---------------- */
+  .hero { padding-top: var(--s-9); padding-bottom: var(--s-8); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+    gap: var(--s-8);
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    font-size: 14px; font-weight: 600; letter-spacing: .02em;
+    color: var(--brand-deep);
+    background: var(--brand-soft);
+    padding: var(--s-1) var(--s-3);
+    border-radius: var(--r-sm);
+    margin-bottom: var(--s-5);
+  }
+  .eyebrow b { width: 6px; height: 6px; border-radius: 2px; background: var(--brand); }
+  .hero h1 {
+    font-size: clamp(2.4rem, 1.5rem + 3.2vw, 3.75rem);
+  }
+  .hero .sub {
+    margin-top: var(--s-5);
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 30ch;
+  }
+  .hero-actions {
+    margin-top: var(--s-6);
+    display: flex; flex-wrap: wrap; gap: var(--s-3);
+  }
+  .reassure {
+    margin-top: var(--s-5);
+    font-size: 15px; color: var(--ink-faint);
+  }
+
+  /* ---------------- dashboard card ---------------- */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+  .panel-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: var(--s-4); flex-wrap: wrap;
+    padding: var(--s-5) var(--s-5) var(--s-4);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-warm);
+  }
+  .panel-head .label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-faint); }
+  .panel-head .total {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700; font-size: 30px; letter-spacing: -0.02em;
+    color: var(--ink); margin-top: 2px; line-height: 1.1;
+  }
+  .panel-head .meta { font-size: 14px; color: var(--ink-soft); margin-top: 2px; }
+  .filter {
+    font-size: 13px; font-weight: 600; color: var(--brand-deep);
+    background: var(--surface); border: 1px solid var(--line-strong);
+    padding: var(--s-2) var(--s-3); border-radius: var(--r-sm);
+    align-self: center; white-space: nowrap;
+  }
+
+  .table-scroll { width: 100%; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left; font-size: 12px; font-weight: 600;
+    letter-spacing: .04em; text-transform: uppercase; color: var(--ink-faint);
+    padding: var(--s-3) var(--s-5);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  thead th.num, tbody td.num { text-align: right; }
+  tbody td {
+    padding: var(--s-4) var(--s-5);
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover { background: var(--surface-warm); }
+  .client { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
+  .avatar {
+    width: 32px; height: 32px; flex: none; border-radius: 8px;
+    display: grid; place-items: center;
+    font-size: 13px; font-weight: 700; color: #fff;
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+  .a1 { background: #c8553d; } .a2 { background: #b9791a; }
+  .a3 { background: #7a6a4a; } .a4 { background: #9a5a4a; }
+  .client .name { font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .amount { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .due { color: var(--ink-soft); font-size: 15px; white-space: nowrap; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: var(--s-2);
+    font-size: 13px; font-weight: 600; line-height: 1;
+    padding: 6px 10px; border-radius: var(--r-sm);
+    white-space: nowrap;
+  }
+  .pill::before { content: ""; width: 7px; height: 7px; border-radius: 2px; flex: none; }
+  .pill.paid    { color: var(--paid);    background: var(--paid-bg); }
+  .pill.paid::before    { background: var(--paid); }
+  .pill.sent    { color: var(--sent);    background: var(--sent-bg); }
+  .pill.sent::before    { background: var(--sent); }
+  .pill.overdue { color: var(--overdue); background: var(--overdue-bg); }
+  .pill.overdue::before { background: var(--overdue); }
+
+  /* ---------------- value section ---------------- */
+  .value { padding-top: var(--s-9); padding-bottom: var(--s-8); }
+  .value-head { max-width: 38ch; margin-bottom: var(--s-7); }
+  .value-head h2 { font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.4rem); }
+  .value-head p { margin-top: var(--s-3); color: var(--ink-soft); font-size: 18px; }
+  .value-list {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-5);
+  }
+  .value-item {
+    padding: var(--s-5);
+    border-top: 3px solid var(--brand);
+    background: var(--surface);
+    border-radius: 0 0 var(--r-md) var(--r-md);
+    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  .value-item .n {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 600; font-size: 14px; color: var(--brand-deep);
+    letter-spacing: .02em;
+  }
+  .value-item h3 { font-size: 20px; margin-top: var(--s-3); }
+  .value-item p { margin-top: var(--s-2); color: var(--ink-soft); font-size: 16px; }
+
+  /* ---------------- closing band ---------------- */
+  .closer {
+    margin-top: var(--s-7);
+    background: var(--ink);
+    border-radius: var(--r-lg);
+    padding: var(--s-7);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--s-5); flex-wrap: wrap;
+  }
+  .closer h2 { color: #fff6f2; font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); max-width: 22ch; }
+  .closer p { color: #d8c4ba; margin-top: var(--s-2); font-size: 16px; }
+  .closer .btn-primary { background: var(--brand); }
+  .closer .btn-primary:hover { background: var(--brand-deep); }
+
+  /* ---------------- footer ---------------- */
+  footer {
+    margin-top: var(--s-8);
+    border-top: 1px solid var(--line);
+    padding-top: var(--s-6); padding-bottom: var(--s-7);
+    color: var(--ink-soft);
+  }
+  .foot {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: var(--s-4);
+    font-size: 15px;
+  }
+  .foot nav { display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  .foot a { color: var(--ink-soft); text-decoration: none; }
+  .foot a:hover { color: var(--ink); }
+  .foot .copy { color: var(--ink-faint); }
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: var(--s-7); }
+    .hero { padding-top: var(--s-8); }
+    .hero .sub { max-width: 46ch; }
+    .value-list { grid-template-columns: 1fr; }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    .hero-actions .btn { flex: 1 1 auto; }
+    .panel-head .total { font-size: 26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="LedgerFlow home">
+        <span class="mark"><span></span></span>
+        LedgerFlow
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#value">Why LedgerFlow</a>
+        <a href="#" class="nav-cta">Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO: asymmetric, content left + real dashboard right (no centered hero skeleton) -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><b></b> Built for freelancers and solo studios</span>
+          <h1>Know exactly who owes you, and when.</h1>
+          <p class="sub">LedgerFlow tracks every invoice across all your clients and flags the overdue ones before they age out.</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Start tracking free</a>
+            <a href="#" class="btn btn-ghost">See a live demo</a>
+          </div>
+          <p class="reassure">No card required. Connect your first client in under two minutes.</p>
+        </div>
+
+        <!-- Real dashboard area: live invoice table -->
+        <div class="panel" aria-label="Outstanding invoices">
+          <div class="panel-head">
+            <div>
+              <div class="label">Outstanding</div>
+              <div class="total">$12,480</div>
+              <div class="meta">Across 3 clients &middot; 4 open invoices</div>
+            </div>
+            <div class="filter">All clients &#9662;</div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Client</th>
+                  <th scope="col">Due</th>
+                  <th scope="col" class="num">Amount</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="client">
+                      <span class="avatar a1" aria-hidden="true">NP</span>
+                      <span class="name">Northpine Studio</span>
+                    </div>
+                  </td>
+                  <td class="due">Apr 2 (18d late)</td>
+                  <td class="num amount">$4,200</td>
+                  <td><span class="pill overdue">Overdue</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="client">
+                      <span class="avatar a2" aria-hidden="true">HC</span>
+                      <span class="name">Harlow &amp; Co.</span>
+                    </div>
+                  </td>
+                  <td class="due">Jun 24</td>
+                  <td class="num amount">$3,150</td>
+                  <td><span class="pill sent">Sent</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="client">
+                      <span class="avatar a3" aria-hidden="true">BR</span>
+                      <span class="name">Bramble Roasters</span>
+                    </div>
+                  </td>
+                  <td class="due">Jun 30</td>
+                  <td class="num amount">$5,130</td>
+                  <td><span class="pill sent">Sent</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="client">
+                      <span class="avatar a4" aria-hidden="true">MV</span>
+                      <span class="name">Mesa Verde Films</span>
+                    </div>
+                  </td>
+                  <td class="due">May 28</td>
+                  <td class="num amount">$2,750</td>
+                  <td><span class="pill paid">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE: three concrete points, no emoji icons, numbered + brand top-rule -->
+    <section class="value" id="value">
+      <div class="wrap">
+        <div class="value-head">
+          <h2>Everything you need to get paid on time.</h2>
+          <p>No spreadsheets, no chasing down which invoice you forgot. LedgerFlow keeps the whole picture in one place.</p>
+        </div>
+        <div class="value-list">
+          <div class="value-item">
+            <div class="n">01</div>
+            <h3>Overdue alerts before 30 days</h3>
+            <p>Get a heads-up while an invoice is still merely late, not written off, so you can nudge the client while it still feels routine.</p>
+          </div>
+          <div class="value-item">
+            <div class="n">02</div>
+            <h3>One view across every client</h3>
+            <p>Every invoice from every client in a single running ledger. Sort by what is owed, what is overdue, or who is slowest to pay.</p>
+          </div>
+          <div class="value-item">
+            <div class="n">03</div>
+            <h3>Export to your accountant in a click</h3>
+            <p>Hand off clean, categorized records at tax time. CSV and PDF, ready for whoever does your books.</p>
+          </div>
+        </div>
+
+        <div class="closer">
+          <div>
+            <h2>Stop wondering who still owes you.</h2>
+            <p>Start free today and see your outstanding total in minutes.</p>
+          </div>
+          <a href="#" class="btn btn-primary">Start tracking free</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <a class="brand" href="#" aria-label="LedgerFlow home" style="font-size:18px;">
+        <span class="mark"><span></span></span>
+        LedgerFlow
+      </a>
+      <nav aria-label="Footer">
+        <a href="#">Product</a>
+        <a href="#">Pricing</a>
+        <a href="#">Help</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </nav>
+      <span class="copy">&copy; 2026 LedgerFlow</span>
+    </div>
+  </footer>
+
+</body>
+</html>

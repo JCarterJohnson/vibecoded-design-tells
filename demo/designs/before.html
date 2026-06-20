@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LedgerFlow</title>
+<style>
+  /* Deliberately the 2024 default look: dark hero, purple-to-blue gradient,
+     gradient heading text, emoji icons, three identical cards, pill buttons with glow,
+     Inter everywhere. Same CONTENT as the "after" designs, so it is a true before/after. */
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+  body{background:#0b0b14;color:#e7e7f0}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .hero{background:linear-gradient(135deg,#7c3aed,#2563eb);padding:84px 0 96px;text-align:center;border-radius:0 0 28px 28px}
+  .hero h1{font-size:52px;font-weight:800;line-height:1.1;letter-spacing:-1px;
+    background:linear-gradient(90deg,#e9d5ff,#bfdbfe);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:18px}
+  .hero p{font-size:19px;color:#ece9ff;max-width:620px;margin:0 auto 30px;line-height:1.5}
+  .btns{display:flex;gap:14px;justify-content:center}
+  .btn{padding:14px 30px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer}
+  .btn-primary{background:#a855f7;color:#fff;box-shadow:0 0 36px 4px rgba(168,85,247,.7)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:70px 0}
+  .card{background:#16161f;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:30px 26px;text-align:center}
+  .card .emoji{font-size:40px;display:block;margin-bottom:14px}
+  .card h3{font-size:20px;font-weight:700;margin-bottom:10px}
+  .card p{color:#b6b6c6;font-size:14px;line-height:1.6}
+  .panel{background:#16161f;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px;margin-bottom:70px}
+  .panel h2{background:linear-gradient(90deg,#c4b5fd,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:26px;font-weight:800;margin-bottom:18px}
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:12px 10px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.07)}
+  th{color:#8f8fa6;font-weight:600}
+  .pill{padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700}
+  .paid{background:rgba(168,85,247,.2);color:#d8b4fe}
+  .sent{background:rgba(59,130,246,.2);color:#93c5fd}
+  .over{background:rgba(236,72,153,.2);color:#f9a8d4}
+  .tot{margin-top:18px;font-size:15px;color:#c9c9d6}
+  .tot b{background:linear-gradient(90deg,#c4b5fd,#93c5fd);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:22px}
+  footer{text-align:center;color:#6b6b7e;font-size:13px;padding:30px 0 50px}
+</style></head>
+<body>
+  <section class="hero"><div class="wrap">
+    <h1>🚀 Know exactly who owes you, and when ✨</h1>
+    <p>LedgerFlow tracks every invoice across all your clients and flags the overdue ones before they age out.</p>
+    <div class="btns"><button class="btn btn-primary">Start tracking free</button><button class="btn btn-ghost">See a live demo</button></div>
+  </div></section>
+  <div class="wrap">
+    <div class="cards">
+      <div class="card"><span class="emoji">🚀</span><h3>Lightning Fast</h3><p>Overdue alerts before 30 days so nothing ages out unnoticed.</p></div>
+      <div class="card"><span class="emoji">⚡</span><h3>All In One</h3><p>One view across every client, no more spreadsheets.</p></div>
+      <div class="card"><span class="emoji">🔒</span><h3>Secure</h3><p>Export to your accountant in a single click.</p></div>
+    </div>
+    <div class="panel">
+      <h2>✨ Your invoices, supercharged</h2>
+      <table>
+        <tr><th>Client</th><th>Amount</th><th>Status</th></tr>
+        <tr><td>Atlas Studio</td><td>$3,200</td><td><span class="pill paid">paid</span></td></tr>
+        <tr><td>Nomad Labs</td><td>$5,480</td><td><span class="pill sent">sent</span></td></tr>
+        <tr><td>Reed &amp; Co</td><td>$3,800</td><td><span class="pill over">overdue</span></td></tr>
+        <tr><td>Vale Design</td><td>$2,100</td><td><span class="pill sent">sent</span></td></tr>
+      </table>
+      <p class="tot">Outstanding <b>$12,480</b> across 3 clients</p>
+    </div>
+  </div>
+  <footer>© 2026 LedgerFlow. Transform your workflow today.</footer>
+</body></html>

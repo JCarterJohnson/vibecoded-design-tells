@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LedgerFlow — Know exactly who owes you, and when.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--
+  Direction: Bold editorial / print-inspired — a financial broadsheet.
+  Color: oxblood "ledger red" (#8a1c1c) — the color of red-ink "amount due"
+         entries and an accountant's correcting pen — on true paper-white.
+         Deliberately not cream/sage/purple. unslop-ignore lines below mark
+         this as an intentional brand decision, not a default.
+  Type:  Libre Caslon Display (newspaper-masthead serif) for the headline,
+         paired unusually with Space Mono for ledger numerals/labels, and
+         Archivo as the body grotesque.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Libre+Caslon+Display&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* one spacing scale, used everywhere */
+    --s-1: 4px;
+    --s-2: 8px;
+    --s-3: 12px;
+    --s-4: 16px;
+    --s-5: 24px;
+    --s-6: 32px;
+    --s-7: 48px;
+    --s-8: 64px;
+    --s-9: 96px;
+    --s-10: 128px;
+
+    /* paper-white + ink ramp (deliberately chosen, not stock slate/cream) */
+    --paper:   #ffffff;       /* unslop-ignore: true paper-white, the brand surface */
+    --paper-2: #f4f1ea;       /* faint newsprint band for one section only */
+    --ink:     #16130f;       /* near-black warm ink for body text */
+    --ink-2:   #514b41;       /* secondary ink */
+    --ink-3:   #8c8478;       /* muted ledger note */
+    --rule:    #1a1612;       /* hairline / column rules — black ink */
+    --rule-2:  #d8d2c6;       /* light rule on bands */
+
+    /* oxblood "ledger red" brand — a stated decision, see header comment */
+    --oxblood:   #8a1c1c;     /* unslop-ignore: ledger-red brand, not AI purple */
+    --oxblood-d: #6a1414;     /* unslop-ignore: pressed/hover ledger red */
+
+    /* status inks, all legible on paper */
+    --paid:     #16130f;      /* paid = settled, black ink */
+    --sent:     #6a6256;      /* sent = pending, muted */
+    --overdue:  #8a1c1c;      /* unslop-ignore: overdue flagged in ledger red */
+
+    --radius: 2px;            /* near-square: print, not pill */
+    --measure: 38ch;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Archivo", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap{
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: var(--s-5);
+  }
+
+  a{ color: inherit; }
+
+  .mono{
+    font-family: "Space Mono", "SFMono-Regular", Menlo, monospace;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: -0.01em;
+  }
+
+  .eyebrow{
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin: 0;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    border-bottom: 3px solid var(--rule);
+  }
+  .masthead__bar{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-5);
+    padding-block: var(--s-4);
+    flex-wrap: wrap;
+  }
+  .brand{
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    text-decoration: none;
+  }
+  .brand__mark{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand__mark b{ color: var(--oxblood); font-weight: 400; }
+  .brand__tag{
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .masthead__nav{
+    display: flex;
+    align-items: center;
+    gap: var(--s-6);
+  }
+  .masthead__nav a{
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--ink-2);
+  }
+  .masthead__nav a:hover{ color: var(--oxblood); }
+  .masthead__edition{
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-top: 1px solid var(--rule-2);
+    padding-block: var(--s-2);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-2);
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: var(--s-3) var(--s-5);
+    border-radius: var(--radius);
+    border: 2px solid var(--rule);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .12s ease, color .12s ease;
+  }
+  .btn--primary{
+    background: var(--oxblood);
+    border-color: var(--oxblood);
+    color: var(--paper);
+  }
+  .btn--primary:hover{ background: var(--oxblood-d); border-color: var(--oxblood-d); }
+  .btn--ghost{
+    background: transparent;
+    color: var(--ink);
+  }
+  .btn--ghost:hover{ background: var(--ink); color: var(--paper); }
+  .masthead__nav .btn{ padding: var(--s-2) var(--s-4); font-size: 13px; }
+
+  /* ---------- Hero (asymmetric: editorial column left, ledger right) ---------- */
+  .hero{
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--s-8);
+    align-items: start;
+    padding-block: var(--s-9) var(--s-8);
+    border-bottom: 1px solid var(--rule-2);
+  }
+  .hero__lede .eyebrow{ margin-bottom: var(--s-4); }
+  .hero h1{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(44px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    margin: 0 0 var(--s-5);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+  .hero h1 .ink{ color: var(--oxblood); font-style: italic; }
+  .hero__sub{
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: var(--measure);
+    margin: 0 0 var(--s-6);
+  }
+  .hero__cta{
+    display: flex;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero__note{
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-top: var(--s-5);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--rule-2);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Ledger dashboard ---------- */
+  .ledger{
+    border: 2px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .ledger__head{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-bottom: 2px solid var(--rule);
+    flex-wrap: wrap;
+  }
+  .ledger__title{
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .ledger__total{
+    text-align: right;
+  }
+  .ledger__total .lbl{
+    display: block;
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: var(--s-1);
+  }
+  .ledger__total .amt{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-size: clamp(34px, 5vw, 46px);
+    line-height: 0.9;
+    color: var(--oxblood);
+  }
+  .ledger__total .sub{
+    display: block;
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-top: var(--s-2);
+    letter-spacing: 0.04em;
+  }
+
+  .ledger__scroll{ width: 100%; overflow-x: auto; }
+  table.invoices{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Space Mono", monospace;
+    font-size: 13.5px;
+  }
+  table.invoices caption{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  table.invoices thead th{
+    text-align: left;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding: var(--s-3) var(--s-5);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  table.invoices th.num, table.invoices td.num{ text-align: right; }
+  table.invoices tbody td{
+    padding: var(--s-4) var(--s-5);
+    border-bottom: 1px solid var(--rule-2);
+    vertical-align: middle;
+    color: var(--ink);
+  }
+  table.invoices tbody tr:last-child td{ border-bottom: none; }
+  .client{ display: flex; flex-direction: column; gap: 2px; }
+  .client .name{ font-weight: 700; letter-spacing: 0; color: var(--ink); }
+  .client .meta{ font-size: 11px; color: var(--ink-3); }
+  td.amount{ font-weight: 700; letter-spacing: -0.01em; }
+
+  .status{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .status::before{
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: var(--radius);
+    background: currentColor;
+    flex: none;
+  }
+  .status--paid{ color: var(--paid); }
+  .status--paid::before{ background: var(--paid); }
+  .status--sent{ color: var(--sent); }
+  .status--sent::before{ background: transparent; border: 1.5px solid var(--sent); }
+  .status--overdue{ color: var(--overdue); }
+  .status--overdue::before{ background: var(--overdue); }
+
+  /* ---------- Value section: three ledger entries, asymmetric not card-grid ---------- */
+  .value{
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule-2);
+    padding-block: var(--s-9);
+  }
+  .value__head{
+    max-width: 720px;
+    margin-bottom: var(--s-8);
+  }
+  .value__head h2{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(30px, 4.5vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: var(--s-4) 0 0;
+    text-wrap: balance;
+  }
+  .entries{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 2px solid var(--rule);
+  }
+  .entry{
+    padding: var(--s-6) var(--s-5) var(--s-6) 0;
+    border-right: 1px solid var(--rule-2);
+  }
+  .entry:last-child{ border-right: none; padding-right: 0; }
+  .entry:not(:first-child){ padding-left: var(--s-5); }
+  .entry__no{
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--oxblood);
+    margin-bottom: var(--s-4);
+  }
+  .entry h3{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    margin: 0 0 var(--s-3);
+    text-wrap: balance;
+  }
+  .entry p{
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Closing band ---------- */
+  .closing{
+    padding-block: var(--s-9);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--s-7);
+    align-items: center;
+  }
+  .closing h2{
+    font-family: "Libre Caslon Display", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .closing h2 em{ color: var(--oxblood); font-style: italic; }
+  .closing__cta{ display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; }
+  .closing__cta .btn{ width: 100%; }
+  .closing__cta p{
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-3);
+    margin: var(--s-2) 0 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site{
+    border-top: 3px solid var(--rule);
+    padding-block: var(--s-6);
+  }
+  .foot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--s-5);
+    flex-wrap: wrap;
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+  }
+  .foot nav{ display: flex; gap: var(--s-5); flex-wrap: wrap; }
+  .foot a{ text-decoration: none; color: var(--ink-2); }
+  .foot a:hover{ color: var(--oxblood); }
+  .foot__brand{ color: var(--ink); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .hero{
+      grid-template-columns: 1fr;
+      gap: var(--s-7);
+      padding-block: var(--s-7) var(--s-6);
+    }
+    .closing{ grid-template-columns: 1fr; gap: var(--s-5); }
+    .entries{ grid-template-columns: 1fr; }
+    .entry{
+      border-right: none;
+      border-bottom: 1px solid var(--rule-2);
+      padding: var(--s-5) 0;
+    }
+    .entry:not(:first-child){ padding-left: 0; }
+    .entry:last-child{ border-bottom: none; padding-bottom: 0; }
+  }
+  @media (max-width: 560px){
+    .masthead__nav{ gap: var(--s-4); }
+    .masthead__nav a.hide-sm{ display: none; }
+    .brand{ flex-wrap: wrap; gap: 2px var(--s-3); }
+    .brand__tag{ flex-basis: 100%; }
+    .hero h1{ font-size: clamp(38px, 12vw, 64px); }
+    table.invoices{ font-size: 12.5px; }
+    table.invoices thead th, table.invoices tbody td{ padding-inline: var(--s-4); }
+  }
+  @media (max-width: 380px){
+    .brand__tag{ display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Masthead ===== -->
+  <header class="masthead">
+    <div class="wrap">
+      <div class="masthead__bar">
+        <a class="brand" href="#top" id="top">
+          <span class="brand__mark">Ledger<b>Flow</b></span>
+          <span class="brand__tag">Receivables, on the record</span>
+        </a>
+        <nav class="masthead__nav" aria-label="Primary">
+          <a href="#ledger" class="hide-sm">The Ledger</a>
+          <a href="#why" class="hide-sm">Why it works</a>
+          <a href="#start" class="btn btn--ghost">Start tracking free</a>
+        </nav>
+      </div>
+      <div class="masthead__edition">
+        <span>Vol. 1 — Freelance Accounts Daily</span>
+        <span>Outstanding watch · Updated continuously</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero wrap" aria-labelledby="hero-h">
+      <div class="hero__lede">
+        <p class="eyebrow">Invoice tracking for freelancers</p>
+        <h1 id="hero-h">Know exactly who owes&nbsp;you, <span class="ink">and&nbsp;when.</span></h1>
+        <p class="hero__sub">LedgerFlow tracks every invoice across all your clients and flags the overdue ones before they age out.</p>
+        <div class="hero__cta">
+          <a href="#start" class="btn btn--primary">Start tracking free</a>
+          <a href="#ledger" class="btn btn--ghost">See a live demo</a>
+        </div>
+        <p class="hero__note">No card required · Import from CSV, Stripe or QuickBooks · Cancel anytime</p>
+      </div>
+
+      <!-- Real dashboard: the ledger -->
+      <div class="ledger" id="ledger" aria-labelledby="ledger-title">
+        <div class="ledger__head">
+          <p class="ledger__title" id="ledger-title">Outstanding ledger</p>
+          <div class="ledger__total">
+            <span class="lbl">Outstanding</span>
+            <span class="amt mono">$12,480</span>
+            <span class="sub">across 3 clients</span>
+          </div>
+        </div>
+        <div class="ledger__scroll">
+          <table class="invoices">
+            <caption>Open and recently settled invoices by client, amount and status</caption>
+            <thead>
+              <tr>
+                <th scope="col">Client / Invoice</th>
+                <th scope="col" class="num">Amount</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="client">
+                    <span class="name">Hartwell Studio</span>
+                    <span class="meta">INV-0241 · due Jun 02</span>
+                  </span>
+                </td>
+                <td class="num amount">$5,200.00</td>
+                <td><span class="status status--overdue">Overdue 18d</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="client">
+                    <span class="name">Norfolk &amp; Lane</span>
+                    <span class="meta">INV-0238 · due Jun 28</span>
+                  </span>
+                </td>
+                <td class="num amount">$4,150.00</td>
+                <td><span class="status status--sent">Sent</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="client">
+                    <span class="name">Brightside Co.</span>
+                    <span class="meta">INV-0236 · due Jul 05</span>
+                  </span>
+                </td>
+                <td class="num amount">$3,130.00</td>
+                <td><span class="status status--sent">Sent</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="client">
+                    <span class="name">Mercer Design</span>
+                    <span class="meta">INV-0230 · paid Jun 11</span>
+                  </span>
+                </td>
+                <td class="num amount">$2,800.00</td>
+                <td><span class="status status--paid">Paid</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Value section ===== -->
+    <section class="value" id="why" aria-labelledby="why-h">
+      <div class="wrap">
+        <div class="value__head">
+          <p class="eyebrow">Why freelancers keep it open</p>
+          <h2 id="why-h">Three things it does, every single day.</h2>
+        </div>
+        <div class="entries">
+          <article class="entry">
+            <p class="entry__no">No. 01</p>
+            <h3>Overdue alerts before 30 days</h3>
+            <p>The moment an invoice slips past its due date, LedgerFlow surfaces it, so you chase it while it is still fresh, not after it has aged out.</p>
+          </article>
+          <article class="entry">
+            <p class="entry__no">No. 02</p>
+            <h3>One view across every client</h3>
+            <p>Every client, every invoice, one running ledger. No spreadsheet tabs, no second-guessing which payment is still outstanding.</p>
+          </article>
+          <article class="entry">
+            <p class="entry__no">No. 03</p>
+            <h3>Export to your accountant in a click</h3>
+            <p>Hand off a clean, dated record whenever you need it. One click turns your ledger into a file your accountant can actually use.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Closing ===== -->
+    <section class="closing wrap" id="start" aria-labelledby="close-h">
+      <h2 id="close-h">Put your receivables <em>on the record.</em></h2>
+      <div class="closing__cta">
+        <a href="#start" class="btn btn--primary">Start tracking free</a>
+        <a href="#ledger" class="btn btn--ghost">See a live demo</a>
+        <p>Set up in minutes · Your first 25 invoices are free</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot">
+        <span class="foot__brand">LedgerFlow — © 2026</span>
+        <nav aria-label="Footer">
+          <a href="#why">Features</a>
+          <a href="#ledger">Demo</a>
+          <a href="#start">Pricing</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </nav>
+        <span>Made for freelancers who like getting paid.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

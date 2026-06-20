@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LedgerFlow — Invoice tracking for freelancers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ----------------------------------------------------------------
+     LedgerFlow — dense utilitarian fintech direction.
+     Monochrome cool-gray ramp on a flat paper surface (NOT cream/beige:
+     these neutrals are cool, hue ~220, the surface a working banking app
+     would use). ONE signal accent: signal-orange #e8590c, reserved for the
+     "overdue / at risk" state and the primary CTA — the product's whole job
+     is flagging overdue invoices, so the accent IS the function.
+     Type: IBM Plex Mono for figures (digit alignment is the trading-terminal
+     convention) + IBM Plex Sans for prose. A deliberate technical pairing,
+     not Inter/Geist, not a tasteful serif.
+     ---------------------------------------------------------------- */
+  :root {
+    /* cool neutral ramp — picked, not stock slate */
+    --ink-900: #16181d;   /* primary text / near-black */
+    --ink-700: #353a44;   /* secondary text */
+    --ink-500: #5b626e;   /* tertiary / labels */
+    --ink-400: #828995;   /* muted */
+    --line-300: #d3d7df;  /* borders / rules */
+    --line-200: #e2e5ea;  /* faint dividers */
+    --surface-100: #f8f9fb; /* card surface */
+    --surface-000: #ffffff; /* table cells */
+    --paper: #f2f3f5;     /* page workspace — cool gray, not cream */
+
+    /* one signal accent: at-risk / overdue / primary action */
+    --signal: #e8590c;
+    --signal-ink: #b6420a;   /* darker for hover / text-on-light */
+    --signal-wash: #fdeee4;  /* faint fill behind overdue chips */
+
+    /* status — ledger conventions, used only as small chips */
+    --paid: #1f7a55;        /* settled = green, accounting universal */
+    --paid-wash: #e6f2ec;
+    --sent: #4b536b;        /* in-flight = neutral slate */
+    --sent-wash: #eaecf2;
+
+    /* one spacing scale (4px base): 4 8 12 16 24 32 48 64 96 */
+    --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+    --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+
+    --radius: 3px;        /* small, deliberate, applied by role */
+    --maxw: 1140px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans", -apple-system, Segoe UI, sans-serif;
+    background: var(--paper);
+    color: var(--ink-900);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--s5);
+  }
+
+  /* tabular numerals everywhere a figure appears */
+  .num { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  /* ---------- top bar ---------- */
+  header {
+    border-bottom: 1px solid var(--line-300);
+    background: var(--surface-000);
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s4);
+    height: 56px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-size: 16px;
+  }
+  .brand .mark {
+    width: 18px; height: 18px;
+    border: 2px solid var(--ink-900);
+    border-radius: var(--radius);
+    position: relative;
+    flex: none;
+  }
+  .brand .mark::after {
+    content: "";
+    position: absolute;
+    left: 2px; right: 2px; top: 6px;
+    height: 2px;
+    background: var(--signal);
+  }
+  .topnav {
+    display: flex;
+    align-items: center;
+    gap: var(--s6);
+    font-size: 14px;
+    color: var(--ink-500);
+  }
+  .topnav a { text-decoration: none; }
+  .topnav a:hover { color: var(--ink-900); }
+  .topnav .ghost {
+    border: 1px solid var(--line-300);
+    padding: var(--s2) var(--s4);
+    border-radius: var(--radius);
+    color: var(--ink-900);
+    font-weight: 500;
+  }
+  .topnav .ghost:hover { border-color: var(--ink-700); }
+  @media (max-width: 720px) {
+    .topnav .links { display: none; }
+  }
+
+  /* ---------- hero: asymmetric, copy left / live panel right ---------- */
+  .hero { border-bottom: 1px solid var(--line-300); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--s8);
+    align-items: stretch;
+    padding: var(--s9) 0;
+  }
+  .hero-copy { align-self: center; min-width: 0; }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    margin: 0 0 var(--s4);
+  }
+  .eyebrow .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--signal);
+    border-radius: 50%;
+    margin-right: var(--s2);
+    vertical-align: middle;
+  }
+  h1 {
+    font-size: clamp(30px, 4.4vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 var(--s4);
+    max-width: 14ch;
+  }
+  .sub {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-700);
+    margin: 0 0 var(--s6);
+    max-width: 46ch;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s3);
+    align-items: center;
+  }
+  .btn {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: var(--s3) var(--s5);
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
+    line-height: 1;
+  }
+  .btn-primary {
+    background: var(--signal);
+    color: #fff;
+    border-color: var(--signal);
+  }
+  .btn-primary:hover { background: var(--signal-ink); border-color: var(--signal-ink); }
+  .btn-secondary {
+    background: var(--surface-000);
+    color: var(--ink-900);
+    border-color: var(--line-300);
+  }
+  .btn-secondary:hover { border-color: var(--ink-700); }
+  .btn .arrow { color: var(--ink-400); font-weight: 400; }
+  .btn-secondary:hover .arrow { color: var(--ink-700); }
+
+  .micro {
+    margin: var(--s5) 0 0;
+    font-size: 13px;
+    color: var(--ink-400);
+  }
+
+  /* ---------- the live dashboard panel ---------- */
+  .panel {
+    background: var(--surface-100);
+    border: 1px solid var(--line-300);
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s3);
+    padding: var(--s4) var(--s5);
+    border-bottom: 1px solid var(--line-300);
+    background: var(--surface-000);
+  }
+  .panel-head .title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--ink-700);
+    text-transform: uppercase;
+  }
+  .panel-head .stamp {
+    font-size: 12px;
+    color: var(--ink-400);
+  }
+
+  /* outstanding summary strip */
+  .summary {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s5);
+    padding: var(--s5);
+    border-bottom: 1px solid var(--line-200);
+    background: var(--surface-000);
+    flex-wrap: wrap;
+  }
+  .summary .figure {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+    line-height: 1;
+  }
+  .summary .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-500);
+    margin-bottom: var(--s1);
+  }
+  .summary .meta {
+    font-size: 13px;
+    color: var(--ink-500);
+    margin-left: auto;
+    text-align: right;
+  }
+  .summary .meta strong { color: var(--ink-900); font-weight: 600; }
+
+  /* the invoice table */
+  .table-scroll { width: 100%; overflow-x: auto; }
+  table.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 340px;
+  }
+  table.ledger thead th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    padding: var(--s3) var(--s5);
+    border-bottom: 1px solid var(--line-300);
+    background: var(--surface-100);
+    white-space: nowrap;
+  }
+  table.ledger th.r, table.ledger td.r { text-align: right; }
+  table.ledger tbody td {
+    padding: var(--s4) var(--s5);
+    border-bottom: 1px solid var(--line-200);
+    background: var(--surface-000);
+    vertical-align: middle;
+  }
+  table.ledger tbody tr:last-child td { border-bottom: none; }
+  table.ledger tbody tr:hover td { background: var(--surface-100); }
+
+  .client {
+    font-weight: 500;
+    color: var(--ink-900);
+    white-space: nowrap;
+  }
+  .client .id {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-400);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  td.amount {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--ink-900);
+    white-space: nowrap;
+  }
+
+  /* status chips — outline + small wash, never glowing */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px var(--s2);
+    border-radius: var(--radius);
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .chip .led { width: 6px; height: 6px; border-radius: 50%; flex: none; }
+  .chip.paid     { color: var(--paid); border-color: #bfe0d0; background: var(--paid-wash); }
+  .chip.paid .led { background: var(--paid); }
+  .chip.sent     { color: var(--sent); border-color: var(--line-300); background: var(--sent-wash); }
+  .chip.sent .led { background: var(--sent); }
+  .chip.overdue  { color: var(--signal-ink); border-color: #f3c4ab; background: var(--signal-wash); }
+  .chip.overdue .led { background: var(--signal); }
+
+  .age { font-size: 12px; color: var(--ink-400); }
+  .age.late { color: var(--signal-ink); font-weight: 500; }
+
+  /* ---------- value section: a ledger row of 3 points, not floating cards ---------- */
+  .value {
+    padding: var(--s9) 0;
+  }
+  .value-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s4);
+    border-bottom: 1px solid var(--line-300);
+    padding-bottom: var(--s4);
+    margin-bottom: 0;
+    flex-wrap: wrap;
+  }
+  .value-head h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .value-head .note {
+    font-size: 13px;
+    color: var(--ink-500);
+  }
+  .value-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--line-300);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    overflow: hidden;
+    background: var(--surface-000);
+  }
+  .value-cell {
+    padding: var(--s6) var(--s5);
+    border-right: 1px solid var(--line-200);
+    min-width: 0;
+  }
+  .value-cell:last-child { border-right: none; }
+  .value-cell .idx {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--signal-ink);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--s3);
+  }
+  .value-cell h3 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--s2);
+    line-height: 1.25;
+  }
+  .value-cell p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-700);
+    line-height: 1.5;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--line-300);
+    background: var(--surface-000);
+  }
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s4);
+    padding: var(--s6) 0;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-500);
+  }
+  .foot .brand { font-size: 14px; color: var(--ink-900); }
+  .foot nav { display: flex; gap: var(--s5); flex-wrap: wrap; }
+  .foot nav a { text-decoration: none; }
+  .foot nav a:hover { color: var(--ink-900); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--s6);
+      padding: var(--s7) 0;
+    }
+    h1 { max-width: 18ch; }
+  }
+  @media (max-width: 640px) {
+    .value { padding: var(--s7) 0; }
+    .value-row { grid-template-columns: 1fr; }
+    .value-cell { border-right: none; border-bottom: 1px solid var(--line-200); }
+    .value-cell:last-child { border-bottom: none; }
+    .summary .meta { margin-left: 0; text-align: left; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true"></span>
+        LedgerFlow
+      </div>
+      <nav class="topnav">
+        <span class="links">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#value">Why it works</a>
+        </span>
+        <a href="#" class="ghost">Sign in</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO: asymmetric. Copy left, the actual product (a live invoice table) right. -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Invoice tracking for freelancers</p>
+          <h1>Know exactly who owes you, and when.</h1>
+          <p class="sub">LedgerFlow tracks every invoice across all your clients and flags the overdue ones before they age out.</p>
+          <div class="cta-row">
+            <a href="#" class="btn btn-primary">Start tracking free</a>
+            <a href="#dashboard" class="btn btn-secondary">See a live demo <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+          <p class="micro">No card required. Import from CSV or connect your invoicing tool.</p>
+        </div>
+
+        <!-- live panel -->
+        <div class="panel" id="dashboard">
+          <div class="panel-head">
+            <span class="title">Receivables</span>
+            <span class="stamp num">Updated 09:41 · Jun 20</span>
+          </div>
+
+          <div class="summary">
+            <div>
+              <div class="label">Outstanding</div>
+              <div class="figure num">$12,480</div>
+            </div>
+            <div class="meta">
+              across <strong class="num">3</strong> clients<br>
+              <strong class="num">4</strong> open invoices · <strong style="color:var(--signal-ink)">1</strong> overdue
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="ledger">
+              <thead>
+                <tr>
+                  <th scope="col">Client</th>
+                  <th scope="col" class="r">Amount</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="r">Age</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="client">Halverson Studio<span class="id num">INV-2041</span></span>
+                  </td>
+                  <td class="amount r">$5,200.00</td>
+                  <td>
+                    <span class="chip overdue"><span class="led" aria-hidden="true"></span>Overdue</span>
+                  </td>
+                  <td class="r"><span class="age late num">41d</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="client">Brightpath Co.<span class="id num">INV-2046</span></span>
+                  </td>
+                  <td class="amount r">$3,900.00</td>
+                  <td>
+                    <span class="chip sent"><span class="led" aria-hidden="true"></span>Sent</span>
+                  </td>
+                  <td class="r"><span class="age num">12d</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="client">Maren &amp; Vale<span class="id num">INV-2048</span></span>
+                  </td>
+                  <td class="amount r">$3,380.00</td>
+                  <td>
+                    <span class="chip sent"><span class="led" aria-hidden="true"></span>Sent</span>
+                  </td>
+                  <td class="r"><span class="age num">6d</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="client">Halverson Studio<span class="id num">INV-2039</span></span>
+                  </td>
+                  <td class="amount r">$2,150.00</td>
+                  <td>
+                    <span class="chip paid"><span class="led" aria-hidden="true"></span>Paid</span>
+                  </td>
+                  <td class="r"><span class="age num">—</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE: three concrete points as a single bordered ledger row, not floating icon cards. -->
+  <section class="value" id="value">
+    <div class="wrap">
+      <div class="value-head">
+        <h2>Built to stop invoices from slipping.</h2>
+        <span class="note">Three things it does, every day, without you asking.</span>
+      </div>
+      <div class="value-row">
+        <div class="value-cell">
+          <div class="idx">01</div>
+          <h3>Overdue alerts before 30 days</h3>
+          <p>LedgerFlow watches each due date and pings you while a follow-up still works, not weeks after the invoice has aged out.</p>
+        </div>
+        <div class="value-cell">
+          <div class="idx">02</div>
+          <h3>One view across every client</h3>
+          <p>Every invoice from every client lands in a single sorted ledger, so you always know the real outstanding total at a glance.</p>
+        </div>
+        <div class="value-cell">
+          <div class="idx">03</div>
+          <h3>Export to your accountant in a click</h3>
+          <p>Hand off a clean, dated CSV or PDF of everything paid and outstanding, ready for your books, in one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <span class="mark" aria-hidden="true" style="display:inline-block;width:14px;height:14px;border:2px solid var(--ink-900);border-radius:var(--radius);vertical-align:-2px;margin-right:6px"></span>
+        LedgerFlow
+      </div>
+      <nav>
+        <a href="#">Pricing</a>
+        <a href="#">Security</a>
+        <a href="#">Docs</a>
+        <a href="#">Contact</a>
+      </nav>
+      <span>&copy; 2026 LedgerFlow. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

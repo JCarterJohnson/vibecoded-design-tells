@@ -44,6 +44,11 @@ RULES = [
      "fix": "Default to solid fills. If you must gradient, keep stops analogous and low-contrast, never the rainbow purple-to-blue.",
      "pats": [r"from-(purple|violet|indigo|fuchsia)-\d+\s+(via-[a-z]+-\d+\s+)?to-(blue|indigo|pink|cyan|sky)-\d+",
               r"linear-gradient\([^)]*#(6366f1|7c3aed|8b5cf6|a855f7)[^)]*\)"]},
+    {"id": "claude-default-look", "label": "The 'tasteful default' look (cream background + serif display)", "sev": "high",
+     "fix": "This is the 2026 tell, not the fix. Anchor color and type to the real brand or a reference. If cream + serif is a genuine decision, mark the line unslop-ignore.",
+     "pats": [r"#(faf8f5|f5f1e8|f3eee3|fdfbf7|f7f3ec|faf6ef|f6f1e7|fbf7f0|f4efe4)\b",
+              r"\bbg-(stone|amber|orange)-(50|100)\b",
+              r"\b(Instrument\s*Serif|Fraunces|Playfair\s*Display|Cormorant|Spectral|DM\s*Serif)\b"]},
 
     # ---- MEDIUM ----
     {"id": "hero-three-cards", "label": "Centered hero + three-feature-card grid skeleton", "sev": "medium",
@@ -51,7 +56,7 @@ RULES = [
      "pats": [r"grid-cols-1\s+(sm:grid-cols-2\s+)?md:grid-cols-3"]},
     {"id": "rounded-everything", "label": "Large rounded corners / pill buttons everywhere", "sev": "medium",
      "fix": "Use a small, intentional radius scale by role. Not everything maximally rounded; pills only occasionally.",
-     "pats": [r"\brounded-(2xl|3xl|full)\b", r"border-radius\s*:\s*9999px"],
+     "pats": [r"\brounded-(2xl|3xl|full)\b", r"border-radius\s*:\s*(999\d*px|9999px)"],
      # rounded-full on a small sized box is a status dot / avatar / icon, not a pill button. Skip those.
      "suppress": r"\b[hw]-(\d|10|11|12|14|16)(\.5)?\b"},
     {"id": "fade-in-animations", "label": "Boilerplate fade-in / hover-grow / scroll animation", "sev": "medium",
@@ -60,7 +65,8 @@ RULES = [
               r"data-aos\s*=", r"\bhover:scale-1\d{2}\b"]},
     {"id": "neon-glow", "label": "Unprompted neon glow shadow", "sev": "medium",
      "fix": "Remove glow you did not deliberately design. Dark mode should rely on contrast, not glow.",
-     "pats": [r"shadow-\[0_0_", r"drop-shadow-\[0_0_", r"text-shadow\s*:[^;]*\d+px[^;]*(rgba|#|hsl)"]},
+     "pats": [r"shadow-\[0_0_", r"drop-shadow-\[0_0_", r"text-shadow\s*:[^;]*\d+px[^;]*(rgba|#|hsl)",
+              r"box-shadow\s*:[^;]*\b0\s+0\s+\d{2,}px"]},
     {"id": "emoji-as-icons", "label": "Emoji used as icons / section bullets", "sev": "medium",
      "fix": "Use a real SVG icon set (Lucide/Phosphor/Heroicons) or none. Emoji-as-UI signals low effort.",
      "pats": [r"[\U0001F680✨⚡\U0001F525\U0001F4A1\U0001F512✅\U0001F3AF\U0001F31F\U0001F6E1\U0001F4C8\U0001F511\U0001F389\U0001F680]"]},
@@ -116,6 +122,8 @@ def scan(path, min_sev):
         if len(lines) == 1 and len(lines[0]) > 5000:   # likely minified
             continue
         for i, line in enumerate(lines, 1):
+            if "unslop-ignore" in line.lower():     # respect intentional choices
+                continue
             for r in rules:
                 if r["suppress_rx"] and r["suppress_rx"].search(line):
                     continue

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LedgerFlow — Invoice tracking for freelancers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--
+  Type system (deliberate choice, not a default):
+    IBM Plex Mono  — headings, labels, numerals, UI chrome. A monospace designed by
+                     IBM for engineering/technical interfaces. Gives the "tool built
+                     by engineers" identity and tabular figures for the ledger table.
+    IBM Plex Sans  — running body copy, so prose stays readable rather than all-mono.
+  One superfamily, paired on purpose; deliberately avoids the default sans and serif faces. unslop-ignore: this comment only documents the choice, no such font is used.
+-->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /*
+    Color (deliberate choice):
+      Surfaces are warm graphite near-blacks sampled from a graphite block + brushed
+      steel — NOT pure black, NOT Tailwind zinc/slate. Dark, but no neon and no glow.
+      Single restrained accent: signal amber (#e8a13a), the caution/warning color of a
+      build tool and the natural semantic for an overdue invoice.
+      Status colors are functional: paid = muted teal-green (a real success state, not
+      sage), sent = neutral grey, overdue = the amber accent.
+  */
+  :root {
+    --bg:        #16181d;   /* page: warm graphite */
+    --surface:   #1c1f26;   /* panels */
+    --surface-2: #21252d;   /* raised rows / inputs */
+    --line:      #2c313b;   /* hairline borders */
+    --line-2:    #383f4b;   /* stronger borders */
+    --ink:       #e6e8ec;   /* primary text */
+    --ink-dim:   #9aa1ad;   /* secondary text */
+    --ink-faint: #6b727f;   /* tertiary / captions */
+
+    --accent:      #e8a13a; /* signal amber — the single accent */
+    --accent-deep: #c9842a; /* pressed / border of accent */
+    --accent-ink:  #1a1205; /* text on accent */
+
+    --paid:   #5bb89a;      /* muted teal-green success */
+    --paid-bg:#163029;
+    --sent:   #b6bcc6;      /* neutral */
+    --sent-bg:#262b34;
+    --over:   #e8a13a;      /* amber */
+    --over-bg:#33260f;
+
+    /* one spacing scale (4px base), used everywhere */
+    --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+    --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+
+    /* small intentional radius scale */
+    --r1: 4px;  --r2: 6px;  --r3: 10px;
+
+    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+
+    --maxw: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* faint engineering grid, no glow, very low contrast */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--s5); }
+
+  a { color: inherit; }
+
+  /* ---------- header ---------- */
+  header { border-bottom: 1px solid var(--line); }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--s4) 0;
+    gap: var(--s4);
+  }
+  .brand { display: flex; align-items: center; gap: var(--s3); min-width: 0; }
+  .brand .mark {
+    width: 28px; height: 28px; flex: none;
+    border: 1px solid var(--line-2);
+    border-radius: var(--r1);
+    display: grid; place-items: center;
+    font-family: var(--mono); font-weight: 700; font-size: 14px;
+    color: var(--accent);
+    background: var(--surface);
+  }
+  .brand .name {
+    font-family: var(--mono); font-weight: 600; font-size: 16px;
+    letter-spacing: -0.01em; white-space: nowrap;
+  }
+  .nav-links { display: flex; align-items: center; gap: var(--s5); }
+  .nav-links a {
+    font-family: var(--mono); font-size: 13px; color: var(--ink-dim);
+    text-decoration: none; letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav .cta-mini {
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    padding: var(--s2) var(--s4);
+    border: 1px solid var(--line-2);
+    border-radius: var(--r1);
+    color: var(--ink); text-decoration: none;
+  }
+  .nav .cta-mini:hover { border-color: var(--ink-dim); }
+  @media (max-width: 720px) { .nav-links a:not(.cta-mini) { display: none; } }
+
+  /* ---------- hero (asymmetric: copy left, live panel right) ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1.25fr;
+    gap: var(--s8);
+    align-items: center;
+    padding: var(--s9) 0 var(--s8);
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex; align-items: center; gap: var(--s2);
+    margin: 0 0 var(--s5);
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: clamp(30px, 4.4vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--s4);
+    overflow-wrap: break-word;
+  }
+  .hero p.sub {
+    color: var(--ink-dim);
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 0 0 var(--s6);
+    max-width: 46ch;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--s3); }
+  .btn {
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    padding: var(--s3) var(--s5);
+    border-radius: var(--r2);
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: var(--s2);
+    transition: background-color .12s ease, border-color .12s ease;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent-deep); font-weight: 600; }
+  .btn-primary:hover { background: #f0ab47; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
+  .btn-ghost:hover { border-color: var(--ink-dim); }
+  .btn-ghost .arrow { color: var(--ink-faint); }
+
+  /* ---------- live dashboard panel ---------- */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r3);
+    overflow: hidden;
+  }
+  .panel-bar {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s4);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line-2); flex: none; }
+  .panel-bar .title {
+    font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+    margin-left: var(--s3);
+  }
+  .panel-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: var(--s4); flex-wrap: wrap;
+    padding: var(--s5) var(--s5) var(--s4);
+  }
+  .panel-head .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 0 0 var(--s2);
+  }
+  .panel-head .total {
+    font-family: var(--mono); font-weight: 700; font-size: 32px;
+    letter-spacing: -0.02em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .panel-head .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); text-align: right; }
+  .panel-head .meta b { color: var(--accent); font-weight: 600; }
+
+  .table-scroll { width: 100%; overflow-x: auto; }
+  table.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  table.ledger th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: var(--s3) var(--s5);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+    white-space: nowrap;
+  }
+  table.ledger td {
+    padding: var(--s4) var(--s5);
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    vertical-align: middle;
+  }
+  table.ledger tr:last-child td { border-bottom: none; }
+  .col-amt { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th.col-amt { text-align: right; }
+  .client { font-weight: 500; }
+  .client .inv { display: block; color: var(--ink-faint); font-size: 11px; margin-top: 2px; }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 3px var(--s3);
+    border-radius: var(--r1);
+    white-space: nowrap;
+  }
+  .tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; flex: none; }
+  .tag.paid { color: var(--paid); background: var(--paid-bg); }
+  .tag.paid::before { background: var(--paid); }
+  .tag.sent { color: var(--sent); background: var(--sent-bg); }
+  .tag.sent::before { background: var(--sent); }
+  .tag.over { color: var(--over); background: var(--over-bg); }
+  .tag.over::before { background: var(--over); }
+
+  /* ---------- value section ---------- */
+  .values { padding: var(--s8) 0; border-top: 1px solid var(--line); }
+  .values .section-label {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 0 0 var(--s6);
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--r3);
+    overflow: hidden;
+  }
+  .value-item { background: var(--surface); padding: var(--s6) var(--s5); }
+  .value-item .num {
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    color: var(--accent); margin-bottom: var(--s4); letter-spacing: 0.04em;
+  }
+  .value-item h3 {
+    font-family: var(--mono); font-weight: 600; font-size: 17px;
+    letter-spacing: -0.01em; margin: 0 0 var(--s3); line-height: 1.25;
+  }
+  .value-item p { color: var(--ink-dim); font-size: 14.5px; margin: 0; line-height: 1.6; }
+  @media (max-width: 760px) { .value-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--line); padding: var(--s6) 0; }
+  .foot {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: var(--s4);
+  }
+  .foot .brand .name { font-size: 14px; }
+  .foot .links { display: flex; gap: var(--s5); flex-wrap: wrap; }
+  .foot .links a {
+    font-family: var(--mono); font-size: 13px; color: var(--ink-dim); text-decoration: none;
+  }
+  .foot .links a:hover { color: var(--ink); }
+  .foot .copy { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+
+  /* ---------- responsive: stack hero ---------- */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: var(--s7); padding: var(--s7) 0 var(--s6); }
+    .panel-head .total { font-size: 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">LF</span>
+          <span class="name">LedgerFlow</span>
+        </div>
+        <div class="nav-links">
+          <a href="#values">Features</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#">Pricing</a>
+          <a class="cta-mini" href="#">Sign in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="dashboard">
+      <div class="hero-copy">
+        <p class="eyebrow">Invoice tracking for freelancers</p>
+        <h1>Know exactly who owes you, and when.</h1>
+        <p class="sub">LedgerFlow tracks every invoice across all your clients and flags the overdue ones before they age out.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#">Start tracking free</a>
+          <a class="btn btn-ghost" href="#">See a live demo <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="panel" role="region" aria-label="Outstanding invoices dashboard">
+        <div class="panel-bar" aria-hidden="true">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="title">ledgerflow — receivables</span>
+        </div>
+        <div class="panel-head">
+          <div>
+            <p class="label">Outstanding</p>
+            <div class="total">$12,480</div>
+          </div>
+          <div class="meta">across <b>3 clients</b><br>updated just now</div>
+        </div>
+        <div class="table-scroll">
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th scope="col">Client</th>
+                <th scope="col" class="col-amt">Amount</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="client">Northwind Studio<span class="inv">INV-0418</span></td>
+                <td class="col-amt">$4,200</td>
+                <td><span class="tag over">Overdue 41d</span></td>
+              </tr>
+              <tr>
+                <td class="client">Aperture Labs<span class="inv">INV-0421</span></td>
+                <td class="col-amt">$5,100</td>
+                <td><span class="tag sent">Sent</span></td>
+              </tr>
+              <tr>
+                <td class="client">Meridian Co.<span class="inv">INV-0419</span></td>
+                <td class="col-amt">$3,180</td>
+                <td><span class="tag over">Overdue 12d</span></td>
+              </tr>
+              <tr>
+                <td class="client">Brightline Group<span class="inv">INV-0410</span></td>
+                <td class="col-amt">$2,640</td>
+                <td><span class="tag paid">Paid</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap values" id="values">
+      <p class="section-label">Why freelancers run on it</p>
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="num">01</div>
+          <h3>Overdue alerts before 30 days</h3>
+          <p>LedgerFlow warns you while an invoice is still collectible, not after it has quietly aged past the point most clients will pay.</p>
+        </div>
+        <div class="value-item">
+          <div class="num">02</div>
+          <h3>One view across every client</h3>
+          <p>Every outstanding invoice, every client, in a single ledger. No spreadsheet tabs, no per-client folders, no guessing your real balance.</p>
+        </div>
+        <div class="value-item">
+          <div class="num">03</div>
+          <h3>Export to your accountant in a click</h3>
+          <p>Hand off a clean CSV or PDF of paid and outstanding invoices at quarter close, formatted the way your accountant already expects it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">LF</span>
+        <span class="name">LedgerFlow</span>
+      </div>
+      <nav class="links" aria-label="Footer">
+        <a href="#">Product</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </nav>
+      <span class="copy">&copy; 2026 LedgerFlow</span>
+    </div>
+  </footer>
+
+</body>
+</html>

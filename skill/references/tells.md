@@ -6,8 +6,15 @@ share in the on-topic data, which is the cleanest signal). Source: ~3.2M posts a
 AI/SaaS subreddits and 3,033 comments from 125 "why do AI sites all look the same"
 threads, 2020 to 2026.
 
+A note on weighting. The Reddit data was collected through mid-2026 and the loudest
+single tell in it is the *old* default (purple gradient, dark hero). But defaults move.
+The fastest-rising tell now is the "tasteful default" the previous generation of
+anti-slop advice created, so it leads this catalog even though its raw count in the
+historical data is still climbing. Treat tell 0 and tell 1 as co-top-priority.
+
 ## Contents
 
+0. The new "tasteful default" (cream + serif + sage) — the 2026 tell
 1. Default shadcn / Tailwind look
 2. AI purple (violet / indigo primary)
 3. Gradients everywhere / gradient text
@@ -15,10 +22,45 @@ threads, 2020 to 2026.
 5. Rounded corners on everything
 6. Dark mode + neon glow
 7. Emoji as icons
-8. Generic sans fonts (Inter / Geist)
+8. Generic sans fonts (Inter / Geist / Instrument Serif / Fraunces)
 9. The hero + three feature cards + CTA skeleton
-10. Lower-signal and copy tells
-11. Cleared by the data (do not chase)
+10. Layout-quality tells (overflow, spacing, alignment)
+11. Lower-signal and copy tells
+12. Cleared by the data (do not chase)
+
+---
+
+## 0. The new "tasteful default" (cream + serif + sage)
+
+**Why it leads:** this is the look the previous wave of anti-slop advice (including
+Claude's own frontend-design skill) converged on, so it is now the single most
+recognizable "AI tried to be tasteful" signal. Reddit clocks it instantly and calls it
+out by name: a warm cream or beige background, a serif display font (Instrument Serif,
+Fraunces, Playfair), and a sage or forest green accent, often with a generated product
+"screenshot" card on the right. It reads as AI for the same reason the purple gradient
+did: nobody chose it, the model did.
+
+**Why people react so strongly:** it is dishonest slop. The purple gradient at least
+looked like a default. This one looks like taste, so being told it is also a default
+lands harder. Comments single out "the beige and green theme alone is a dead giveaway,"
+"piss colored background copied from Anthropic branding," and "Instrument Serif is a
+top-5 vibecoded title font."
+
+**Code signatures (scanner):**
+- Cream/beige page background: `#faf8f5`, `#f5f1e8`, `#f3eee3`, `#fdfbf7`, `#f7f3ec`,
+  Tailwind `bg-stone-50/100`, `bg-amber-50`, `bg-orange-50` as the *page* background.
+- Serif display font: `Instrument Serif`, `Fraunces`, `Playfair Display`, `Spectral`,
+  `Cormorant`, `DM Serif` used for headings.
+- Sage/forest green primary: `#15573a`, `#1a4d3a`, hues around emerald/green 700-900 as
+  the brand color, especially paired with the cream background.
+- The combination of any two of those three is the strong signal.
+
+**Fix:** the fix is not "use a different nice palette," because that is how you got here.
+Anchor the look to the actual brand or a real reference, and if there is none, pick a
+direction that is specific and uncommon rather than the current tasteful average. If the
+project genuinely is a warm editorial brand and cream + serif is a real decision, mark it
+`unslop-ignore` and move on. The tell is reaching for it because it is what "good" auto-
+completes to.
 
 ---
 
@@ -221,15 +263,22 @@ a checklist of giveaways).
 so leaving them is "nobody chose the type." Good type is one of the fastest ways to look
 deliberate.
 
-**Code signatures (scanner):**
-- `font-family: Inter` / `Geist` / `Roboto` / `system-ui` as the only typeface.
-- `next/font/google` importing `Inter`/`Geist` with no second face.
-- Tailwind `font-sans` left at the default with no custom font config.
+There are two default fonts now, not one. Inter/Geist is the "I didn't pick a font"
+default. Instrument Serif/Fraunces is the "I tried to pick a tasteful font" default (see
+tell 0). Both are autopilot. Reaching for either because it is what shows up first is the
+tell, not the font itself.
 
-**Fix:** choose a typeface with character and pair it (a display face for headings, a
-readable face for body). Many strong, free options exist. Even keeping a clean sans for
-body but pairing a distinctive display face for headings breaks the default look. The
-goal is a chosen type system, not the starter font.
+**Code signatures (scanner):**
+- Sans defaults: `font-family: Inter` / `Geist` / `Roboto` / `system-ui` as the only face.
+- "Tasteful" serif defaults: `Instrument Serif`, `Fraunces`, `Playfair Display`,
+  `Spectral`, `Cormorant`, `DM Serif Display` as the heading face.
+- `next/font/google` importing one of the above with no real second face.
+- Tailwind `font-sans` left at default with no custom font config.
+
+**Fix:** choose a typeface with character for a reason, and pair it. A distinctive
+display face over a clean body face breaks the default look, but only if the display
+face is a real choice and not the current default-tasteful serif. The goal is a chosen
+type system you can justify, not the starter font and not the starter "nice" font.
 
 ---
 
@@ -258,7 +307,30 @@ icons-with-blurbs almost every time.
 
 ---
 
-## 10. Lower-signal and copy tells
+## 10. Layout-quality tells (overflow, spacing, alignment)
+
+These are not color or font choices, so the scanner mostly cannot see them, but they are
+a large part of why a generated page reads as AI. They were the most specific technical
+complaints on the demo that prompted this rewrite ("text going behind the container,"
+"heading needs an overflow," "inconsistent paddings, misaligned elements, no logic
+behind the UI"). Check them by eye on every build.
+
+- **Text overflow and clipping.** A heading or label that runs past or behind its
+  container, or a fixed-width card that does not handle long content. Generated layouts
+  often place absolutely-positioned text near a card and never test a real string. Give
+  text room, let it wrap, and test with real content lengths.
+- **Inconsistent spacing.** A page that mixes many unrelated padding and gap values
+  (`p-3` here, `p-7` there, arbitrary `mt-[37px]`) has no spacing system, and the eye
+  reads that as machine-made. Use one spacing scale and apply it consistently.
+- **Misalignment.** Elements that almost line up but do not (off-by-a-few-pixels edges,
+  inconsistent column gutters). Align to a grid.
+- **No information hierarchy.** Every section the same weight, nothing leading the eye.
+  Decide what the user should see first and make the layout say so.
+
+Fixing color and font on an incoherent layout still leaves a site that reads as AI. The
+scanner gives you a clean surface; these give you a coherent structure.
+
+## 11. Lower-signal and copy tells
 
 Real but minor; fix if cheap, do not over-rotate.
 
@@ -273,7 +345,7 @@ Real but minor; fix if cheap, do not over-rotate.
 
 ---
 
-## 11. Cleared by the data (do not chase)
+## 12. Cleared by the data (do not chase)
 
 - **Mesh / blob / aurora backgrounds**: investigated and **rejected** as a keyword
   artifact (most matches were github "/blob/" URLs and metaphors). Not a real complaint.
