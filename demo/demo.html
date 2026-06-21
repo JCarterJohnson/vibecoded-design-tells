@@ -62,11 +62,13 @@
   .badge.show{opacity:1}
 
   /* caption lower-third */
-  .caption{position:absolute;left:40px;bottom:30px;right:40px;z-index:35;pointer-events:none}
-  .caption .k{font-family:var(--mono);font-size:12px;color:var(--grn);letter-spacing:1px;margin-bottom:7px;opacity:0;transition:opacity .4s}
-  .caption .t{font-size:25px;font-weight:600;line-height:1.32;max-width:680px;opacity:0;transform:translateY(8px);
-    transition:opacity .5s,transform .5s;text-shadow:0 2px 20px rgba(0,0,0,.6)}
-  .caption.show .k,.caption.show .t{opacity:1;transform:none}
+  .caption{position:absolute;left:40px;bottom:34px;max-width:600px;z-index:35;pointer-events:none;
+    background:rgba(9,11,16,.86);border:1px solid #2a3040;border-radius:11px;padding:14px 18px;
+    backdrop-filter:blur(8px);box-shadow:0 12px 40px rgba(0,0,0,.45);
+    opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+  .caption.show{opacity:1;transform:none}
+  .caption .k{font-family:var(--mono);font-size:12px;color:var(--grn);letter-spacing:1px;margin-bottom:6px}
+  .caption .t{font-size:23px;font-weight:600;line-height:1.3}
 
   /* variety grid */
   .variety{position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 0%, #1b1f2b, #0a0c11);
@@ -95,12 +97,9 @@
   .endcard .repo{font-family:var(--mono);font-size:14px;color:var(--grn);border:1px solid var(--line);
     padding:9px 16px;border-radius:8px;margin-top:6px}
 
-  .controls{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:12px}
-  .replay{font-family:var(--mono);font-size:11px;color:var(--mut);background:rgba(255,255,255,.05);
-    border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer}
-  .replay:hover{color:var(--txt)}
-  .prog{width:220px;height:3px;background:#23262f;border-radius:3px;overflow:hidden}
-  .prog>i{display:block;height:100%;width:0;background:var(--mut)}
+  .controls{position:absolute;bottom:0;left:0;right:0;z-index:70}
+  .prog{width:100%;height:3px;background:rgba(255,255,255,.05)}
+  .prog>i{display:block;height:100%;width:0;background:var(--grn);opacity:.65}
 </style></head>
 <body>
 <div class="stage" id="stage">
@@ -143,7 +142,7 @@
     <div class="repo">github.com/JCarterJohnson/vibecoded-design-tells</div>
   </div>
 
-  <div class="controls"><div class="prog"><i id="prog"></i></div><div class="replay" id="replay">&#8635; replay</div></div>
+  <div class="controls"><div class="prog"><i id="prog"></i></div></div>
 </div>
 
 <script>
@@ -198,8 +197,12 @@
     });
   }
 
+  let runStart=0;
+  const TOTAL_MS=17800; // approx full-cycle length; progress bar resets each loop
+
   async function run(){
     myToken=++token;
+    runStart=performance.now();
     // reset
     clearTerm();setScore(0);$("bar").style.background="var(--red)";
     $("badge").textContent="SCANNING";$("badge").style.background="var(--redbg)";$("badge").style.color="var(--red)";$("badge").classList.remove("show");
@@ -212,70 +215,69 @@
     const live=()=>token===myToken;
 
     caption("the problem","A typical AI-built landing page. You have seen this one a thousand times.");
-    await T(3200);if(!live())return;
+    await T(1700);if(!live())return;
 
     // scan
     $("phase").textContent="audit mode";
-    $("terminal").classList.add("show");hideCaption();await T(700);
+    $("terminal").classList.add("show");hideCaption();await T(380);
     await termLine('<span class="cmd"><span class="pr">$</span> python3 devibe_scan.py ./ledgerflow</span>');
-    await T(650);if(!live())return;
-    caption("the scan","One command. It flags every documented AI tell, with the file and line.");
+    await T(260);if(!live())return;
+    caption("the scan","One command flags every documented AI tell, with the file and line.");
     let running=0;
     for(const f of FINDINGS){
-      const sevcls=f.sev==="HIGH"?"":"";
       await termLine(`<span class="fx"><span class="tag">&#10007;</span> ${f.t} <span class="sev">&times;${f.n} [${f.sev}]</span></span>`,"fx");
       running+=f.sev==="HIGH"?3*f.n:f.sev==="MED"?2*f.n:1*f.n;
-      await tick(parseInt($("score").textContent),running,260,"var(--red)");
-      await T(230);if(!live())return;
+      await tick(parseInt($("score").textContent),running,150,"var(--red)");
+      await T(95);if(!live())return;
     }
     await termLine('<span class="ok">&rarr; 16 findings &middot; vibe score 37</span>','');
     $("badge").textContent="STRONG AI-DEFAULT LOOK";$("badge").classList.add("show");
-    await T(1600);if(!live())return;
-    caption("37 / strong","Every line is a pattern people name as 'AI slop' in the data. None of it was chosen. The model defaulted to it.");
-    await T(3400);if(!live())return;
+    await T(650);if(!live())return;
+    caption("37 / strong","Every line is a pattern people name as 'AI slop'. None of it was chosen. The model defaulted to it.");
+    await T(1900);if(!live())return;
 
     // fix
-    $("phase").textContent="build mode &middot; same content, a deliberate brief";
+    $("phase").textContent="build mode · same content, a deliberate brief";
     clearTerm();
     await termLine('<span class="cmd"><span class="pr">$</span> python3 devibe_scan.py ./ledgerflow --rebuilt</span>');
-    caption("the fix","Same product, same copy. The tells are removed and replaced with a deliberate choice, not a new default.");
-    // cross-fade to after
+    caption("the fix","Same product, same copy. The tells are gone, replaced by a deliberate choice, not a new default.");
     $("beforeWrap").style.opacity=0;$("afterWrap").style.opacity=1;
-    await tick(37,0,1400,"var(--grn)");if(!live())return;
+    await T(250);
+    await tick(37,0,850,"var(--grn)");if(!live())return;
     $("bar").style.background="var(--grn)";
     await termLine('<span class="ok">&rarr; 0 findings &middot; vibe score 0</span>');
     $("badge").textContent="CLEAN";$("badge").style.background="var(--grnbg)";$("badge").style.color="var(--grn)";
-    await T(2600);if(!live())return;
-    caption("0 / clean","Not traded for a cream-and-serif 'tasteful' look (that is the new tell). A specific brand, chosen on purpose.");
-    await T(3600);if(!live())return;
+    await T(900);if(!live())return;
+    caption("0 / clean","Not traded for a cream-and-serif 'tasteful' look (that is the new tell). A brand chosen on purpose.");
+    await T(2100);if(!live())return;
 
     // variety
-    $("terminal").classList.remove("show");hideCaption();await T(500);
+    $("terminal").classList.remove("show");hideCaption();await T(320);
     $("phase").textContent="it breaks the monoculture";
     $("variety").classList.add("show");
     const thumbs=document.querySelectorAll(".thumb");
-    for(let i=0;i<thumbs.length;i++){thumbs[i].classList.add("in");await T(420);if(!live())return;}
-    await T(5200);if(!live())return;
+    for(let i=0;i<thumbs.length;i++){thumbs[i].classList.add("in");await T(200);if(!live())return;}
+    await T(2900);if(!live())return;
 
     // end
-    $("variety").classList.remove("show");await T(500);
+    $("variety").classList.remove("show");await T(350);
     $("endcard").classList.add("show");
-    await T(4200);if(!live())return;
+    await T(2500);if(!live())return;
     if(live())run(); // loop
   }
 
-  // drive the progress bar over ~38s
-  function progress(){
-    let start=Date.now();const dur=38000;
-    (function step(){const p=((Date.now()-start)%dur)/dur;$("prog").style.width=(p*100)+"%";requestAnimationFrame(step);})();
+  // progress bar driven by the run() clock, so it resets exactly when "before" restarts
+  // and fills to the end card. No control chrome on the stage.
+  function progLoop(){
+    const w=runStart?Math.min(100,(performance.now()-runStart)/TOTAL_MS*100):0;
+    $("prog").style.width=w+"%";requestAnimationFrame(progLoop);
   }
 
-  $("replay").onclick=()=>run();
   // scale the fixed 1200x744 stage to fit any viewport, so it records cleanly at any size
   function fit(){const s=Math.min(window.innerWidth/1200, window.innerHeight/748, 1);
     $("stage").style.transform="scale("+s+")";}
   window.addEventListener("resize",fit);
-  window.addEventListener("load",()=>{fit();progress();run();});
+  window.addEventListener("load",()=>{fit();progLoop();run();});
   fit();
 </script>
 </body></html>
