@@ -1,8 +1,16 @@
 # What makes a site look "vibe-coded": the data
 
-This repo is the full dataset and code behind a Reddit post that ranked the visual "tells" people use to spot AI-built (vibe-coded) websites. It mines public Reddit discussion from the free [Arctic Shift](https://arctic-shift.photon-reddit.com) archive, tabulates which design features get named most, and verifies the findings against real quotes.
+This repo holds three Reddit-mined studies of what people flag as AI "slop", and a Claude skill built from each: one for websites and UI, one for writing, and one for code. The flagship study, written up in full below, ranked the visual "tells" people use to spot AI-built (vibe-coded) websites. It mines public Reddit discussion from the free [Arctic Shift](https://arctic-shift.photon-reddit.com) archive, tabulates which design features get named most, and verifies the findings against real quotes.
 
 Everything here is reproducible with Python and the standard library plus matplotlib. No API key, no auth.
+
+## The three skills
+
+Pick the one for what you want to clean up. Each is a Claude skill built from its study: a `SKILL.md` with build and audit modes, a tells catalog ranked by this repo's data, and a standalone scanner that flags the tells and gates CI on its exit code.
+
+- **[unslop-ui](skill/)** removes the cues that make a website read as AI-generated: the default shadcn/Tailwind look, AI-purple gradients, gradient hero text, unprompted neon glow, emoji-as-icons, and the centered-hero-plus-three-cards layout. Install: `unzip skill/unslop-ui.skill -d ~/.claude/skills/`, or upload [skill/unslop-ui.skill](skill/unslop-ui.skill) in the claude.ai skills UI.
+- **[unslop-text](unslop-ai-text/skill/)** removes the cues that make prose read as AI-written: the em dash, the "it's not just X, it's Y" cadence, leftover assistant boilerplate, sycophantic openers, the delve/leverage diction, and the "in conclusion" wrap-up. Install: `unzip unslop-ai-text/skill/unslop-text.skill -d ~/.claude/skills/`, or upload [unslop-ai-text/skill/unslop-text.skill](unslop-ai-text/skill/unslop-text.skill) in the claude.ai skills UI.
+- **[unslop-code](unslop-ai-code/skill/)** removes the tells that make source code read as AI-written (leftover chat artifacts, placeholder comments, emoji, swallowed errors, narrating comments, generic placeholder names) and points you at the structural tells a linter passes, like boilerplate and hallucinated APIs. Install: `unzip unslop-ai-code/skill/unslop-code.skill -d ~/.claude/skills/`, or upload [unslop-ai-code/skill/unslop-code.skill](unslop-ai-code/skill/unslop-code.skill) in the claude.ai skills UI.
 
 ## The numbers
 
