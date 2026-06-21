@@ -1,0 +1,29 @@
+rank,category,tell,comments_mentioning,share_pct_of_comments
+1,naming,"over-descriptive / verbose names (handleSubmitButtonClick, getUserDataFromApi)",1973,17.5
+2,structure,boilerplate / scaffolding / tutorial-shaped code,98,0.9
+3,output,emoji in code / console logs / commit messages (✅ 🚀 🎉),24,0.2
+4,artifact,explanatory 'Note:' / 'Remember:' / 'Keep in mind' preambles in the code,23,0.2
+5,structure,over-engineered / needless abstraction for a simple task,15,0.1
+6,comments,"placeholder / ellipsis comments ('// rest of your code', '// ... your logic here')",7,0.1
+7,artifact,markdown / code-fence backticks or '```python' left in the file,7,0.1
+8,structure,everything split into tiny helper functions,5,0.0
+9,artifact,"model self-disclosure / refusal text pasted into code ('As an AI', 'I cannot')",4,0.0
+10,output,print/console.log debugging left everywhere; 'Successfully ...' messages,2,0.0
+11,comments,over-commenting / a comment on every line,1,0.0
+12,comments,comments that restate / explain the obvious,1,0.0
+13,errors,"catch-all / swallowed errors ('except Exception', bare catch)",1,0.0
+14,errors,over-defensive: null/None checks & validation for impossible cases,1,0.0
+15,naming,"generic placeholder names (data, result, temp, item, foo, value)",1,0.0
+16,style,too clean / too perfect / suspiciously consistent formatting,1,0.0
+17,comments,"narrating / step-by-step comments ('# Step 1', '# Now we...')",0,0.0
+18,comments,docstring/JSDoc on every trivial function,0,0.0
+19,comments,"leftover TODO/placeholder ('# TODO: implement', '// your code here')",0,0.0
+20,errors,try/except (try/catch) wrapped around everything,0,0.0
+21,structure,reimplements something the stdlib/library already provides,0,0.0
+22,style,style doesn't match the rest of the codebase,0,0.0
+23,style,type hints / annotations on everything (incl. dynamically-typed langs),0,0.0
+24,style,over-use of f-strings / list comprehensions / one-liners,0,0.0
+25,lang-specific,Python: if __name__ == '__main__' / dataclasses / main() on trivial scripts,0,0.0
+26,lang-specific,"JS/TS: async/await, const, arrow funcs, optional chaining everywhere",0,0.0
+27,lang-specific,unnecessary semicolons / explicit returns / verbose typing idioms,0,0.0
+28,artifact,"chat preamble left in: 'Here's the complete/updated code', 'Sure! Here is'",0,0.0

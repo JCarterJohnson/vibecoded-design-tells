@@ -1,0 +1,29 @@
+category,tell,share_2020,share_2021,share_2022,share_2023,share_2024,share_2025,share_2026
+naming,"over-descriptive / verbose names (handleSubmitButtonClick, getUserDataFromApi)",77.8,47.1,65.1,61.8,58.0,59.4,62.1
+output,emoji in code / console logs / commit messages (✅ 🚀 🎉),0.0,5.9,1.2,4.3,4.4,6.5,2.8
+structure,boilerplate / scaffolding / tutorial-shaped code,0.0,0.0,0.0,0.4,1.4,3.8,4.7
+artifact,markdown / code-fence backticks or '```python' left in the file,11.1,5.9,1.2,1.2,1.6,3.0,2.2
+artifact,explanatory 'Note:' / 'Remember:' / 'Keep in mind' preambles in the code,0.0,0.0,6.0,5.2,2.6,2.2,1.3
+structure,over-engineered / needless abstraction for a simple task,0.0,0.0,0.0,0.4,0.4,0.7,0.7
+comments,"placeholder / ellipsis comments ('// rest of your code', '// ... your logic here')",0.0,0.0,1.2,0.5,1.0,0.7,0.5
+artifact,"model self-disclosure / refusal text pasted into code ('As an AI', 'I cannot')",0.0,0.0,3.6,2.3,0.4,0.6,0.4
+output,print/console.log debugging left everywhere; 'Successfully ...' messages,0.0,0.0,0.0,0.1,0.1,0.1,0.4
+comments,"narrating / step-by-step comments ('# Step 1', '# Now we...')",0.0,0.0,0.0,0.1,0.1,0.3,0.2
+style,too clean / too perfect / suspiciously consistent formatting,0.0,0.0,0.0,0.0,0.1,0.2,0.3
+errors,"catch-all / swallowed errors ('except Exception', bare catch)",0.0,0.0,0.0,0.0,0.1,0.1,0.3
+errors,over-defensive: null/None checks & validation for impossible cases,0.0,0.0,0.0,0.0,0.0,0.2,0.3
+artifact,"chat preamble left in: 'Here's the complete/updated code', 'Sure! Here is'",0.0,0.0,2.4,0.5,0.1,0.2,0.0
+structure,everything split into tiny helper functions,0.0,0.0,0.0,0.4,0.0,0.1,0.1
+lang-specific,Python: if __name__ == '__main__' / dataclasses / main() on trivial scripts,0.0,0.0,0.0,0.2,0.4,0.1,0.0
+style,type hints / annotations on everything (incl. dynamically-typed langs),0.0,0.0,0.0,0.0,0.1,0.0,0.1
+comments,over-commenting / a comment on every line,0.0,0.0,0.0,0.0,0.1,0.0,0.1
+comments,"leftover TODO/placeholder ('# TODO: implement', '// your code here')",0.0,0.0,0.0,0.1,0.0,0.0,0.0
+comments,comments that restate / explain the obvious,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+errors,try/except (try/catch) wrapped around everything,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+naming,"generic placeholder names (data, result, temp, item, foo, value)",0.0,0.0,0.0,0.0,0.1,0.0,0.0
+comments,docstring/JSDoc on every trivial function,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+style,style doesn't match the rest of the codebase,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+structure,reimplements something the stdlib/library already provides,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+style,over-use of f-strings / list comprehensions / one-liners,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+lang-specific,"JS/TS: async/await, const, arrow funcs, optional chaining everywhere",0.0,0.0,0.0,0.0,0.0,0.0,0.0
+lang-specific,unnecessary semicolons / explicit returns / verbose typing idioms,0.0,0.0,0.0,0.0,0.0,0.0,0.0

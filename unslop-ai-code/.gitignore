@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+probe.py
+# checkpoints / logs are run-local
+collect_done.txt
+comments_done.txt
+run_log.txt

@@ -1,0 +1,3 @@
+# Collection + analysis use only the Python standard library (urllib, json, csv,
+# re, collections, datetime). Charts use matplotlib. Nothing else is required.
+matplotlib>=3.6

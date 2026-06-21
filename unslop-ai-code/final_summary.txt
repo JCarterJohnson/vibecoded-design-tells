@@ -1,0 +1,26 @@
+comments_classified: 2136
+posts_classified: 1500
+comments naming a specific tell: 258
+posts naming a specific tell: 146
+total on-topic comments (denominator): 11306
+
+RANKED (verified):
+ 1. boilerplate_tutorial   comments=  53 posts=  15 share=20.5%  [solid p~90%]
+ 2. over_comment           comments=  47 posts=  11 share=18.2%  [inflated p~47.5%]
+ 3. hallucinated_api       comments=  47 posts=  33 share=18.2%  [mostly p~62.5%]
+ 4. umbrella_looks_ai      comments=  46 posts=  40 share=17.8%  [? p~?%]
+ 5. over_engineered        comments=  33 posts=  22 share=12.8%  [mostly p~60.6%]
+ 6. excessive_try          comments=  16 posts=   5 share= 6.2%  [mostly p~50%]
+ 7. too_clean              comments=  14 posts=   9 share= 5.4%  [mostly p~42.9%]
+ 8. style_mismatch         comments=  14 posts=  13 share= 5.4%  [mostly p~64.3%]
+ 9. emoji                  comments=  13 posts=  12 share= 5.0%  [mostly p~76.9%]
+10. inconsistent_skill     comments=  10 posts=   8 share= 3.9%  [mostly p~50%]
+11. excess_logging         comments=   8 posts=   2 share= 3.1%  [artifact p~0%]
+12. verbose_naming         comments=   6 posts=   5 share= 2.3%  [inflated p~16.7%]
+13. reinvent_wheel         comments=   6 posts=   6 share= 2.3%  [inflated p~16.7%]
+14. generic_naming         comments=   5 posts=   5 share= 1.9%  [solid p~100%]
+15. over_validation        comments=   5 posts=   2 share= 1.9%  [inflated p~40%]
+16. placeholder_comment    comments=   4 posts=  16 share= 1.6%  [? p~?%]
+17. chat_artifact          comments=   3 posts=   6 share= 1.2%  [? p~?%]
+18. type_everywhere        comments=   2 posts=   4 share= 0.8%  [? p~?%]
+19. redundant_docstring    comments=   0 posts=   1 share= 0.0%  [? p~?%]

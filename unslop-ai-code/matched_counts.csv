@@ -1,0 +1,212 @@
+subreddit,lane,query,family,harvested,status
+ChatGPTCoding,ai,AI generated code,A,252,ok
+ChatGPTCoding,ai,AI written code,A,86,ok
+ChatGPTCoding,ai,code written by AI,A,0,ok
+ChatGPTCoding,ai,ChatGPT wrote this code,A,32,ok
+ChatGPTCoding,ai,Copilot generated code,A,8,ok
+ChatGPTCoding,ai,Claude wrote this code,A,25,ok
+ChatGPTCoding,ai,Cursor generated code,A,4,ok
+ChatGPTCoding,ai,looks AI generated,A,3,ok
+ChatGPTCoding,ai,obviously AI code,A,29,ok
+ChatGPTCoding,ai,clearly AI code,A,35,ok
+ChatGPTCoding,ai,spot AI code,A,14,ok
+ChatGPTCoding,ai,detect AI code,A,15,ok
+ChatGPTCoding,ai,tell AI wrote code,A,3,ok
+ChatGPTCoding,ai,AI slop code,A,6,ok
+ChatGPTCoding,ai,screams AI,A,1,ok
+ChatGPTCoding,ai,smells like AI,A,0,ok
+ChatGPTCoding,ai,dead giveaway AI,A,0,ok
+ChatGPTCoding,ai,telltale signs AI,A,1,ok
+ChatGPTCoding,ai,obvious ChatGPT code,A,11,ok
+ChatGPTCoding,ai,looks like AI wrote,A,1,ok
+ChatGPTCoding,ai,vibe coded,A,134,ok
+ChatGPTCoding,ai,vibe coding,A,260,ok
+ChatGPTCoding,ai,is this AI code,A,179,ok
+ChatGPTCoding,ai,AI generated commit,A,1,ok
+ChatGPTCoding,ai,rest of your code,B,21,ok
+ChatGPTCoding,ai,rest of the implementation,B,3,ok
+ChatGPTCoding,ai,unnecessary comments,B,6,ok
+ChatGPTCoding,ai,over engineered,B,13,ok
+ChatGPTCoding,ai,placeholder comments,B,5,ok
+ChatGPTCoding,ai,comments on every line,B,6,ok
+ChatGPTCoding,ai,emoji in code,B,2,ok
+ChatGPT,ai,AI generated code,A,300,ok
+ChatGPT,ai,AI written code,A,257,ok
+ChatGPT,ai,code written by AI,A,78,ok
+ChatGPT,ai,ChatGPT wrote this code,A,248,ok
+ChatGPT,ai,Copilot generated code,A,18,ok
+ChatGPT,ai,Claude wrote this code,A,18,ok
+ChatGPT,ai,Cursor generated code,A,5,ok
+ChatGPT,ai,looks AI generated,A,241,ok
+ChatGPT,ai,obviously AI code,A,100,ok
+ChatGPT,ai,clearly AI code,A,186,ok
+ChatGPT,ai,spot AI code,A,64,ok
+ChatGPT,ai,detect AI code,A,71,ok
+ChatGPT,ai,tell AI wrote code,A,9,ok
+ChatGPT,ai,AI slop code,A,17,ok
+ChatGPT,ai,screams AI,A,59,ok
+ChatGPT,ai,smells like AI,A,40,ok
+ChatGPT,ai,dead giveaway AI,A,19,ok
+ChatGPT,ai,telltale signs AI,A,11,ok
+ChatGPT,ai,obvious ChatGPT code,A,88,ok
+ChatGPT,ai,looks like AI wrote,A,48,ok
+ChatGPT,ai,vibe coded,A,140,ok
+ChatGPT,ai,vibe coding,A,262,ok
+ChatGPT,ai,is this AI code,A,186,ok
+ChatGPT,ai,AI generated commit,A,11,ok
+ChatGPT,ai,rest of your code,B,150,ok
+ChatGPT,ai,rest of the implementation,B,24,ok
+ChatGPT,ai,unnecessary comments,B,37,ok
+ChatGPT,ai,over engineered,B,163,ok
+ChatGPT,ai,placeholder comments,B,12,ok
+ChatGPT,ai,comments on every line,B,68,ok
+ChatGPT,ai,emoji in code,B,39,ok
+ChatGPTPro,ai,AI generated code,A,79,ok
+ChatGPTPro,ai,AI written code,A,31,ok
+ChatGPTPro,ai,code written by AI,A,0,ok
+ChatGPTPro,ai,ChatGPT wrote this code,A,16,ok
+ChatGPTPro,ai,Copilot generated code,A,2,ok
+ChatGPTPro,ai,Claude wrote this code,A,6,ok
+ChatGPTPro,ai,Cursor generated code,A,0,ok
+ChatGPTPro,ai,looks AI generated,A,22,ok
+ChatGPTPro,ai,obviously AI code,A,6,ok
+ChatGPTPro,ai,clearly AI code,A,32,ok
+ChatGPTPro,ai,spot AI code,A,14,ok
+ChatGPTPro,ai,detect AI code,A,9,ok
+ChatGPTPro,ai,tell AI wrote code,A,0,ok
+ChatGPTPro,ai,AI slop code,A,1,ok
+ChatGPTPro,ai,screams AI,A,5,ok
+ChatGPTPro,ai,smells like AI,A,0,ok
+ChatGPTPro,ai,dead giveaway AI,A,0,ok
+ChatGPTPro,ai,telltale signs AI,A,0,ok
+ChatGPTPro,ai,obvious ChatGPT code,A,13,ok
+ChatGPTPro,ai,looks like AI wrote,A,3,ok
+ChatGPTPro,ai,vibe coded,A,5,ok
+ChatGPTPro,ai,vibe coding,A,54,ok
+ChatGPTPro,ai,is this AI code,A,178,ok
+ChatGPTPro,ai,AI generated commit,A,1,ok
+ChatGPTPro,ai,rest of your code,B,7,ok
+ChatGPTPro,ai,rest of the implementation,B,3,ok
+ChatGPTPro,ai,unnecessary comments,B,5,ok
+ChatGPTPro,ai,over engineered,B,16,ok
+ChatGPTPro,ai,placeholder comments,B,3,ok
+ChatGPTPro,ai,comments on every line,B,11,ok
+ChatGPTPro,ai,emoji in code,B,2,ok
+OpenAI,ai,AI generated code,A,152,ok
+OpenAI,ai,AI written code,A,74,ok
+OpenAI,ai,code written by AI,A,0,ok
+OpenAI,ai,ChatGPT wrote this code,A,32,ok
+OpenAI,ai,Copilot generated code,A,1,ok
+OpenAI,ai,Claude wrote this code,A,9,ok
+OpenAI,ai,Cursor generated code,A,1,ok
+OpenAI,ai,looks AI generated,A,50,ok
+OpenAI,ai,obviously AI code,A,22,ok
+OpenAI,ai,clearly AI code,A,37,ok
+OpenAI,ai,spot AI code,A,13,ok
+OpenAI,ai,detect AI code,A,22,ok
+OpenAI,ai,tell AI wrote code,A,1,ok
+OpenAI,ai,AI slop code,A,6,ok
+OpenAI,ai,screams AI,A,6,ok
+OpenAI,ai,smells like AI,A,4,ok
+OpenAI,ai,dead giveaway AI,A,1,ok
+OpenAI,ai,telltale signs AI,A,1,ok
+OpenAI,ai,obvious ChatGPT code,A,12,ok
+OpenAI,ai,looks like AI wrote,A,16,ok
+OpenAI,ai,vibe coded,A,56,ok
+OpenAI,ai,vibe coding,A,128,ok
+OpenAI,ai,is this AI code,A,194,ok
+OpenAI,ai,AI generated commit,A,3,ok
+OpenAI,ai,rest of your code,B,26,ok
+OpenAI,ai,rest of the implementation,B,6,ok
+OpenAI,ai,unnecessary comments,B,12,ok
+OpenAI,ai,over engineered,B,31,ok
+OpenAI,ai,placeholder comments,B,3,ok
+OpenAI,ai,comments on every line,B,7,ok
+OpenAI,ai,emoji in code,B,6,ok
+OpenAIDev,ai,AI generated code,A,13,ok
+OpenAIDev,ai,AI written code,A,3,ok
+OpenAIDev,ai,code written by AI,A,0,ok
+OpenAIDev,ai,ChatGPT wrote this code,A,2,ok
+OpenAIDev,ai,Copilot generated code,A,0,ok
+OpenAIDev,ai,Claude wrote this code,A,1,ok
+OpenAIDev,ai,Cursor generated code,A,1,ok
+OpenAIDev,ai,looks AI generated,A,1,ok
+OpenAIDev,ai,obviously AI code,A,1,ok
+OpenAIDev,ai,clearly AI code,A,4,ok
+OpenAIDev,ai,spot AI code,A,0,ok
+OpenAIDev,ai,detect AI code,A,0,ok
+OpenAIDev,ai,tell AI wrote code,A,0,ok
+OpenAIDev,ai,AI slop code,A,0,ok
+OpenAIDev,ai,screams AI,A,0,ok
+OpenAIDev,ai,smells like AI,A,0,ok
+OpenAIDev,ai,dead giveaway AI,A,0,ok
+OpenAIDev,ai,telltale signs AI,A,0,ok
+OpenAIDev,ai,obvious ChatGPT code,A,0,ok
+OpenAIDev,ai,looks like AI wrote,A,0,ok
+OpenAIDev,ai,vibe coded,A,5,ok
+OpenAIDev,ai,vibe coding,A,9,ok
+OpenAIDev,ai,is this AI code,A,57,ok
+OpenAIDev,ai,AI generated commit,A,0,ok
+OpenAIDev,ai,rest of your code,B,0,ok
+OpenAIDev,ai,rest of the implementation,B,0,ok
+OpenAIDev,ai,unnecessary comments,B,1,ok
+OpenAIDev,ai,over engineered,B,2,ok
+OpenAIDev,ai,placeholder comments,B,0,ok
+OpenAIDev,ai,comments on every line,B,0,ok
+OpenAIDev,ai,emoji in code,B,0,ok
+ClaudeAI,ai,AI generated code,A,300,ok
+ClaudeAI,ai,AI written code,A,249,ok
+ClaudeAI,ai,code written by AI,A,100,ok
+ClaudeAI,ai,ChatGPT wrote this code,A,70,ok
+ClaudeCode,ai,AI generated code,A,200,ok
+Anthropic,ai,AI generated code,A,46,ok
+cursor,ai,AI generated code,A,200,ok
+vibecoding,ai,AI generated code,A,200,ok
+GithubCopilot,ai,AI generated code,A,87,ok
+copilot,ai,AI generated code,A,0,ok
+LocalLLaMA,ai,AI generated code,A,200,ok
+AI_Agents,ai,AI generated code,A,200,ok
+LLMDevs,ai,AI generated code,A,126,ok
+PromptEngineering,ai,AI generated code,A,169,ok
+artificial,ai,AI generated code,A,173,ok
+ArtificialInteligence,ai,AI generated code,A,200,ok
+singularity,ai,AI generated code,A,139,ok
+GoogleGeminiAI,ai,AI generated code,A,45,ok
+GeminiAI,ai,AI generated code,A,112,ok
+Bard,ai,AI generated code,A,55,ok
+perplexity_ai,ai,AI generated code,A,12,ok
+grok,ai,AI generated code,A,64,ok
+aipromptprogramming,ai,AI generated code,A,111,ok
+ChatGPTPromptGenius,ai,AI generated code,A,176,ok
+programming,code,AI generated code,A,200,ok
+learnprogramming,code,AI generated code,A,200,ok
+webdev,code,AI generated code,A,200,ok
+ExperiencedDevs,code,AI generated code,A,200,ok
+cscareerquestions,code,AI generated code,A,138,ok
+codereview,code,AI generated code,A,30,ok
+programminghorror,code,AI generated code,A,10,ok
+ProgrammerHumor,code,AI generated code,A,4,ok
+SoftwareEngineering,code,AI generated code,A,76,ok
+javascript,code,AI generated code,A,39,ok
+Python,code,AI generated code,A,161,ok
+rust,code,AI generated code,A,128,ok
+golang,code,AI generated code,A,55,ok
+cpp,code,AI generated code,A,21,ok
+csharp,code,AI generated code,A,29,ok
+java,code,AI generated code,A,7,ok
+typescript,code,AI generated code,A,14,ok
+node,code,AI generated code,A,26,ok
+reactjs,code,AI generated code,A,72,ok
+PHP,code,AI generated code,A,12,ok
+ruby,code,AI generated code,A,8,ok
+gamedev,code,AI generated code,A,169,ok
+devops,code,AI generated code,A,77,ok
+dotnet,code,AI generated code,A,30,ok
+SaaS,saas,AI generated code,A,200,ok
+startups,saas,AI generated code,A,54,ok
+indiehackers,saas,AI generated code,A,142,ok
+SideProject,saas,AI generated code,A,200,ok
+microsaas,saas,AI generated code,A,200,ok
+EntrepreneurRideAlong,saas,AI generated code,A,78,ok
+ClaudeCode,ai,AI written code,A,175,ok
+Anthropic,ai,AI written code,A,36,ok

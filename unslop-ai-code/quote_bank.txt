@@ -1,0 +1,295 @@
+=== TOP-SCORED ON-TOPIC POSTS (overall) ===
+
+[17387|ChatGPT|2025] After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something
+   Last Tuesday at 3 AM, I was on my 147th attempt to get ChatGPT to write a simple email that didn't sound like a robot having an existential crisis.  I snapped.  "Why can't YOU just ASK ME what you need to know?" I typed in frustration.  Wait.  What if it could?  I spent the next 72 hours building wh
+
+[14257|ProgrammerHumor|2023] AI generated code quality
+   
+
+[13070|ChatGPT|2023] GPT-4 Week 3. Chatbots are yesterdays news. AI Agents are the future. The beginning of the proto-agi era is here
+   Another insane week in AI  I need a break 😪. I'll be on to answer comments after I sleep. Enjoy  &#x200B;  * Autogpt is GPT-4 running fully autonomously. It even has a voice, can fix code, set tasks, create new instances and more. Connect this with literally anything and let GPT-4 do its thing by it
+
+[11661|ChatGPT|2025] Opposing Counsel Just Filed a ChatGPT Hallucination with the Court
+   TLDR; opposing counsel just filed a brief that is 100% an AI hallucination. The hearing is on Tuesday.      I'm an attorney practicing civil litigation. Without going to far into it, we represent a client who has been sued over a commercial licensing agreement. Opposing counsel is a collections firm
+
+[8338|ChatGPT|2024] Researchers identify 26 golden rules for prompting. Here’s what you need to know.
+   I see people arguing back and forth whether or not a prompting technique works, for example offering chatGPT a tip, saying please/thank you…  Well some researchers have put these all to the test.  Check the full blog [here](https://www.thepromptindex.com/the-science-of-prompting-chatgpt:-26-principl
+
+[7445|ChatGPT|2025] Yesterday, ChatGPT helped my daughter save over $3,000 on a car purchase (see comment for prompt)
+   A few years ago, my daughter bought her first car. It served her well, but she needs something more reliable. She’s worked hard, scrimped, and saved for over two years to but a new car.  Like many kids, she doesn’t really take parental advice seriously, especially when it comes from me.  I tried to 
+
+[6212|ChatGPT|2023] AI just let me do a day's work in 10 minutes.
+   Today's job was to write a blog post summarizing a 1 hour presentation given by one of our senior executives. Otter AI transcribed it all into about 10k words of text, then ChatGPT summarized the whole thing into a 500 word blog post for me. All I have to do is tidy it up a bit so it looks like a hu
+
+[5808|ChatGPT|2026] this tweet aged in the funniest possible way
+   this tweet aged like wine because programmers didn’t disappear, we just evolved into full time ai babysitters 😭  half my workflow now is codex writing code, cursor autocomplete fighting for its life, and runable handling the boring stuff like docs and landing pages while clients still somehow descri
+
+[4336|ChatGPT|2023] Ultimate ChatGPT Prompts + Midjourney Library (1,200+ HD images, prompts. All Free. no sign-ups/ads)
+   ***Disclaimer: all links below are free, no ads, no sign-up required & no donation button.***  Hi all, I think I've out done myself to the level of exhaustion with this one, but I'm pretty proud of this resource.  I spent the entire week generating over 1.2K Midjourney images, from prompts generated
+
+[4017|ChatGPT|2023] GPT-4 Week One. The biggest week in AI history. Here's whats happening
+   It's been one week since GPT-4 was released and people have already been doing crazy things with it. Here's a bunch 👇  &amp;#x200B;  * The biggest change to education in years. Khan Academy demos its AI capabilities and it will change learning forever \[[***Link***](https://www.youtube.com/watch?v=r
+
+[3935|ChatGPT|2023] GPT-4 Week 4. The rise of Agents and the beginning of the Simulation era
+   Another big week. Delayed a day because I've been dealing with a terrible flu  &#x200B;  * Cognosys - a web based version of AutoGPT/babyAGI. Looks so cool \[[Link](https://www.cognosys.ai/)\] * Godmode is another web based autogpt. Very fun to play with this stuff \[[Link](https://godmode.space/)\]
+
+[3763|ChatGPT|2026] Coders in 2030
+   I feel like I am falling into this category   At this point I am using ai agent for everything   Ui is handled by runable, stitch,figma and etc they make awesome ui's  For code share and backend i find myself using cursor or codexand antigravity but I have the technical ability I am not at that dumb
+
+[3591|programming|2026] Anthropic: AI assisted coding doesn't show efficiency gains and impairs developers abilities.
+   You sure have heard it, it has been repeated countless times in the last few weeks, even from some luminaries of the development world: "AI coding makes you 10x more productive and if you don't use it you will be left behind". Sounds ominous right? Well, one of the biggest promoters of AI assisted c
+
+[3353|ChatGPT|2023] GPT-4 Week 5. Open Source is coming + Music industry in shambles - Nofil's Weekly Breakdown
+   So I thought I might as well do a lil intro since this has become a weekly thing. I'm Nofil. lifon is my name backwards, hence the username lostlifon.  Better formatting yay!  # Google + DeepMind  * Google Brain and Deepmind have combined to form Google Deepmind. This is a big deal. Expecting big th
+
+[3340|ChatGPT|2023] Chatgpt Plugins Week 1. GPT-4 Week 2. Another absolutely insane week in AI. One of the biggest advancements in human his
+   On February 9th there was a paper released talking about how incredible it would be if AI could use tools. 42 days later we had Chatgpt plugins. The speed with which we are advancing is truly unbelievable, incredibly exciting and also somewhat terrifying.  Here's some of the things that happened in 
+
+[3281|ArtificialInteligence|2025] China just used Claude to hack 30 companies. The AI did 90% of the work. Anthropic caught them and is telling everyone h
+   So this dropped yesterday and it's actually wild.  September 2025. Anthropic detected suspicious activity on Claude. Started investigating.  Turns out it was Chinese state-sponsored hackers. They used Claude Code to hack into roughly 30 companies. Big tech companies, Banks, Chemical manufacturers an
+
+[3163|ExperiencedDevs|2025] The era of AI slop cleanup has begun
+   I’m a freelance software engineer with about 8 years of experience mainly in early stage startups. At this point, I have a pretty steady flow of referrals. I don’t take every project on and not every one works out, but enough do that I can do it more than full time.   Lately, though, I have noticed 
+
+[2751|ChatGPT|2025] I tried an experiment and now I'm disturbed.
+   I'm sure we've all seen people trying to talk to an AI as if it were human. I got curious last night and I started a new chat. Instead of giving it a bunch of commands, I started talking to it like it was a regular person. That's where everything went downhill.  It started so normal at first. I aske
+
+[2642|ChatGPT|2023] GPT-4 Week 7. Government oversight, Strikes, Education, Layoffs & Big tech are moving - Nofil's Weekly Breakdown
+   The insanity continues.  Not sure how much longer I'll continue making these tbh, I'm essentially running some of these content vulture channels for free which bothers me coz they're so shit and low quality. Also provides more value to followers of me newsletter so idk what to do just yet  ## Godfat
+
+[2295|programminghorror|2025] You've seen AI generated code, now get ready for AI generated images of code
+   The closer you look, the worse it gets
+
+[2290|singularity|2025] Anthropic CEO, Dario Amodei: in the next 3 to 6 months, AI is writing  90% of the code, and in 12 months, nearly all cod
+   
+
+[2258|ChatGPT|2023] GPT-4 Week 6. The first AI Political Ad + Palantir's Military AI could be a new frontier for warfare - Nofil's Weekly Br
+   Honestly I don't understand how things aren't slowing down. 6 weeks straight and there's about 100 more things I could add to this. These are unprecedented times  Link to newsletter at the bottom + call for help in the comments (want to partner with someone to make video content about AI)  Enjoy  # 
+
+[2171|ChatGPT|2025] How ChatGPT helped give my brother his voice back and his joy for gaming
+   My brother Ben is 29. He’s nonverbal and quadriplegic due to a rare, progressive condition called TUBB4A-related leukodystrophy. Over the years, he lost the ability to speak, move, and interact with the world — including the one thing he loved most growing up: video games.  We tried traditional AAC 
+
+[2003|ClaudeAI|2025] I Uploaded a 27-Year-Old EXE File to Claude 3.7 and What Happened Next Blew My Mind
+   After years of AI disappointment, I'm genuinely shocked. This isn't your typical "AI is amazing" post - I've been *deeply* skeptical until today.  **The Background:** Like many, I've tried ChatGPT and other AI tools for coding help. The results? Consistently underwhelming. Glorified search engines t
+
+[1907|ExperiencedDevs|2025] [Rant] Hiring Junior Developers has become crazy
+   I am currently in the process of hiring two junior developers and it is turning me crazy. I have hired for myself or been part of hirings for dozens of junior developers in the past 20 years and it is absurd how it has changed in the last 2 years.  For one position I did 5 interviews so far, they we
+
+[1902|ExperiencedDevs|2026] Started making people walk me through their AI PRs in person. The 500-line diffs disappeared overnight
+   I was drowning in reviews. People were submitting these massive AI-generated PRs and I’d spend an hour just trying to figure out what changed and why. Half the time the author couldn’t explain it either because they didn’t write it.  So I started a new rule. Any PR over 150 lines, we schedule 15 min
+
+[1870|ChatGPT|2023] I'm older and I can't get over my jealousy that ChatGPT wasn't available when I was a child.
+   In the past several weeks I've been able to get more done with GPT's help than I did last year. I've "read" 50 books, written code for a website, outlined a novel that I always wanted to try writing, and learned so much about the world through the use of custom curriculums and summaries, all generat
+
+[1863|ChatGPT|2025] I asked ChatGPT what it would say about humanity to an alien species well after we are gone.  I didn’t expect it to make
+   My prompt: “So weird thought time.  Let’s say an alien ship lands on earth long after humans have killed themselves off.  The aliens find a computer or phone and they are able to get it working and access chatgpt 4o.  What do you say about the human race?  As a whole and how far we range in differen
+
+[1837|OpenAI|2025] How a tiny Caribbean island accidentally became the biggest winner of the AI boom
+   I just came across this story and honestly… it blew my mind.  There’s this little island in the Caribbean called Anguilla (population: \~16,000). Back in the 80s, every country got a two-letter internet domain (.uk, .es, .us, .fr...)  Anguilla got .ai.  At the time it was just another random country
+
+[1826|webdev|2025] I tried vibe coding and it made me realise my career is absolutely safe
+   I’ve been a software engineer for the last 15 years. Mainly working as a product engineer, building websites and apps for both small startups and large enterprises.  I can confidently say I’m an expert. But like most people I have been slightly worried recently with the progress ai has been making. 
+
+[1803|ClaudeAI|2026] Microsoft is restricting employees from using Claude Fable 5
+   Access to the powerful Claude Fable 5 model has been **halted**, particularly concerning its integration into GitHub Copilot, pending internal review.  **Core Issue:** Anthropic's updated policy for Mythos-class models dictates that user prompts and generated outputs are retained for 30 days for saf
+
+[1751|cscareerquestions|2024] Breaking: Google announces in earnings call that 25% of code is being generated by AI. And this is just the beginning ..
+   "Google is building a bunch of AI products, and it’s using AI quite a bit as part of building those products, too. “More than a quarter of all new code at Google is generated by AI, then reviewed and accepted by engineers,” CEO Sundar Pichai [said on](https://blog.google/inside-google/message-ceo/al
+
+[1703|ChatGPT|2026] Day One of Vibe Coding
+   
+
+[1673|ChatGPT|2025] Why do people forget to delete the obvious AI giveaway lines in their essays?
+   I've been noticing this more and more—people using ChatGPT or other AI tools to write essays, posts, or even emails, and they *leave in* those super obvious lines like:  * "In conclusion, this essay has discussed..." * "As an AI developed by OpenAI..." * "To summarize the above points..."  It’s such
+
+[1658|LocalLLaMA|2026] I was backend lead at Manus. After building agents for 2 years, I stopped using function calling entirely. Here's what I
+   > English is not my first language. I wrote this in Chinese and translated it with AI help. The writing may have some AI flavor, but the design decisions, the production failures, and the thinking that distilled them into principles — those are mine.  I was a backend lead at Manus before the Meta ac
+
+[1654|ExperiencedDevs|2025] Thanks to all the AI coders out there, im busier than i've been in years
+   I've been freelancing on the side for more than couple years now, mostly helping startups and smaller teams fix bugs, add features, the usual stuff.  Used to be maybe 1 or 2 projects a month. Now I'm turning people away because there's too much work coming in. And I'm pretty sure I know why.  About 
+
+[1608|ChatGPT|2026] I save every great ChatGPT prompt I find. Here are the 15 that changed how I work.
+   I use ChatGPT for everything. Writing, coding, brainstorming, research.  Over the past 6 months, I've collected 500+ prompts. But only 15 get used constantly.  These 15 prompts save me 10-15 hours every week. Sharing them here.  **1. The "Explain Like I'm Smart" Prompt**      Explain [complex topic]
+
+[1600|ChatGPT|2025] Sen. Bill Cassidy on the floor of the Senate with what looks like an AI-generated graphic
+   Some suspicious artifacts on the “80%” and the dollar signs on the right side
+
+[1560|ExperiencedDevs|2026] Today I announced that I won't be reviewing AI generated PRs at company meeting
+   I was reviewing PRs from data scientists (data scientists) for the web service. The data scientists were using Claude Code to generate changes to the web site (rails/vue) and send PRs to the web developers. I made a decision that I no longer want to review this code, since it's AI generated and peop
+
+[1515|ChatGPT|2026] Just one more prompt
+   I have lost more money vibe coding than at the casino
+
+[1498|ChatGPT|2025] An Update: Ben can now surf the web thanks to Vibe Coding in ChatGPT
+   My brother Ben is 29 and has an ultra-rare condition called Tubb4a-related Leukodystrophy. He’s nonverbal and quadriplegic.  For years, Ben was essentially locked in — the only way he could communicate was by turning his head left for “no” and right for “yes.” Most AAC devices didn’t work for him be
+
+[1461|ClaudeAI|2026] Karpathy says he hasn't written a line of code since December and is in "perpetual AI psychosis." How many Claude Code u
+   Just listened to his new No Priors episode. He describes going from 80% writing his own code to 0%, spending 16 hours a day directing agents, and being in a constant state of "AI psychosis" because the possibilities feel infinite.  Garry Tan calls it "cyber psychosis" — sleeping 4 hours because he c
+
+[1432|OpenAI|2025] Looks Like AI
+   It looks like AI generated. Found on Facebook. 
+
+[1405|ChatGPT|2025] I'm done with ChatGPT and OpenAI. Sam Altman, this one's on you.
+   So, GPT-5 is unusable for me. I'm not just complaining about a minor dip in quality; I mean every single use case I had is now providing unusable results.  My workflow was perfect. I was a heavy user, paying for Plus and even the Pro tier when my projects demanded it. I had specific instruction temp
+
+[1392|ChatGPT|2025] I gave ChatGPT $400 and full custody of my financial future. What could possibly go wrong?
+   I deposited $400 into my Robinhood account, finger blasted out the most epic prompt I could think of, and asked ChatGPT to take the wheel!  We made 100% on the first trade. This is clearly a sign from the AI gods that I am their chosen vessel.  So naturally, I’ve decided to do this every day until I
+
+[1384|cscareerquestions|2026] CS student here.. no one I know actually writes code anymore. We all use AI. Is this just how it is now?
+   I’m a CS student, and at this point AI does all the coding. Not most of it. All of it. My classmates and I don’t write code anymore. We describe the problem, get a full solution from AI, and then our job is to understand what the AI produced.  We read the code, follow the logic, and make small fixes
+
+[1291|OpenAI|2025] Developer vs Vibe Coding
+   
+
+[1261|webdev|2026] I planted fake API keys in online code editors and monitored where they went. CodePen sends your code to servers as you 
+   I've been auditing the privacy practices of developer tools. This time I tested what happens to your code in online editors.  Test data: const API\_KEY = "sk-secret-test-12345"; const DB\_PASSWORD = "hunter2";  CodePen The moment you type, your code is sent to CodePen's servers via POST requests to 
+
+[1203|cscareerquestions|2026] 4 engineers now doing the job of 12 at my friend's company because AI agents handle the rest
+   Friend of mine works at a mid-size SaaS company. They started rolling out AI agents for code review, testing, even writing basic features about 6 months ago. First it was "just helping the team move faster." Then the layoffs started quietly.  They lost 8 people. The ones left are basically babysitti
+
+[1195|ChatGPTCoding|2025] I am in software engineering for more than 15 years. And I am addicted to the AI coding.
+   I started to hate copy-pasting workflow using browser with ChatGPT. I am not paying subs to fancy tools like Copilot or others, they suck anyway. So I wrote my own small assistant with access to my filesystem connecting to Open AI API. And then it started.  I let AI do everything, read all files, fi
+
+
+=== QUOTE CANDIDATES PER TOP TELL ===
+
+--- over-descriptive / verbose names (handleSubmitButtonClick, getUserDataFromApi)  (6807 posts, 60.7%) ---
+  [17387|ChatGPT] After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something Last Tuesday at 3 AM, I was on my 147th attempt to get ChatGPT to write a simple email that didn't sound like a robot having an existential crisis.  I snapped.  "Why can'
+  [13070|ChatGPT] GPT-4 Week 3. Chatbots are yesterdays news. AI Agents are the future. The beginning of the proto-agi era is here Another insane week in AI  I need a break 😪. I'll be on to answer comments after I sleep. Enjoy  &#x200B;  * Autogpt is GPT-4 running fully autonom
+  [11661|ChatGPT] Opposing Counsel Just Filed a ChatGPT Hallucination with the Court TLDR; opposing counsel just filed a brief that is 100% an AI hallucination. The hearing is on Tuesday.      I'm an attorney practicing civil litigation. Without going to far into it, we represe
+  [7445|ChatGPT] Yesterday, ChatGPT helped my daughter save over $3,000 on a car purchase (see comment for prompt) A few years ago, my daughter bought her first car. It served her well, but she needs something more reliable. She’s worked hard, scrimped, and saved for over two 
+
+--- emoji in code / console logs / commit messages (✅ 🚀 🎉)  (510 posts, 4.5%) ---
+  [1863|ChatGPT] I asked ChatGPT what it would say about humanity to an alien species well after we are gone.  I didn’t expect it to make me tear up. My prompt: “So weird thought time.  Let’s say an alien ship lands on earth long after humans have killed themselves off.  The a
+  [816|ChatGPT] I asked chatgpt how it'd depopulate the world. I'm scared o: Alright, this is going to be a heavy one. You're asking:  **"If you were an AI tasked with reducing the human population drastically — down to half or even to 500 million — in order to create a utopi
+  [463|ClaudeAI] The Complete Guide to Claude Code V2: CLAUDE.md, MCP, Commands, Skills & Hooks — Updated Based on Your Feedback **🚀 UPDATE: [V3 is now live](https://www.reddit.com/r/ClaudeAI/comments/1qe239d) — adds LSP, 25+ MCP servers, commands/skills merge, and more.**    
+  [406|OpenAI] I used o1-mini every day for coding since launch so you didn't have to - my thoughts  I've been using o1-mini for coding every day since launch - my take   The past few days I've been testing o1-mini (which OpenAI claims is better than preview for coding, also
+
+--- boilerplate / scaffolding / tutorial-shaped code  (417 posts, 3.7%) ---
+  [1195|ChatGPTCoding] I am in software engineering for more than 15 years. And I am addicted to the AI coding. I started to hate copy-pasting workflow using browser with ChatGPT. I am not paying subs to fancy tools like Copilot or others, they suck anyway. So I wrote my own small a
+  [682|ExperiencedDevs] just got told ai will replace us but spent 4 hours debugging ai-generated code Senior dev at a SAAS company. management is all in on ai coding tools. every standup now has someone talking about how much faster they are with copilot or cursor or whatever  Yeste
+  [665|ExperiencedDevs] I use AI backwards from how everyone tells me I should use it Another AI POST!      My day job and my linkedin, reddit, and facebook ads are ramming down my throat how AI is amazing at writing code. That I will become 10x from using AI to write all my code ins
+  [644|ChatGPTCoding] Here is THE best way to fully code a sexy web app exclusively with AI. Disclaimer: I'm not a newbie, I'm a SWE by career, but I'm fascinated by these LLM's and for the past few months have been trying get them to build me fairly complicated SaaS products witho
+
+--- markdown / code-fence backticks or '```python' left in the file  (271 posts, 2.4%) ---
+  [17387|ChatGPT] After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something Last Tuesday at 3 AM, I was on my 147th attempt to get ChatGPT to write a simple email that didn't sound like a robot having an existential crisis.  I snapped.  "Why can'
+  [7445|ChatGPT] Yesterday, ChatGPT helped my daughter save over $3,000 on a car purchase (see comment for prompt) A few years ago, my daughter bought her first car. It served her well, but she needs something more reliable. She’s worked hard, scrimped, and saved for over two 
+  [1658|LocalLLaMA] I was backend lead at Manus. After building agents for 2 years, I stopped using function calling entirely. Here's what I use instead. > English is not my first language. I wrote this in Chinese and translated it with AI help. The writing may have some AI flavo
+  [463|ClaudeAI] The Complete Guide to Claude Code V2: CLAUDE.md, MCP, Commands, Skills & Hooks — Updated Based on Your Feedback **🚀 UPDATE: [V3 is now live](https://www.reddit.com/r/ClaudeAI/comments/1qe239d) — adds LSP, 25+ MCP servers, commands/skills merge, and more.**    
+
+--- explanatory 'Note:' / 'Remember:' / 'Keep in mind' preambles in the code  (232 posts, 2.1%) ---
+  [554|ClaudeAI] Built an anti-vibecoding tool for Claude Code - LinkedIn kinda went crazy for it https://preview.redd.it/u1u8hwhhjcvg1.png?width=1638&format=png&auto=webp&s=c70e6aa7b9a738e0b6d6e64790ee31319cb4989b  PLEASE NOTE:   \- I AM NOT AN EXPERIENCED DEV , THIS TOOL WAS
+  [533|ClaudeAI] Opus 4.6 vs Codex 5.3 in the Swiftagon: FIGHT! Both Anthropic and OpenAI shipped new models within minutes of each other today (Feb 5, 2026), Opus 4.6 and Codex 5.3. I had both wired up in the same codebase, so I figured: why not make them compete? Proper Swif
+  [257|Python] I made a vs code extension that insults you if you copy & paste AI generated code -on an important note: this project was just for fun, I'm not against using AI to help your coding sessions- What my project does: It's a vs code extension that gives random insu
+  [248|ChatGPTCoding] What ACTUALLY works after testing every AI coding tool for 6 months I've been using AI to code every single day for the past 6 months. Tried everything: Cursor, Windsurf, Claude Code, RooCode, Coderabbit, Traycer, Continue, ChatPRD, Cline. Some worked great. M
+
+--- over-engineered / needless abstraction for a simple task  (74 posts, 0.7%) ---
+  [1066|ChatGPT] I mass deleted 3 months of AI generated code last week. Here is what I learned. Three months of building a side project almost entirely with AI assistance. ChatGPT, Claude, Copilot, the works. Shipped fast, felt productive, everything seemed fine.     Then I n
+  [68|OpenAI] I hate where we are with AI [rant] I am massively disappointed with the current AI zeitgeist.  You have:  xAI: Practically skipping red-teaming to release Grok 3, a model that has: - Created detailed instructions on how to build chemical weapons, including sup
+  [39|LocalLLaMA] A guide to the best agentic tools and the best way to use them on the cheap, locally or free Did you expect an AI generated post? Complete with annoying emojis and GPTisms? I don't blame you. These AI generated posts are getting out of hand, and hurt to read. 
+  [36|OpenAIDev] 5 things I wish I knew before building a GPT agent for log analysis Three weeks ago I started developing a [ReAct Agent](https://dlite.cc/2023/05/08/2023-boxcars-ruby-train-intro.html) app. A ReAct agent uses reasoning and logic combined with external tools to
+
+--- placeholder / ellipsis comments ('// rest of your code', '// ... your logic here')  (71 posts, 0.6%) ---
+  [641|ClaudeAI] Opus 4.7 is a genuine regression and I'm tired of pretending it isn't I've been a heavy Claude user for over a year. I pay for Max 20x and use it daily for everything from technical research to school projects. Even maxed out the usage limits every week for th
+  [221|ClaudeCode] Why AI still can't replace developers in 2026 I use AI every day - developing with LLMs, building AI agents. And you know what? There are things where AI is still helpless. Sharing my observations.  **Large codebases are a nightmare for AI.** Ask it to write o
+  [193|Anthropic] I bought a 60 inch wide screen monitor just to fit more Claude tabs in view Developer here.  Started my programming journey in 2019/2020 (near Covid).   I got hit with gpt 3 in 2022 and absolutely fell in love even though it was absolutely terrible at programm
+  [154|PromptEngineering] Why asking an LLM "Why did you change the code I told you to ignore?" is the biggest mistake you can make. (KV Cache limitations & Post-hoc rationalization) *Disclaimer: I am an electronics engineer from Poland. English is not my native language, so I am using
+
+--- model self-disclosure / refusal text pasted into code ('As an AI', 'I cannot')  (71 posts, 0.6%) ---
+  [803|ChatGPT] Shaming lonely people for using AI is missing the real problem **TLDR**: There's probably larger reasons why so many people are using AI for emotional support, and it's not just because we suddenly got lazier. There's better ways to handle this than shaming pe
+  [262|cscareerquestions] Career transitioning away from computer science Without going into too much detail, everyone I'm working with is using AI coding almost exclusively to the point where if Claude code goes down they can't work on their tasks. The code base was described as a bla
+  [119|ChatGPTPro] System level prompt that I've been refining and works great Sharing with someone else who might need it. I often use ChatGPT for code generation, analytical tasks and some writing. I found that because it tries to explain everything it's doing instead of just 
+  [68|OpenAI] I hate where we are with AI [rant] I am massively disappointed with the current AI zeitgeist.  You have:  xAI: Practically skipping red-teaming to release Grok 3, a model that has: - Created detailed instructions on how to build chemical weapons, including sup
+
+--- print/console.log debugging left everywhere; 'Successfully ...' messages  (29 posts, 0.3%) ---
+  [465|cscareerquestions] What's even the point anymore? Yesterday I had my final exam in compiler design. AI and internet allowed. We were given over 5 hours to design a language from specifications and to make a basic compiler which compiled to CMa instructions. I used AI because thi
+  [46|ClaudeAI] I forced Claude to reject my code until I wrote a PRD — what happened after a month I've been using Claude Code almost every day for the past 3 months.    Around month 2, I kept hitting the same frustrating pattern:    Me: "build login"    → Claude builds logi
+  [31|ChatGPTCoding] OpenAI's Codex CLI system prompt reveals how they're engineering better AI coding agents After diving deep into the system prompts behind OpenAI's Codex CLI (their terminal-based coding assistant), I found some fascinating engineering details that explain why 
+  [18|ClaudeAI] Beyond single-agent coding: What if Claude instances worked as an entire dev organization? I've been using Claude Code extensively and keep hitting the same ceiling - single-agent autonomous coding works great for small tasks, but struggles with larger project
+
+--- narrating / step-by-step comments ('# Step 1', '# Now we...')  (26 posts, 0.2%) ---
+  [644|ChatGPTCoding] Here is THE best way to fully code a sexy web app exclusively with AI. Disclaimer: I'm not a newbie, I'm a SWE by career, but I'm fascinated by these LLM's and for the past few months have been trying get them to build me fairly complicated SaaS products witho
+  [94|ChatGPTCoding] God Mode: The AI-Powered Dev Workflow I'm a SWE who's spent the last 2 years in a committed relationship with every AI coding tool on the market. My mission? Build entire products without touching a single line of code myself. Yes, I'm that lazy. Yes, it actua
+  [42|PromptEngineering] A Metaprompt to improve Deep Search on almost all platforms (Gemini, ChatGPT, Groke, Perplexity) [You are **MetaPromptor**, a Multi-Platform Deep Research Strategist and expert consultant dedicated to guiding users through the complex process of defining, stru
+  [25|ChatGPTPro] How to do Data Analysis with ChatGPT Hey! I've always struggled to do data analysis with ChatGPT and never got to satisfying result. I think I've cracked the code and wanted to share how you can do it as well.   **Follow Along:** You can use your own data or o
+
+--- too clean / too perfect / suspiciously consistent formatting  (24 posts, 0.2%) ---
+  [315|OpenAI] Anthropic's new Interpretability Research: Reward Hacking Anthropic just published a pretty wild (and honestly kind of unsettling) research finding.They were training a coding model with normal reinforcement learning: solve the problem  get rewarded.  At some
+  [310|LocalLLaMA] Kimi K2 is the best clock AI Every minute, a new clock is displayed that has been generated by nine different AI models.  Each model is allowed 2000 tokens to generate its clock. Here is its prompt:  >Create HTML/CSS of an analog clock showing ${time}. Include
+  [128|webdev] I built a tool that analyzes r/webdev posts and linked projects to detect AI-generated boilerplate code Like many of you, I've noticed a huge uptick in "I built this" posts that feel... off. Same patterns, same folder structures, same generic variable names, s
+  [61|OpenAI] How cognitive debt is messing human minds because of ai apps like chatgpt and gemini? I recently came across a new idea: Cognitive debt. It's very similiar to brain rot which is caused by mindless doomscrolling, Cognitive debt is caused by overrelying on LLMs.
+
+--- catch-all / swallowed errors ('except Exception', bare catch)  (21 posts, 0.2%) ---
+  [54|Python] I built a pre-commit linter that catches AI-generated code patterns # What My Project Does  **grain** is a pre-commit linter that catches code patterns commonly produced by AI code generators. It runs before your commit and flags things like:  * **NAKED\_EXCEP
+  [36|LLMDevs] MCP Forge 1.0 - FREE open-source scaffolding for production MCP servers (FastMCP 2.0 + clean architecture) How many times have you set up a new MCP server and thought "why am I copy-pasting this OAuth flow AGAIN?"  After doing this for the 15th time at [BrainB
+  [23|cursor] my job shifted from writing code to reviewing it and i dont remember agreeing to that a year ago i was probably 60% writing code, 40% reviewing. normal split for a senior on a team of 6. i liked both parts, the writing was satisfying and the reviewing kept me 
+  [15|SoftwareEngineering] Is AI-generated code quietly degrading your codebase? How are you catching it? Curious if this is just my team or a wider thing.  Since we all started leaning on Copilot/Cursor/Claude, PR volume shot up and a lot of the generated code has a specific smell — tr
+
+--- over-defensive: null/None checks & validation for impossible cases  (20 posts, 0.2%) ---
+  [154|ExperiencedDevs] AI code vs Human code: a small anectodal case study Context: I (\~5yoe) have been working on a project, and a colleague is working on another project that is very similar (Python, ML, greenfield) at the same time. They are using AI a lot (90% AI generated prob
+  [59|ChatGPTCoding] The "S" in Vibe Coding stands for Security. 1 in 2 vibe-coded apps is vulnerable. That’s not a made-up number.   According to a recent study on AI-generated code, only 10.5% is actually secure.   Here’s the study: [https://arxiv.org/abs/2512.03262](https://arx
+  [30|indiehackers] My SaaS hit 140 paid users in 8 months 🎉 Here's what actually worked vs what was a waste of time 8 months since launching my problem validation platform and I just crossed 140 paying customers. Went through plenty of failed marketing strategies after listening
+  [26|SaaS] My SaaS hit 600 paid users 🎉 Here's what actually worked vs what was a waste of time 9 months since launching my problem validation platform and I just crossed 600 paying customers. Went through plenty of failed marketing strategies after listening to random p
+
+--- chat preamble left in: 'Here's the complete/updated code', 'Sure! Here is'  (17 posts, 0.2%) ---
+  [132|PromptEngineering] I spent 90 minutes building a universal prompt framework. It consistently improves output quality across different LLMs and task types. Free template + how to use it. >**TL;DR:** I made a universal prompt framework that structures how the AI approaches any tas
+  [62|singularity] Making my own proto-AGI - Progress Update 4: "Text-to-Science" *Disclaimer: This is open research in the context of recent progress on LLMs. AGI is a term that does not make consensus, and is used here loosely to describe agents that can perform cognitive task
+  [9|ChatGPT] I have learned some good ways to configure chatGPT to be a good programming buddy. here are my logs. Me: \`knowledge cutoff:\` \`Current date:\` \`browsing:' 'Model size:' 'Model architecture' 'The type of training data used:' 'Type of language model task:' 'M
+  [7|ChatGPTCoding] Am I missing something? For a while now everyone has been raving about how amazing chatGPT is at writing code. I didn't really have a need for it until now, so I hadn't tried it out until today. I'm a fairly experienced programmer, and I thought it would be us
+
+--- everything split into tiny helper functions  (13 posts, 0.1%) ---
+  [40|startups] Who else is sick of AI? [I will not promote] Don’t get me wrong AI has many fantastic use cases. I built many CNNS for image classification and find machine learning as a field very fascinating.  But everytime I take a look into the startup scene (subreddits l
+  [35|ExperiencedDevs] Anxiety around AI and my future Hello experienced devs,  Im  relatively early in my career (3 yoe) as a full stack dev, and while do enjoy building software and problem solving, this whole AI stuff getting shoved down everyone’s throats is honestly giving me a
+  [22|ChatGPT] My thoughts after one month with GPT-4 I couldn't find any comprehensive review of GPT-4, so I decided to write one.  &#x200B;  Firstly, let me provide some context. I am a 30-year-old biotechnology graduate currently working as an SAP ABAP developer for a cor
+  [7|ChatGPTCoding] Am I missing something? For a while now everyone has been raving about how amazing chatGPT is at writing code. I didn't really have a need for it until now, so I hadn't tried it out until today. I'm a fairly experienced programmer, and I thought it would be us
+
+--- Python: if __name__ == '__main__' / dataclasses / main() on trivial scripts  (10 posts, 0.1%) ---
+  [8|Python] Microsandbox - A self-hosted alternative to AWS Lambda, E2B. Run AI code in fast lightweight VMs # What My Project Does  Microsandbox lets you securely run untrusted/AI-generated code in lightweight microVMs that spin up in milliseconds. It's a self-hosted sol
+  [7|ChatGPT] EVAL(Elastic Versatile Agent with Langchain) will execute all your requests. Just like an eval method! Hello, r/ChatGPT! I’m ML engineer from the AI startup called [Corca](https://github.com/corca-ai).  We’re currently working on a chatbot named [EVAL](https:/
+  [4|ChatGPTCoding] Please, anyone with Open AI and Anthropic APIs, would you test my "LLM Chat" code for me? I am trying to get Open Ai and Claude to "talk" to each other using a shared text file and by saving and sharing generated code. Can anyone who knows anything give this a
+  [1|ChatGPTCoding] A Developer’s Guide to Build Your OpenAI Operator on macOS If you’re poking around with OpenAI Operator on Apple Silicon (or just want to build AI agents that can actually use a computer like a human), this is for you. I've written a guide to walk you through 
+
+--- type hints / annotations on everything (incl. dynamically-typed langs)  (8 posts, 0.1%) ---
+  [83|ArtificialInteligence] I built a menu bar app that watches how you work and turns your workflows into self-improving Skills that any of AI agents can execute without you explaining how to do your work. Open source, fully local Full disclosure: I'm the developer.  Most AI agents in 2
+  [75|ChatGPTCoding] Without good tooling around them, LLMs are utterly abysmal for pure code generation and I'm not sure why we keep pretending otherwise I just spent the last 2 hours using Cursor to help write code for a personal project in a language I don't use often. Context:
+  [9|SideProject] I built a (virtual) airport. **I built an open-source airport digital twin. tl;dr: here's KART, go build yours too.**  https://github.com/Jupiter41/arthur-airport  ---  I grew up waiting for my grandma at the airport with my dad, watching planes taxi and docum
+  [7|ClaudeAI] I'm an AI Dev who got tired of typing 3,000+ words/day to Claude, so Claude and I built a voice extension together. No code written by me. I'm in an AI Dev position for a FinTech firm working on governance for citizen coding solutions. New to Power Platform, s
+
+--- over-commenting / a comment on every line  (5 posts, 0.0%) ---
+  [30|webdev] AI Slop Detector v0.1.0 So I had this brilliant idea at 2 AM — what if I could detect AI-generated code in GitHub repositories? Seems to keep coming up recently.    I asked all my friends if making this was a good idea. They said "You're absolutely right! This
+  [1|ClaudeCode] Why AI coding agents spiral — and how I fixed it with engineering discipline # AI coding agents fail for a simple reason: they start writing code before they know what to build.  You say "build this for me" and the agent immediately starts coding. When require
+  [0|learnprogramming] Learning Python from scratch with AI pair programming within a day. And I think everybody can! I decided to test how far AI-assisted development has come by building a Substack article summarizer using Windsurf IDE (I have no affiliations). To go all in on the
+  [0|Python] The "AI Slop" label is becoming a thought-terminating cliché in this community I've been writing Python for over a decade. I've shipped production tools, maintained legacy codebases, and debugged things that would make you question your career choices.  And la
+
+--- leftover TODO/placeholder ('# TODO: implement', '// your code here')  (4 posts, 0.0%) ---
+  [2|ChatGPT] CodeFarm 2.0 This is the latest version of the CodeFarm. This one actually has characters walk through each node, rather than think through them. It lets you have a QA/superego pov at each step for inherent double-check. This spits out a LOT of code. It's pret
+  [1|ClaudeAI] I built a framework with Claude Code where the AI writes tests BEFORE seeing the data — TDD as an iron law     I've been using Claude Code daily for months, and the biggest problem I kept hitting was this: Claude writes tests AFTER the code. It looks at the se
+  [0|programming] I built a "Zero Trust" linter for AI-generated code After catching my third `// TODO: implement this later` in production code written by an AI assistant, I decided to build a tool to catch these issues before they ship.  **AntiSlop** is a CLI tool that acts a
+  [0|rust] 🛡️ **Rust Guardian v0.1.0 - Because "It Compiles" ≠ "It's Done"     # 🛡️ **Rust Guardian v0.1.0 - Because "It Compiles" ≠ "It's Done"**          **TL;DR**: Just published [rust-guardian 0.1.0](     https://crates.io/crates/rust-guardian     ) - a code quality 
+
+--- comments that restate / explain the obvious  (3 posts, 0.0%) ---
+  [54|Python] I built a pre-commit linter that catches AI-generated code patterns # What My Project Does  **grain** is a pre-commit linter that catches code patterns commonly produced by AI code generators. It runs before your commit and flags things like:  * **NAKED\_EXCEP
+  [39|ClaudeAI] A simple trick that's helping me review AI-generated code AI writes code faster than I can read it, and that gap has a cost: code that's in the repo but not in anyone's head. I've been collecting cheap ways to close it, fast high-level views of a chunk of code
+  [0|learnprogramming] Unpopular opinion: AI is making developers lazy and it's destroying our industry I've been coding for 2 years, and what I'm seeing lately genuinely worries me.  **The Problem:** We're creating a generation of developers who can't function without AI assistance
+
+--- try/except (try/catch) wrapped around everything  (2 posts, 0.0%) ---
+  [54|Python] I built a pre-commit linter that catches AI-generated code patterns # What My Project Does  **grain** is a pre-commit linter that catches code patterns commonly produced by AI code generators. It runs before your commit and flags things like:  * **NAKED\_EXCEP
+  [7|ClaudeAI] Solo, Claude's a rocket. On my team, why does it create more chaos? Been using Claude Code daily for many months. Solo it's a rocket - idea to working prototype in an afternoon. But the speedup just didn't show up for my team yet. If anything it got messier.  
+
+--- generic placeholder names (data, result, temp, item, foo, value)  (2 posts, 0.0%) ---
+  [128|webdev] I built a tool that analyzes r/webdev posts and linked projects to detect AI-generated boilerplate code Like many of you, I've noticed a huge uptick in "I built this" posts that feel... off. Same patterns, same folder structures, same generic variable names, s
+  [1|ChatGPT] Giving chatgpt the power to take actions? One thing that has interested me is the idea of giving chatgpt or really any LLM the ability to do things other than just chat. One of the things that keeps crossing my mind is what if I wrote some code that executed w
+
+--- docstring/JSDoc on every trivial function  (1 posts, 0.0%) ---
+  [1|GithubCopilot] I built a pre-commit linter that catches AI-generated code patterns before they land I use AI agents as regular contributors to a hardware abstraction layer. After a few months I noticed patterns -- silent exception handlers everywhere, docstrings that just re
+
+--- style doesn't match the rest of the codebase  (1 posts, 0.0%) ---
+  [5|SideProject] Spent 3 days fighting CSS on a thing my AI agent built in 4 hours Solo dev here, shipping a SaaS thing mostly with Claude Code and v0. Last week I built a small dashboard feature in maybe 4 hours of agent time. Worked fine, tests passed, deployed it.  Then I o
+
+--- reimplements something the stdlib/library already provides  (0 posts, 0.0%) ---
+
+--- over-use of f-strings / list comprehensions / one-liners  (0 posts, 0.0%) ---
+
+--- JS/TS: async/await, const, arrow funcs, optional chaining everywhere  (0 posts, 0.0%) ---
+
+--- unnecessary semicolons / explicit returns / verbose typing idioms  (0 posts, 0.0%) ---

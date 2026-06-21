@@ -1,0 +1,43 @@
+unique posts (all queries): 11906
+Family-A on-topic posts: 11216
+
+by lane: {'ai': 8436, 'code': 1906, 'saas': 874}
+
+by year: {2020: 9, 2021: 17, 2022: 83, 2023: 820, 2024: 838, 2025: 4668, 2026: 4781}
+
+top 35 subs:
+  ChatGPT                  2476
+  ChatGPTCoding            1100
+  OpenAI                   841
+  ClaudeAI                 719
+  ChatGPTPro               477
+  ClaudeCode               375
+  cursor                   200
+  vibecoding               200
+  LocalLLaMA               200
+  AI_Agents                200
+  ArtificialInteligence    200
+  programming              200
+  learnprogramming         200
+  webdev                   200
+  ExperiencedDevs          200
+  SaaS                     200
+  SideProject              200
+  microsaas                200
+  ChatGPTPromptGenius      176
+  artificial               173
+  PromptEngineering        169
+  gamedev                  169
+  Python                   161
+  indiehackers             142
+  singularity              139
+  cscareerquestions        138
+  rust                     128
+  LLMDevs                  126
+  GeminiAI                 112
+  aipromptprogramming      111
+  OpenAIDev                97
+  GithubCopilot            87
+  Anthropic                82
+  EntrepreneurRideAlong    78
+  devops                   77

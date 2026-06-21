@@ -1,0 +1,29 @@
+rank,category,tell,posts_mentioning,share_pct_of_ontopic
+1,naming,"over-descriptive / verbose names (handleSubmitButtonClick, getUserDataFromApi)",6807,60.7
+2,output,emoji in code / console logs / commit messages (✅ 🚀 🎉),510,4.5
+3,structure,boilerplate / scaffolding / tutorial-shaped code,417,3.7
+4,artifact,markdown / code-fence backticks or '```python' left in the file,271,2.4
+5,artifact,explanatory 'Note:' / 'Remember:' / 'Keep in mind' preambles in the code,232,2.1
+6,structure,over-engineered / needless abstraction for a simple task,74,0.7
+7,comments,"placeholder / ellipsis comments ('// rest of your code', '// ... your logic here')",71,0.6
+8,artifact,"model self-disclosure / refusal text pasted into code ('As an AI', 'I cannot')",71,0.6
+9,output,print/console.log debugging left everywhere; 'Successfully ...' messages,29,0.3
+10,comments,"narrating / step-by-step comments ('# Step 1', '# Now we...')",26,0.2
+11,style,too clean / too perfect / suspiciously consistent formatting,24,0.2
+12,errors,"catch-all / swallowed errors ('except Exception', bare catch)",21,0.2
+13,errors,over-defensive: null/None checks & validation for impossible cases,20,0.2
+14,artifact,"chat preamble left in: 'Here's the complete/updated code', 'Sure! Here is'",17,0.2
+15,structure,everything split into tiny helper functions,13,0.1
+16,lang-specific,Python: if __name__ == '__main__' / dataclasses / main() on trivial scripts,10,0.1
+17,style,type hints / annotations on everything (incl. dynamically-typed langs),8,0.1
+18,comments,over-commenting / a comment on every line,5,0.0
+19,comments,"leftover TODO/placeholder ('# TODO: implement', '// your code here')",4,0.0
+20,comments,comments that restate / explain the obvious,3,0.0
+21,errors,try/except (try/catch) wrapped around everything,2,0.0
+22,naming,"generic placeholder names (data, result, temp, item, foo, value)",2,0.0
+23,comments,docstring/JSDoc on every trivial function,1,0.0
+24,style,style doesn't match the rest of the codebase,1,0.0
+25,structure,reimplements something the stdlib/library already provides,0,0.0
+26,style,over-use of f-strings / list comprehensions / one-liners,0,0.0
+27,lang-specific,"JS/TS: async/await, const, arrow funcs, optional chaining everywhere",0,0.0
+28,lang-specific,unnecessary semicolons / explicit returns / verbose typing idioms,0,0.0
