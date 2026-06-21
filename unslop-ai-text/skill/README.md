@@ -19,9 +19,10 @@ plus an `unslop-ignore` escape hatch for choices you made on purpose.
 - `references/tells.md` - the full ranked catalog: data evidence (cited share and keyword
   share), a real quote from the threads, the literal text the scanner keys on, and the fix for
   each tell, including a Part B for the structural tells a regex cannot see.
-- `references/writing-with-intent.md` - a method for making deliberate voice, claim, and
-  structure choices, written as a process rather than a prescription (because any prescription
-  becomes the next default).
+- `references/writing-with-intent.md` - the core mechanism: pin one of four registers (casual,
+  conversational-professional, expository, formal), then a speaker inside it. This is the text
+  analog of the UI skill's reference-site anchor, written as a process rather than a
+  prescription (because any prescription becomes the next default).
 - `scripts/unslop_text_scan.py` - a standalone scanner (Python standard library only).
 - `unslop-text.skill` - the packaged file for importing into Claude.
 
@@ -47,8 +48,15 @@ python3 scripts/unslop_text_scan.py ./draft.md --json            # machine-reada
 ```
 
 It scans .md .markdown .mdx .txt .rst .html and prints each finding with the file, the line,
-the matched text, the data share it carries, and the fix, plus a slop score. The exit code is
-the number of high-severity findings, so a CI step can fail on it:
+the matched text, the data share it carries, and the fix, plus a slop score and a density
+(slop weight per 1,000 words). The verdict is concentration-aware: a lone `comprehensive` or
+one `delve` reads as "mostly clean," while the em dash and leftover assistant boilerplate are
+absolute, flagged on a single instance anywhere. Be honest about what it is, though: for prose
+this is a thin lexical filter. The highest-value tells (uniform rhythm, sycophancy, the rule of
+three, over-formal register) are structural and invisible to it, so a clean scan means the
+lexical layer is clean, not that the writing reads human. The real signal is the structural
+catalog plus the density, not the pass/fail. The exit code is the number of high-severity
+findings, so a CI step can fail on it:
 
 ```yaml
 - run: python3 skill/scripts/unslop_text_scan.py ./content --severity high

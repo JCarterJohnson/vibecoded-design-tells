@@ -14,6 +14,13 @@ generic diction words are matched far more than they are cited (they are mostly 
 own ordinary prose, not a giveaway). Trust cited over matched, and treat the structural tells
 in Part B as under-counted, since no keyword can catch them at all.
 
+Read by concentration, not by lone hits. A single `comprehensive` or one `delve` is almost
+always the writer's own prose, not a tell; the signal is density, the same tic clustering. The
+two exceptions are absolute, counted on a single instance wherever they appear: the em dash and
+leftover assistant boilerplate (entry 7). For everything else, weight by how thickly it
+clusters, and remember the scanner reports a lexical surface only. The Part B tells, which the
+audited pass ranked above most of Part A, are where the real reading happens.
+
 ## Contents
 
 Part A, the tells the scanner catches:
@@ -22,7 +29,7 @@ Part A, the tells the scanner catches:
 3. The formulaic essay shape and the "In conclusion" wrap-up
 4. "Dive in" / "deep dive"
 5. Everything turned into bullet lists
-6. The diction memes (delve, tapestry, leverage, seamless, ...)
+6. The diction memes (`delve`, `tapestry`, `leverage`, `seamless`, ...)
 7. Leftover assistant boilerplate ("as an AI language model")
 8. Bolded lead-in labels (**Word:** then a sentence)
 9. "Unlock the potential" and marketing hype
@@ -38,9 +45,10 @@ Part B, the cited tells a regex cannot see (human pass required):
 17. Hedging instead of committing
 18. The rule of three
 19. Hallucinated citations, "Honestly," openers, and fake typos
+20. The over-corrected "anti-AI" register (the 2026 tell)
 
 Part C, cleared by the data (do not over-chase):
-20. The over-counted generic diction (however, comprehensive, "when it comes to", utilize)
+21. The over-counted generic diction (`however`, `comprehensive`, "when it comes to", `utilize`)
 
 
 ## Part A: the tells the scanner catches
@@ -136,7 +144,7 @@ default for "organized." Real argument lives in paragraphs.
 **Fix.** write prose. Reserve bullets for genuinely list-like content (steps, parts, options),
 not as the shape of every answer.
 
-### 6. The diction memes (delve, tapestry, leverage, seamless, game-changer, ...)
+### 6. The diction memes (`delve`, `tapestry`, `leverage`, `seamless`, `game-changer`, ...)
 
 **Evidence.** cited 1.3% as a cluster, matched higher. The audited pass found the keyword
 counts are inflated by people copy-pasting "words to avoid" lists, but the words are real
@@ -193,7 +201,7 @@ sentences and paragraphs.
 ### 9. "Unlock the potential" and marketing hype
 
 **Evidence.** "unlock / unleash the power/potential" cited 0.8%; the broader marketing
-category (revolutionary, transformative, "transform your life") cited around 0.3% and named
+category (`revolutionary`, `transformative`, "transform your life") cited around 0.3% and named
 repeatedly as a category.
 
 **Quote.** the giveaway-list and "words to avoid" posts single out the hype verbs (r/ChatGPT,
@@ -343,6 +351,32 @@ arrive in threes.
   openers; cut the throat-clearing and start with the point.
 - **Deliberately-inserted fake typos** to beat detectors ("excyted," "annownce"): named in the
   data as itself a tell. Do not fake errors. This is the over-corrected register, not a fix.
+
+### 20. The over-corrected "anti-AI" register (the 2026 tell)
+
+This is the mirror of the whole catalog above, and the moving target this skill exists to stay
+ahead of. As writers learned the 2024 tells, a second default appeared: prose visibly straining
+not to read as AI. It is its own tell, named in the data and clocked just as fast, the way a
+cream-and-serif redesign is now its own tell in UI. Mostly keyword-invisible, so it belongs in
+the human pass.
+
+**What it looks like.** Staccato three-word fragments on every beat, so the rhythm is uniform
+in a new way. Forced lowercase and dropped capitals in a context that is otherwise standard. A
+"here's the thing," a "look," or a "real talk" cold open bolted onto formal content. Profanity
+or a "lol" dropped in to seem off-the-cuff. And conspicuous em-dash avoidance: replacing every
+natural dash with an ellipsis, a colon, or a sentence visibly contorted around the gap.
+
+**Why it reads as AI.** It is still a default, just a newer one, and a reader feels the strain.
+All-short sentences are as mechanical as all-medium ones; evenness is the tell whichever length
+it lands on. Bolted-on slang is a costume rather than a voice, and the contortion to dodge a
+dash is as legible as the dash would have been. The deliberately-inserted fake typo (entry 19)
+is the most extreme form of the same move.
+
+**Fix.** Do not over-apply the rules. The fix for a dash is a comma or a period in a sentence
+you would actually write, not an ellipsis and not a contortion. The fix for the smooth voice is
+a real voice (pick a register; see writing-with-intent.md), not the absence of voice dressed up
+as casual. Vary sentence length for real, long ones included. If a casual marker is not native
+to the register you chose, cut it.
 
 
 ## Part C: cleared by the data (do not over-chase)

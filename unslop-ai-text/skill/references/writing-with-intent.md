@@ -10,18 +10,37 @@ The goal is one outcome: prose where every major choice has a reason specific to
 and this writer. That is the single property a default register can never have, and it is what
 makes writing stop reading as machine-made.
 
-## Start from a voice, always
+## Start from a voice: pin a register, then a speaker
 
-The input that matters most is a real voice. If the user has past writing, a favorite author, a
-sample they like, anchor to it: the sentence length, the vocabulary, the level of formality,
-how blunt they are. If they cannot point to one, that is the conversation to have before
-drafting, because without it you are writing the median for them. A voice sample is how a
-human injects a point of view into a model that otherwise averages.
+This is the core mechanism, the text analog of the UI skill's reference site. A website's most
+useful single input is one real site to design against; prose's is one real voice to write in.
+Most AI text reads as AI because no one supplied that input, so the model wrote the median.
+Unslopping it usually means injecting a deliberate voice that was never there, and supplying
+that voice is most of the job.
 
-If there is genuinely no sample and you must choose, pick a *named register* and commit to it,
-rather than "professional and engaging." For example: plain-technical (a senior engineer
-explaining a bug), dry and funny, reported and concrete (a beat journalist), blunt operator,
-warm and personal. Naming the register forces specificity and steers away from the center.
+Pin it in two steps. First the register, because it sets what "plain" means and what counts as
+a tell:
+
+- **A, casual** (texts, DMs, personal posts): contractions, fragments, slang, first person.
+- **B, conversational-professional** (work email, Slack, updates, changelogs): plain, direct,
+  contractions, light warmth, no throat-clearing.
+- **C, expository** (essays, articles, READMEs, posts for a reader): a clear argument, varied
+  rhythm, a point of view, paragraphs over bullets. The default, and where most unslopping
+  happens.
+- **D, formal** (papers, briefs, specs): no contractions, structured, impersonal, sourced.
+  Formality here is correct, not a tell.
+
+The register is also the guard against over-correcting. A fragment is native in A and a tell in
+D; a contraction is right in A through C and wrong in D; a swear is voice in A and costume in C.
+Decide which register the piece is in before deciding anything else, then hold the line on it.
+
+Then a speaker inside it. If the user has past writing, a favorite author, a sample they like,
+anchor to it: the sentence length, the vocabulary, the level of formality, how blunt they are.
+If they cannot point to one, that is the conversation to have before drafting. If you must
+choose, pick a *named direction* and commit to it, rather than "professional and engaging": for
+example plain-technical (a senior engineer explaining a bug), dry and funny, reported and
+concrete (a beat journalist), blunt operator, warm and personal. Register plus speaker is the
+voice, and it is how a human injects a point of view into a model that otherwise averages.
 
 ## The claim
 

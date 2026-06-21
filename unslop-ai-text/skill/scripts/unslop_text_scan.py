@@ -182,19 +182,34 @@ def iter_files(path):
             if os.path.splitext(f)[1].lower() in EXTS:
                 yield os.path.join(root, f)
 
-INLINE_CODE = re.compile(r"`[^`]*`")
-DQUOTE = re.compile(r"[\"“”][^\"“”\n]*[\"“”]")
-
-def strip_for_prose(line):
-    """Remove what the author is quoting or showing as a literal example, so the prose
-    rules lint the author's own sentences. Code spans and double-quoted spans go."""
-    line = INLINE_CODE.sub(" ", line)
-    line = DQUOTE.sub(" ", line)
-    return line
+def strip_noise(line, in_code, in_quote):
+    """Blank what the author is quoting or showing as a literal example, so the prose
+    rules lint the author's own sentences. Inline-code spans (backticks) and double-quoted
+    spans are removed, and the open/closed state is carried across lines so a span that
+    wraps onto the next line is still skipped. Real prose quotes wrap, and a catalog of
+    tells has to quote the tells; flagging a cliche you are quoting in order to discuss it
+    would be a false positive. State is reset at every blank line by the caller, so an
+    unbalanced quote can never swallow more than one paragraph."""
+    out = []
+    for ch in line:
+        if in_code:
+            if ch == "`":
+                in_code = False
+            out.append(" ")
+        elif ch == "`":
+            in_code = True
+            out.append(" ")
+        elif ch in "\"“”":
+            in_quote = not in_quote
+            out.append(" ")
+        else:
+            out.append(" " if in_quote else ch)
+    return "".join(out), in_code, in_quote
 
 def scan(path, min_sev):
     rules = compile_rules(min_sev)
     findings = []
+    total_words = 0
     for fp in iter_files(path):
         try:
             with open(fp, "r", encoding="utf-8", errors="ignore") as fh:
@@ -208,20 +223,26 @@ def scan(path, min_sev):
                 if raw_lines[j].strip() == "---":
                     fm_end = j + 1
                     break
-        in_fence = False
+        in_fence = in_code = in_quote = False
         for i, raw in enumerate(raw_lines, 1):
             if i <= fm_end:
                 continue
             stripped = raw.strip()
+            if not stripped:                          # blank line ends any open span
+                in_code = in_quote = False
+                continue
             if stripped.startswith("```") or stripped.startswith("~~~"):
                 in_fence = not in_fence
+                in_code = in_quote = False
                 continue
             if in_fence:
                 continue
-            if "unslop-ignore" in raw.lower():       # respect intentional choices
+            total_words += len(stripped.split())      # denominator for density
+            if "unslop-ignore" in raw.lower():        # respect intentional choices
+                _, in_code, in_quote = strip_noise(raw, in_code, in_quote)
                 continue
             is_quote = stripped.startswith(">")
-            prose = strip_for_prose(raw)             # author's own words only
+            prose, in_code, in_quote = strip_noise(raw, in_code, in_quote)
             for r in rules:
                 # the em dash (raw=True) is flagged everywhere; prose rules skip quotes
                 target = raw if r.get("raw") else prose
@@ -235,16 +256,37 @@ def scan(path, min_sev):
                                          "match": m.group(0).strip()[:60],
                                          "snippet": stripped[:160]})
                         break
-    return findings
+    return findings, total_words
 
-def verdict(by_sev, weighted):
-    if by_sev.get("high", 0) >= 3 or weighted >= 15:
-        return "STRONG AI-writing tells"
-    if by_sev.get("high", 0) >= 1 or weighted >= 6:
-        return "Some AI tells present"
-    if weighted > 0:
+def density(weighted, words):
+    """Weighted slop score per 1,000 words. Concentration is the real signal: the same
+    six 'comprehensive's mean slop in a 200-word paragraph and nothing in a 5,000-word
+    essay, because humans write 'comprehensive' and 'delve' too."""
+    return weighted / max(words, 1) * 1000.0
+
+def verdict(by_sev, weighted, words):
+    hi, med = by_sev.get("high", 0), by_sev.get("medium", 0)
+    if weighted == 0:
+        return "Clean, no tells detected"
+    dens = density(weighted, words)
+    # The LOW tier (generic diction, stray connectives) is matched far more than it is
+    # ever cited; it is mostly the writer's own ordinary prose. On its own it never
+    # escalates past "minor", however much of it a long piece accumulates.
+    if hi == 0 and med == 0:
         return "Mostly clean, minor tells"
-    return "Clean, no tells detected"
+    # STRONG: a real cluster of strong tells, or a high concentration in a piece long
+    # enough for "concentration" to mean something.
+    if hi >= 3 or weighted >= 15 or (words >= 300 and dens >= 10):
+        return "STRONG AI-writing tells"
+    # The absolute tells (em dash, assistant boilerplate, the antithesis cadence) live in
+    # HIGH; one real one always surfaces here and is never suppressed by density.
+    if hi >= 1:
+        return "Some AI tells present"
+    # A moderate run of mid-tier tics is "some" unless it is a sparse scatter across a
+    # long, otherwise-clean piece, which would be nagging.
+    if weighted >= 6 and not (words >= 600 and dens < 2.0):
+        return "Some AI tells present"
+    return "Mostly clean, minor tells"
 
 def main():
     ap = argparse.ArgumentParser(description="Scan prose for AI-writing tells.")
@@ -258,26 +300,31 @@ def main():
     if not os.path.exists(args.path):
         print(f"path not found: {args.path}", file=sys.stderr); sys.exit(2)
 
-    findings = scan(args.path, args.severity)
+    findings, total_words = scan(args.path, args.severity)
     by_sev, by_rule = {}, {}
     for f in findings:
         by_sev[f["sev"]] = by_sev.get(f["sev"], 0) + 1
         by_rule.setdefault(f["rule"], []).append(f)
     weighted = sum(W[s] * n for s, n in by_sev.items())
     files_scanned = sum(1 for _ in iter_files(args.path))
+    dens = round(density(weighted, total_words), 1)
 
     if args.json:
         print(json.dumps({"path": args.path, "files_scanned": files_scanned,
-                          "counts": by_sev, "slop_score": weighted,
-                          "verdict": verdict(by_sev, weighted), "findings": findings}, indent=2))
+                          "words": total_words, "counts": by_sev, "slop_score": weighted,
+                          "density_per_1k_words": dens,
+                          "verdict": verdict(by_sev, weighted, total_words),
+                          "findings": findings}, indent=2))
         sys.exit(by_sev.get("high", 0))
 
     sev_order = {"high": 0, "medium": 1, "low": 2}
     rule_ids = sorted(by_rule, key=lambda rid: (sev_order[by_rule[rid][0]["sev"]], -len(by_rule[rid])))
     print(f"\n  unslop-text scan: {args.path}")
-    print(f"  files scanned: {files_scanned}   findings: {len(findings)}   slop score: {weighted}")
-    print(f"  verdict: {verdict(by_sev, weighted)}")
-    print(f"  high: {by_sev.get('high',0)}   medium: {by_sev.get('medium',0)}   low: {by_sev.get('low',0)}\n")
+    print(f"  files scanned: {files_scanned}   words: {total_words}   findings: {len(findings)}")
+    print(f"  slop score: {weighted}   density: {dens}/1k words")
+    print(f"  verdict: {verdict(by_sev, weighted, total_words)}")
+    print(f"  high: {by_sev.get('high',0)}   medium: {by_sev.get('medium',0)}   low: {by_sev.get('low',0)}")
+    print("  (density is the read, not the raw count: weight by concentration, not lone hits)\n")
     if not findings:
         print("  Nothing flagged. Either it is clean or the tells are structural ones a regex\n"
               "  cannot see (uniform rhythm, sycophancy, saying nothing at length). Read it aloud\n"
