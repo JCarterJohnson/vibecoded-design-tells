@@ -1,0 +1,122 @@
+[1782007555] START 2303 (sub,query) jobs; 0 already done
+[1782007583]   CAP  ChatGPT q='sounds like ChatGPT' hit MAX_PAGES (800 posts, may be truncated)
+[1782007583] progress 0/2303 pairs; ~800 posts this run
+[1782007639]   CAP  ChatGPT q='sounds like AI' hit MAX_PAGES (800 posts, may be truncated)
+[1782007704]   CAP  ChatGPT q='written by ChatGPT' hit MAX_PAGES (800 posts, may be truncated)
+[1782007739]   CAP  ChatGPT q='written by AI' hit MAX_PAGES (800 posts, may be truncated)
+[1782007767]   CAP  ChatGPT q='obviously ChatGPT' hit MAX_PAGES (800 posts, may be truncated)
+[1782007807]   CAP  ChatGPT q='obviously AI' hit MAX_PAGES (800 posts, may be truncated)
+[1782007890] START 2303 (sub,query) jobs; 10 already done
+[1782007910]   CAP  ChatGPT q='AI generated text' hit MAX_PAGES (300 posts, may be truncated)
+[1782007951]   CAP  ChatGPT q='ChatGPT wrote this' hit MAX_PAGES (300 posts, may be truncated)
+[1782008001]   CAP  ChatGPT q='ChatGPT writing style' hit MAX_PAGES (300 posts, may be truncated)
+[1782008068]   CAP  ChatGPT q='delve' hit MAX_PAGES (300 posts, may be truncated)
+[1782008087]   CAP  ChatGPT q='tapestry' hit MAX_PAGES (300 posts, may be truncated)
+[1782008095] progress 25/2303 pairs; ~2856 posts this run
+[1782008148]   CAP  ChatGPT q='testament to' hit MAX_PAGES (300 posts, may be truncated)
+[1782008160]   CAP  ChatGPT q='game changer' hit MAX_PAGES (300 posts, may be truncated)
+[1782008187]   CAP  ChatGPT q='in conclusion' hit MAX_PAGES (300 posts, may be truncated)
+[1782008231]   CAP  ChatGPT q='dive deep' hit MAX_PAGES (300 posts, may be truncated)
+[1782008249]   CAP  ChatGPT q='navigating the' hit MAX_PAGES (300 posts, may be truncated)
+[1782008291] START 1880 (sub,query) jobs; 35 already done
+[1782008302]   CAP  ChatGPT q='ever-evolving' hit MAX_PAGES (200 posts, may be truncated)
+[1782008317]   CAP  ChatGPT q='look no further' hit MAX_PAGES (200 posts, may be truncated)
+[1782008334]   CAP  ChatGPT q='it's worth noting' hit MAX_PAGES (200 posts, may be truncated)
+[1782008355]   CAP  ChatGPT q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782008366]   CAP  ChatGPT q='as a large language model' hit MAX_PAGES (200 posts, may be truncated)
+[1782008373]   CAP  ChatGPT q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782008380]   CAP  ChatGPT q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782008396]   CAP  ChatGPT q='not just X but Y' hit MAX_PAGES (200 posts, may be truncated)
+[1782008401]   CAP  ChatGPT q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782008421]   CAP  OpenAI q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782008431]   CAP  OpenAI q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782008437]   CAP  OpenAI q='obviously AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782008450]   CAP  OpenAI q='ChatGPT wrote this' hit MAX_PAGES (200 posts, may be truncated)
+[1782008457] progress 50/1880 pairs; ~3562 posts this run
+[1782008491]   CAP  OpenAI q='game changer' hit MAX_PAGES (200 posts, may be truncated)
+[1782008505]   CAP  OpenAI q='in conclusion' hit MAX_PAGES (200 posts, may be truncated)
+[1782008546]   CAP  OpenAI q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782008554]   CAP  OpenAI q='as a large language model' hit MAX_PAGES (200 posts, may be truncated)
+[1782008561]   CAP  OpenAI q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782008570]   CAP  OpenAI q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782008570] progress 75/1880 pairs; ~5480 posts this run
+[1782008579]   CAP  OpenAI q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782008870] START 1880 (sub,query) jobs; 98 already done
+[1782008917] progress 100/1880 pairs; ~364 posts this run
+[1782008987]   CAP  ChatGPTPro q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009002]   CAP  ChatGPTPro q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782009005]   SKIP ChatGPTPro q='let me know if' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009007]   SKIP ChatGPTPro q='I cannot fulfill' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009024]   SKIP ChatGPTPro q='it's not just' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009025]   SKIP ChatGPTPro q=' chef's kiss' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009026]   SKIP ChatGPTCoding q='sounds like ChatGPT' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009033]   SKIP ChatGPTCoding q='reads like AI' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009034]   SKIP ChatGPTCoding q='written by AI' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009045] progress 125/1880 pairs; ~1466 posts this run
+[1782009076]   SKIP ChatGPTCoding q='delve' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009078]   SKIP ChatGPTCoding q='tapestry' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009124] progress 150/1880 pairs; ~1871 posts this run
+[1782009133]   CAP  ChatGPTCoding q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009149]   CAP  ChatGPTCoding q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782009160]   CAP  ChatGPTCoding q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782009174]   CAP  ChatGPTCoding q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782009214]   CAP  ChatGPTPromptGenius q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009235]   CAP  ChatGPTPromptGenius q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009280]   CAP  ChatGPTPromptGenius q='ChatGPT writing style' hit MAX_PAGES (200 posts, may be truncated)
+[1782009303] progress 175/1880 pairs; ~4269 posts this run
+[1782009325]   CAP  ChatGPTPromptGenius q='game changer' hit MAX_PAGES (200 posts, may be truncated)
+[1782009341]   CAP  ChatGPTPromptGenius q='in conclusion' hit MAX_PAGES (200 posts, may be truncated)
+[1782009369]   CAP  ChatGPTPromptGenius q='dive deep' hit MAX_PAGES (200 posts, may be truncated)
+[1782009381]   CAP  ChatGPTPromptGenius q='navigating the' hit MAX_PAGES (200 posts, may be truncated)
+[1782009414]   CAP  ChatGPTPromptGenius q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009437]   CAP  ChatGPTPromptGenius q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782009448]   CAP  ChatGPTPromptGenius q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782009471]   CAP  ChatGPTPromptGenius q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782009477] progress 200/1880 pairs; ~6620 posts this run
+[1782009485]   CAP  artificial q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009497]   CAP  artificial q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009596] progress 225/1880 pairs; ~8348 posts this run
+[1782009627]   CAP  artificial q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009653]   CAP  artificial q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782009660]   CAP  artificial q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782009673]   CAP  artificial q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782009695]   CAP  ArtificialInteligence q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009716]   CAP  ArtificialInteligence q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009724]   CAP  ArtificialInteligence q='obviously AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009730]   CAP  ArtificialInteligence q='AI slop' hit MAX_PAGES (200 posts, may be truncated)
+[1782009768] progress 250/1880 pairs; ~11084 posts this run
+[1782009805]   CAP  ArtificialInteligence q='game changer' hit MAX_PAGES (200 posts, may be truncated)
+[1782009820]   CAP  ArtificialInteligence q='in conclusion' hit MAX_PAGES (200 posts, may be truncated)
+[1782009838]   CAP  ArtificialInteligence q='dive deep' hit MAX_PAGES (200 posts, may be truncated)
+[1782009847]   CAP  ArtificialInteligence q='navigating the' hit MAX_PAGES (200 posts, may be truncated)
+[1782009890]   CAP  ArtificialInteligence q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009899]   CAP  ArtificialInteligence q='as a large language model' hit MAX_PAGES (200 posts, may be truncated)
+[1782009904]   SKIP ArtificialInteligence q='would you like me to' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009913]   SKIP ArtificialInteligence q='let me know if' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009913] progress 275/1880 pairs; ~13141 posts this run
+[1782009914]   SKIP ArtificialInteligence q='I cannot fulfill' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009915]   SKIP ArtificialInteligence q='not just X but Y' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009916]   SKIP ArtificialInteligence q='it's not just' -> 422 {"data":null,"error":"Timeout. Maybe slow down a bit"}
+[1782009931]   CAP  singularity q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009945]   CAP  singularity q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782009972]   CAP  singularity q='obviously AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010043] progress 300/1880 pairs; ~14536 posts this run
+[1782010057]   CAP  singularity q='in conclusion' hit MAX_PAGES (200 posts, may be truncated)
+[1782010116]   CAP  singularity q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010127]   CAP  singularity q='as a large language model' hit MAX_PAGES (200 posts, may be truncated)
+[1782010137]   CAP  singularity q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782010148]   CAP  singularity q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782010162]   CAP  singularity q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782010194]   CAP  LocalLLaMA q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010215]   CAP  LocalLLaMA q='written by AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010225]   CAP  LocalLLaMA q='obviously AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010231] progress 325/1880 pairs; ~17314 posts this run
+[1782010298]   CAP  LocalLLaMA q='in conclusion' hit MAX_PAGES (200 posts, may be truncated)
+[1782010316]   CAP  LocalLLaMA q='dive deep' hit MAX_PAGES (200 posts, may be truncated)
+[1782010353] progress 350/1880 pairs; ~18718 posts this run
+[1782010366]   CAP  LocalLLaMA q='as an AI' hit MAX_PAGES (200 posts, may be truncated)
+[1782010377]   CAP  LocalLLaMA q='as a large language model' hit MAX_PAGES (200 posts, may be truncated)
+[1782010394]   CAP  LocalLLaMA q='would you like me to' hit MAX_PAGES (200 posts, may be truncated)
+[1782010406]   CAP  LocalLLaMA q='let me know if' hit MAX_PAGES (200 posts, may be truncated)
+[1782010439]   CAP  LocalLLaMA q='it's not just' hit MAX_PAGES (200 posts, may be truncated)
+[1782010460]   CAP  ClaudeAI q='sounds like AI' hit MAX_PAGES (200 posts, may be truncated)

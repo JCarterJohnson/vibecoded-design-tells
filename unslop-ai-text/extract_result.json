@@ -1,0 +1,1598 @@
+{
+  "totalPostsRead": 604,
+  "citationRanking": [
+    {
+      "tell": "em dash overuse",
+      "category": "format",
+      "posts": 43,
+      "share_pct": 7.1
+    },
+    {
+      "tell": "uniform/robotic sentence rhythm",
+      "category": "phrasing",
+      "posts": 24,
+      "share_pct": 4
+    },
+    {
+      "tell": "it's not just X, it's Y",
+      "category": "phrasing",
+      "posts": 17,
+      "share_pct": 2.8
+    },
+    {
+      "tell": "positivity/sycophancy",
+      "category": "phrasing",
+      "posts": 15,
+      "share_pct": 2.5
+    },
+    {
+      "tell": "perfectly-structured / formulaic essay shape",
+      "category": "format",
+      "posts": 15,
+      "share_pct": 2.5
+    },
+    {
+      "tell": "dive in / deep dive",
+      "category": "phrasing",
+      "posts": 12,
+      "share_pct": 2
+    },
+    {
+      "tell": "everything turned into bullet lists",
+      "category": "format",
+      "posts": 10,
+      "share_pct": 1.7
+    },
+    {
+      "tell": "delve",
+      "category": "diction",
+      "posts": 8,
+      "share_pct": 1.3
+    },
+    {
+      "tell": "unleash",
+      "category": "diction",
+      "posts": 8,
+      "share_pct": 1.3
+    },
+    {
+      "tell": "game-changer",
+      "category": "diction",
+      "posts": 8,
+      "share_pct": 1.3
+    },
+    {
+      "tell": "as an AI language model",
+      "category": "artifact",
+      "posts": 7,
+      "share_pct": 1.2
+    },
+    {
+      "tell": "rule of three / triads",
+      "category": "format",
+      "posts": 7,
+      "share_pct": 1.2
+    },
+    {
+      "tell": "emoji as bullets or section headers",
+      "category": "format",
+      "posts": 5,
+      "share_pct": 0.8
+    },
+    {
+      "tell": "unlock the power/potential",
+      "category": "phrasing",
+      "posts": 5,
+      "share_pct": 0.8
+    },
+    {
+      "tell": "tapestry",
+      "category": "diction",
+      "posts": 5,
+      "share_pct": 0.8
+    },
+    {
+      "tell": "empty summary sentence that restates the prompt",
+      "category": "phrasing",
+      "posts": 4,
+      "share_pct": 0.7
+    },
+    {
+      "tell": "no contractions",
+      "category": "phrasing",
+      "posts": 4,
+      "share_pct": 0.7
+    },
+    {
+      "tell": "in today's fast-paced world",
+      "category": "phrasing",
+      "posts": 4,
+      "share_pct": 0.7
+    },
+    {
+      "tell": "unlock",
+      "category": "diction",
+      "posts": 3,
+      "share_pct": 0.5
+    },
+    {
+      "tell": "\"it's not just X, it's Y\"",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "no contractions / overly formal",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "elevate",
+      "category": "diction",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "not only X but also Y / not X but Y",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "bolded lead-in bullet points",
+      "category": "format",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "comprehensive",
+      "category": "diction",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "positivity/sycophancy (\"what a great question\")",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "not only X but also Y",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "intricate",
+      "category": "diction",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "overly hedged/balanced \"on one hand / on the other\"",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "bolded lead-in bullet points (**Word:** ...)",
+      "category": "format",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "verbosity / wordiness",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "marketing/hype promotional language (\"revolutionary\", \"transform your life\")",
+      "category": "phrasing",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "leverage",
+      "category": "diction",
+      "posts": 2,
+      "share_pct": 0.3
+    },
+    {
+      "tell": "in conclusion",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "more than just",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "robust",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "overly hedged/balanced on one hand / on the other",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "would you like me to ...?",
+      "category": "artifact",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "seamless",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "streamline",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "positivity/sycophancy (over-the-top excitement)",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "profound",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "headers/bold everywhere",
+      "category": "format",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "harness",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "captivating",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "horizontal rule dividers",
+      "category": "format",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "title-case headings",
+      "category": "format",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "overly hedged language (might/could)",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "it's important to note",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "overly polite/formal, no opinion",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "moreover/furthermore overuse",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "redundancy / repetition",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "refusal boilerplate (I can't/won't write that)",
+      "category": "artifact",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "say goodbye to",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "I hope this helps!",
+      "category": "artifact",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "overly hedged/balanced",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "testament to",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "plethora",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "realm",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "treasure trove",
+      "category": "diction",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "overly hedged/balanced (\"it depends\", menu of options instead of committing)",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "positivity/sycophancy (gushing/over-flattering)",
+      "category": "phrasing",
+      "posts": 1,
+      "share_pct": 0.2
+    },
+    {
+      "tell": "it's worth noting",
+      "category": "phrasing",
+      "posts": 0,
+      "share_pct": 0
+    },
+    {
+      "tell": "cutting-edge",
+      "category": "diction",
+      "posts": 0,
+      "share_pct": 0
+    }
+  ],
+  "novelTells": [
+    {
+      "tell": "hallucinated/fabricated citations and case law",
+      "chunks": 1
+    },
+    {
+      "tell": "use of slang like 'era'",
+      "chunks": 1
+    },
+    {
+      "tell": "use of 'straight up'",
+      "chunks": 1
+    },
+    {
+      "tell": "hypophora (asking and answering own question)",
+      "chunks": 1
+    },
+    {
+      "tell": "purple/overwrought prose",
+      "chunks": 1
+    },
+    {
+      "tell": "wide variety of smooth transition phrases",
+      "chunks": 1
+    },
+    {
+      "tell": "scare quotes around example words",
+      "chunks": 1
+    },
+    {
+      "tell": "the 'honestly? that's growth' rhetorical beat",
+      "chunks": 1
+    },
+    {
+      "tell": "writing too polished / no spelling errors (students remove transitions to seem human)",
+      "chunks": 1
+    },
+    {
+      "tell": "recognizable chatgpt cadence",
+      "chunks": 1
+    },
+    {
+      "tell": "soulless/opinion-less tone",
+      "chunks": 1
+    },
+    {
+      "tell": "generic / everything sounds the same",
+      "chunks": 1
+    },
+    {
+      "tell": "marketing hype words (revolutionary, transform your life)",
+      "chunks": 1
+    },
+    {
+      "tell": "fluff / unnecessary adjectives and adverbs",
+      "chunks": 1
+    },
+    {
+      "tell": "impeccable spelling / no typos",
+      "chunks": 1
+    },
+    {
+      "tell": "lacks distinctive human style",
+      "chunks": 1
+    },
+    {
+      "tell": "overuse of the word 'the'",
+      "chunks": 1
+    },
+    {
+      "tell": "forced/fake friendliness",
+      "chunks": 1
+    },
+    {
+      "tell": "5-paragraph essay shape",
+      "chunks": 1
+    },
+    {
+      "tell": "out-of-character vocabulary word",
+      "chunks": 1
+    },
+    {
+      "tell": "obnoxiously poetic descriptions of mundane ideas",
+      "chunks": 1
+    },
+    {
+      "tell": "same cadence/verbiage in video scripts",
+      "chunks": 1
+    },
+    {
+      "tell": "enthusiastic yet vague arguments",
+      "chunks": 1
+    },
+    {
+      "tell": "bland/forced attempts at humor",
+      "chunks": 1
+    },
+    {
+      "tell": "\"___ energy\" construction",
+      "chunks": 1
+    },
+    {
+      "tell": "\"and yeah,\" opener",
+      "chunks": 1
+    },
+    {
+      "tell": "doesn't match the student's known/in-class writing style",
+      "chunks": 1
+    },
+    {
+      "tell": "self-answered/rhetorical questions",
+      "chunks": 1
+    },
+    {
+      "tell": "cringe metaphors and forced parallels",
+      "chunks": 1
+    },
+    {
+      "tell": "inflated/overly formal word choice in student work",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated facts/content",
+      "chunks": 1
+    },
+    {
+      "tell": "corporate-speak / press-release tone",
+      "chunks": 1
+    },
+    {
+      "tell": "perfect grammar and exact punctuation",
+      "chunks": 1
+    },
+    {
+      "tell": "minimal to no slang",
+      "chunks": 1
+    },
+    {
+      "tell": "short choppy paragraphs (4-5 short sentences, one very short)",
+      "chunks": 1
+    },
+    {
+      "tell": "content engineered to game the algorithm / clickbait beats",
+      "chunks": 1
+    },
+    {
+      "tell": "deliberately mangled punctuation to disguise ai",
+      "chunks": 1
+    },
+    {
+      "tell": "paired/gendered pronoun (his/her) when gender unspecified",
+      "chunks": 1
+    },
+    {
+      "tell": "\"and honestly?\" interjection",
+      "chunks": 1
+    },
+    {
+      "tell": "\"here's...\" sentence opener",
+      "chunks": 1
+    },
+    {
+      "tell": "marketing/hype language (revolutionary, transform your life)",
+      "chunks": 1
+    },
+    {
+      "tell": "corporate buzzwords (generic)",
+      "chunks": 1
+    },
+    {
+      "tell": "overly polished / sterile corporate voice",
+      "chunks": 1
+    },
+    {
+      "tell": "ai 'detectors' false positives",
+      "chunks": 1
+    },
+    {
+      "tell": "vague 'ai words' accusation",
+      "chunks": 1
+    },
+    {
+      "tell": "everyone's voice sounds the same / homogenized voice",
+      "chunks": 1
+    },
+    {
+      "tell": "polished/over-correct punctuation and grammar",
+      "chunks": 1
+    },
+    {
+      "tell": "elevated language that ultimately says very little",
+      "chunks": 1
+    },
+    {
+      "tell": "tries to sound deep but is shallow / generic fluff",
+      "chunks": 1
+    },
+    {
+      "tell": "robotic templated dm/outreach message",
+      "chunks": 1
+    },
+    {
+      "tell": "abrupt shift from grammar mistakes to flawless writing",
+      "chunks": 1
+    },
+    {
+      "tell": "gentle/therapeutic validation tone",
+      "chunks": 1
+    },
+    {
+      "tell": "dropping connecting words / 'punchy' essay tone",
+      "chunks": 1
+    },
+    {
+      "tell": "marketing/hype promotional language",
+      "chunks": 1
+    },
+    {
+      "tell": "wordy/clunky filler",
+      "chunks": 1
+    },
+    {
+      "tell": "embarking on a journey",
+      "chunks": 1
+    },
+    {
+      "tell": "both mediums (medium overuse)",
+      "chunks": 1
+    },
+    {
+      "tell": "conditional/speculative tense (\"the author might argue\")",
+      "chunks": 1
+    },
+    {
+      "tell": "vague / says nothing",
+      "chunks": 1
+    },
+    {
+      "tell": "word salad from pasted prompt",
+      "chunks": 1
+    },
+    {
+      "tell": "paragraphs starting with \"honestly...\"",
+      "chunks": 1
+    },
+    {
+      "tell": "overuse of the word \"resilience\"",
+      "chunks": 1
+    },
+    {
+      "tell": "overuse of the word \"quiet\" / \"quiet moments\"",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated / nonexistent sources & citations",
+      "chunks": 1
+    },
+    {
+      "tell": "word salad unrelated to actual content",
+      "chunks": 1
+    },
+    {
+      "tell": "overlong, repetitive, redundant phrasing",
+      "chunks": 1
+    },
+    {
+      "tell": "deliberately inserted weird spelling typos to fool detectors",
+      "chunks": 1
+    },
+    {
+      "tell": "phrases meant to sound profound but empty",
+      "chunks": 1
+    },
+    {
+      "tell": "forced / fake transitions",
+      "chunks": 1
+    },
+    {
+      "tell": "colon overuse",
+      "chunks": 1
+    },
+    {
+      "tell": "generic/buzzword startup titles (e.g. 'founders solving coding with agentic tool harness')",
+      "chunks": 1
+    },
+    {
+      "tell": "'gptisms' / generic ai-assistant tone baked in by synthetic training data",
+      "chunks": 1
+    },
+    {
+      "tell": "writing style inconsistent with author's prior/other work",
+      "chunks": 1
+    },
+    {
+      "tell": "boring/flat repetitive transitions and tone",
+      "chunks": 1
+    },
+    {
+      "tell": "emotionally empty / soulless / fluent but lifeless",
+      "chunks": 1
+    },
+    {
+      "tell": "no real emotional risk (won't rant/spiral/curse)",
+      "chunks": 1
+    },
+    {
+      "tell": "too clean / no typos / grammatically perfect",
+      "chunks": 1
+    },
+    {
+      "tell": "padding to hit a word count / unnecessarily dense filler",
+      "chunks": 1
+    },
+    {
+      "tell": "dead metaphors and placeholder-emotion clichés (jaw tightens, something shifts behind his eyes)",
+      "chunks": 1
+    },
+    {
+      "tell": "constructions that sound literary but mean nothing",
+      "chunks": 1
+    },
+    {
+      "tell": "generic/vague metrics (\"10x growth\", \"boost productivity\")",
+      "chunks": 1
+    },
+    {
+      "tell": "same generic default font",
+      "chunks": 1
+    },
+    {
+      "tell": "ai-generated logo",
+      "chunks": 1
+    },
+    {
+      "tell": "everything rendered as stacked cards (cards upon cards)",
+      "chunks": 1
+    },
+    {
+      "tell": "growth-hype bait posts (\"boosted growth by 10000%\")",
+      "chunks": 1
+    },
+    {
+      "tell": "polished but empty / word salad with no substance",
+      "chunks": 1
+    },
+    {
+      "tell": "stating the obvious",
+      "chunks": 1
+    },
+    {
+      "tell": "odd, nonspecific or inconsistent terminology",
+      "chunks": 1
+    },
+    {
+      "tell": "unnecessary use of 'real'/'actual'",
+      "chunks": 1
+    },
+    {
+      "tell": "lacking original thought or emotion",
+      "chunks": 1
+    },
+    {
+      "tell": "being articulate / proper grammar treated as the red flag",
+      "chunks": 1
+    },
+    {
+      "tell": "swapping good words for clunkier synonyms to defeat detectors",
+      "chunks": 1
+    },
+    {
+      "tell": "white-font hidden gibberish text to fool ai detectors",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated / made-up references and citations",
+      "chunks": 1
+    },
+    {
+      "tell": "robotic-sounding comments (vague 'sounds ai-generated')",
+      "chunks": 1
+    },
+    {
+      "tell": "repetitive / same jargon over and over",
+      "chunks": 1
+    },
+    {
+      "tell": "ai slop (generic vague label)",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated/fake statistics presented as real",
+      "chunks": 1
+    },
+    {
+      "tell": "name/character inconsistency from lost context window",
+      "chunks": 1
+    },
+    {
+      "tell": "doesn't address the actual prompt",
+      "chunks": 1
+    },
+    {
+      "tell": "repetition/padding to hit word count",
+      "chunks": 1
+    },
+    {
+      "tell": "cliffhanger ending",
+      "chunks": 1
+    },
+    {
+      "tell": "uses tables",
+      "chunks": 1
+    },
+    {
+      "tell": "twitter hype-train tone",
+      "chunks": 1
+    },
+    {
+      "tell": "vague/meaningless headline copy",
+      "chunks": 1
+    },
+    {
+      "tell": "'ai-powered' as a cliché",
+      "chunks": 1
+    },
+    {
+      "tell": "validation opener ('you're not imagining it')",
+      "chunks": 1
+    },
+    {
+      "tell": "fake/relentless optimism",
+      "chunks": 1
+    },
+    {
+      "tell": "'enigmatic'",
+      "chunks": 1
+    },
+    {
+      "tell": "linkedin-profile-speak",
+      "chunks": 1
+    },
+    {
+      "tell": "perfect grammar but meaningless/gibberish content",
+      "chunks": 1
+    },
+    {
+      "tell": "says a lot but amounts to nothing of substance",
+      "chunks": 1
+    },
+    {
+      "tell": "swappable/interchangeable paragraphs",
+      "chunks": 1
+    },
+    {
+      "tell": "false specificity (various, meaningful changes, broad implications)",
+      "chunks": 1
+    },
+    {
+      "tell": "unchanged chatgpt formatting pasted directly",
+      "chunks": 1
+    },
+    {
+      "tell": "odd/archaic word usage no student would use (e.g. 'germaine to this subject')",
+      "chunks": 1
+    },
+    {
+      "tell": "robospeak / robotic-repetitive",
+      "chunks": 1
+    },
+    {
+      "tell": "revolutionary / transformative hype words",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated/fake citations that look real but lead nowhere",
+      "chunks": 1
+    },
+    {
+      "tell": "invented author names/years (fabricated references)",
+      "chunks": 1
+    },
+    {
+      "tell": "syntactically coherent but meaningless / no original thought",
+      "chunks": 1
+    },
+    {
+      "tell": "bad at citing sources",
+      "chunks": 1
+    },
+    {
+      "tell": "hallucinated/invented quotes and citations",
+      "chunks": 1
+    },
+    {
+      "tell": "perfect grammar / flawless mechanics",
+      "chunks": 1
+    },
+    {
+      "tell": "self-contradiction across paragraphs",
+      "chunks": 1
+    },
+    {
+      "tell": "chatgpt keywords/phrases (unspecified)",
+      "chunks": 1
+    },
+    {
+      "tell": "identical opening/closing sentences across students",
+      "chunks": 1
+    },
+    {
+      "tell": "overexplaining / padding word count",
+      "chunks": 1
+    },
+    {
+      "tell": "overuse of meaningless similes (paradiastole)",
+      "chunks": 1
+    },
+    {
+      "tell": "cheesy ai slang",
+      "chunks": 1
+    },
+    {
+      "tell": "formulaic linkedin/medium 'hook' opener",
+      "chunks": 1
+    },
+    {
+      "tell": "ai used to fake conversational replies in scam dms",
+      "chunks": 1
+    },
+    {
+      "tell": "chatgpt-isms (generic post-history shift into ai phrasing)",
+      "chunks": 1
+    },
+    {
+      "tell": "model-name fixation (always cites mistral2/qwen2 for local llms)",
+      "chunks": 1
+    },
+    {
+      "tell": "embark",
+      "chunks": 1
+    },
+    {
+      "tell": "embrace",
+      "chunks": 1
+    },
+    {
+      "tell": "nestled",
+      "chunks": 1
+    },
+    {
+      "tell": "unparalleled",
+      "chunks": 1
+    },
+    {
+      "tell": "unwavering",
+      "chunks": 1
+    },
+    {
+      "tell": "buckle up",
+      "chunks": 1
+    },
+    {
+      "tell": "top-notch",
+      "chunks": 1
+    },
+    {
+      "tell": "whimsical",
+      "chunks": 1
+    },
+    {
+      "tell": "beacon",
+      "chunks": 1
+    },
+    {
+      "tell": "bombastic",
+      "chunks": 1
+    },
+    {
+      "tell": "firstly",
+      "chunks": 1
+    },
+    {
+      "tell": "however (listed as a word to exclude)",
+      "chunks": 1
+    },
+    {
+      "tell": "demystified",
+      "chunks": 1
+    },
+    {
+      "tell": "picture this",
+      "chunks": 1
+    },
+    {
+      "tell": "markdown list as a giveaway of ai-authored ideas",
+      "chunks": 1
+    },
+    {
+      "tell": "fabricated/fake citations (made-up dois and sources)",
+      "chunks": 1
+    },
+    {
+      "tell": "filler words that don't mean anything (empty padding)",
+      "chunks": 1
+    },
+    {
+      "tell": "ai-clichu00e9 sentence templates (\"this isn't about x. it's about y.\", \"that's not x. it's y.\")",
+      "chunks": 1
+    },
+    {
+      "tell": "antithetical x-not-y reframing pattern",
+      "chunks": 1
+    },
+    {
+      "tell": "generic ai \"phrasebook\" stock phrases (\"here's the thing:\", \"honestly?\", \"there it is.\")",
+      "chunks": 1
+    }
+  ],
+  "auditVerdicts": [
+    {
+      "assessment": "Audited against chunk_00 (30 posts). Caveat: this chunk is ~1/20 of the corpus the top-25 was built from, so a single absent diction word is weak evidence; I weight repeated within-chunk patterns more than single absences. Within this chunk, only ~6 posts actually CITE specific tells (7872, 2267, 2205, 1667, 1663, 1673); the rest are generic \"AI slop\" laments, slop-image jokes, weekly AI-newsletter posts, or teacher/job anecdotes naming no tell. Among the genuine citations the ranking is broadly faithful at the very top: em dash is cited in 5 of 6 tell-bearing posts (clearly the #1 tell) and the it's-not-just-X-it's-Y construction in 4 of 6 (clearly #2-tier). Below that the list has problems. The biggest structural flaw is dedup failure: it's-not-just-X-it's-Y is split across at least three rows (#3 \"it's not just X, it's Y\" 17, #20 quoted-variant 2, #23 \"not only X but also Y / not X but Y\" 2) and no-contractions is duplicated (#17 \"no contractions\" 4, #21 \"no contractions / overly formal\" 2); merging these would materially change the ranking. The single-word diction cluster (delve, unleash, game-changer, tapestry, unlock, elevate, comprehensive) occupies 5+ of the top-15 slots yet draws ZERO citations in this 30-post sample — plausibly real corpus-wide but the chunk suggests these meme-words are over-represented relative to construction/structure tells that authors actually call out in prose. Several tells that authors here explicitly name are missing from the top-25 entirely (see missing list). Net: the top ~3 are trustworthy; the middle is distorted by duplicate rows, by diction words that may be inflated by meme-repetition rather than genuine citation, and by the omission of frequently-cited structural/voice tells.",
+      "overcounted": [
+        "Single-word diction tells as a group (delve #8, unleash #9, game-changer #10, tapestry #15, unlock #19, elevate #22, comprehensive #25): zero of these are cited anywhere in this 30-post chunk, despite occupying 7 top-25 slots; they read like a shared meme-vocabulary that gets repeated/listed rather than independently observed, which inflates post-count vs. tells authors actually point to in real writing",
+        "it's-not-just-X-it's-Y is inflated/distorted by being counted as THREE rows (#3 at 17, #20 at 2, #21-adjacent #23 'not only X but also Y / not X but Y' at 2) instead of one merged tell — splitting deflates its true single-tell rank while the duplication clutters the list",
+        "no-contractions is double-counted (#17 'no contractions' 4 + #21 'no contractions / overly formal' 2) — same tell, two rows",
+        "uniform/robotic sentence rhythm (#2, 24 posts) is likely padded by counting generic 'robotic / bland / soulless / reads like a robot' laments (e.g. posts 134, 140, 158, 186, 188) as rhythm citations; in this chunk only post 2205's 'recognizable cadence' is a clean rhythm citation, so #2 at 24 looks high relative to the concrete evidence",
+        "unleash (#9, tied 8 posts): not cited once here; a classic listicle meme-word whose count may come from being copied around 'AI words' lists rather than genuine independent observation"
+      ],
+      "undercounted": [
+        "empty summary sentence that restates the prompt / 'in conclusion...' / 'to summarize the above points' (#16, only 4 posts): cited in TWO of the six tell-bearing posts in this single chunk (1673 lists two variants, 1663 'a summarizing conclusion'), suggesting it is far more frequently cited corpus-wide than its rank-16 / 4-post tally implies",
+        "em dash (#1, 43): if anything UNDER-counted — appears as a cited tell in 5 of 6 tell-bearing posts here (7872, 2267, 2205, 1667, 1663); its dominance over everything else may be even larger than 7.1% suggests",
+        "as-an-AI-language-model artifact (#11, 7): the broader 'leftover/giveaway boilerplate' category (here 'As an AI developed by OpenAI', plus the demonstrated leftover assistant offer 'Want me to tweak the tone...') is a recurring, high-salience giveaway that authors treat as the ultimate proof; may be under-weighted as a category"
+      ],
+      "missing_important": [
+        "generic / soulless / 'says nothing' / no real opinion — a content-level tell cited in posts 2205 ('a Lot of Words that said absolutely nothing', 'bland and insincere') and 2267 ('everything feels so right and soulless but without an opinion'); frequently named yet absent from top-25",
+        "'straight up', 'era', 'honestly?', 'that's growth' — explicitly enumerated as tells in post 2267 and demonstrated in its own closing line ('honestly? that's not an issue that's growth'); none appear in the top-25",
+        "hypophora / rhetorical-question-then-immediate-answer ('And the worst part?', 'the difference is stupid:') — named outright as a top tell in post 1663 and demonstrated in post 5 ('Wait. What if it could?'); a distinct construction missing from the list",
+        "purple prose / overwrought adjectives ('stunning, robust, purplish prose') — named in post 1663; distinct from diction-word tells",
+        "overuse of transition phrases / 'consistent cohesive sequencing' and 'good variety of transition phrases' — named in 1663 and implied by 1671 (students 'removing transitions' to evade detectors); a structural tell absent from top-25",
+        "leftover assistant meta-offer ('Want me to tweak the tone to be more serious, humorous, or confrontational?') — demonstrated verbatim at the end of post 1673; a high-confidence giveaway artifact not represented",
+        "scare-quotes around examples / 'lots of quotes for examples' and the both-sides 'on the one hand... but other people...' hedging structure — both named in post 1663; minor but genuinely cited and absent"
+      ]
+    },
+    {
+      "assessment": "Audit of the TOP-25 against chunk_04.txt (37 posts). The ranking is directionally right at the very top (em dash is genuinely the most-cited tell, confirmed in 4 distinct posts: lines 30, 104, 188, 228) but is distorted by two systemic problems visible in this chunk. (1) DEDUP FAILURE: several tells are split across multiple rows, inflating apparent breadth while diluting rank. \"it's not just X, it's Y\" appears twice (#3 and #20), \"no contractions\" twice (#17 and #21), and \"formulaic essay shape\" overlaps #5 plus the \"sounds formulaic\" complaints; these should be merged. (2) USAGE-vs-CITATION CONFLATION: the diction tells (game-changer, deep dive, delve, comprehensive, unleash) are inflated because a string-match counts every appearance, but in chunk_04 most appearances are NOT citations. \"game changer\" (lines 36, 98) is used sincerely by human authors; \"deep dive\" (38) and \"comprehensive\" (40) appear only inside quoted AI output the author mocks, not as named tells; delve/unleash/tapestry/in-today's-fast-paced-world cluster in just two sources — the duplicated \"write naturally\" prompt list (169-184, 207-222, the SAME post twice) and one satirical demonstration post (56-74) that performs a dozen tells without naming any. Counting demonstration/parody and duplicated prompt-lists as independent citations overstates the whole diction tier. By contrast, sycophancy/positivity is the most under-served relative to how often authors actually flag it here: it is explicitly cited in at least 4 posts (193-196 'great insight!'/congratulate/agree politely; 238-239 'agrees with everything'/'yes-man'; 279 'you're right - that's on me!'; 336 'weirdly optimistic'), rivaling em dash for citation density in this chunk yet sitting at #4. Two genuinely-cited tells are missing from the top list entirely (gender-neutral 'his/her' paired-pronoun artifact, and the 'Here's...' opener that a poster self-flags), and the sycophantic-apology / hallucination tells are under-represented.",
+      "overcounted": [
+        "game-changer (#10) — in chunk_04 it is used sincerely by human authors (lines 36, 98), not cited as a tell; only appears as a named giveaway inside one duplicated prompt list",
+        "deep dive / dive in (#6) — appears mainly inside quoted AI output being mocked (line 38) and the duplicated prompt list, not independently flagged",
+        "comprehensive (#25) — only appearance (line 40) is inside a quoted AI sample, never named as a tell by an author",
+        "delve (#8), unleash (#9), tapestry (#15), in today's fast-paced world (#18) — concentrated in just two sources (a duplicated prompt-list post and one satirical demonstration), so independent-citation count is inflated",
+        "it's not just X, it's Y — split across #3 and #20 (same tell counted twice); genuinely cited only once verbatim (line 277)",
+        "no contractions — split across #17 and #21 (duplicate of same tell)",
+        "unlock (#19) / unlock the power-potential (#14) / elevate (#22) — no genuine author citation in this chunk; rank likely propped up by template/parody text elsewhere"
+      ],
+      "undercounted": [
+        "positivity/sycophancy (#4) — explicitly cited in ~4 posts here (193-196, 238-239, 279, 336); rivals em dash for citation density in this chunk yet ranked 4th",
+        "perfectly-structured / formulaic essay shape (#5) — reinforced by multiple independent complaints (107 'sounds formulaic', 188 'formulaic to the bone', 193 'same polished structure', 342 'overly-polished corporate voice') that are scattered rather than consolidated",
+        "empty/soulless polished tone — recurring author complaint (188, 193, 342) not well captured by any single existing row"
+      ],
+      "missing_important": [
+        "gender-neutral 'his/her' paired-pronoun artifact — explicitly cited as the giveaway in the r/Teachers note post (lines 228, 233); a concrete, high-signal AI artifact absent from the top 25",
+        "'Here's...' / 'Here's the thing' opener — self-flagged as an AI tell by a poster (line 301: 'gosh I sound like AI ... I get triggered when reading Here's'); also opens the parody (62)",
+        "sycophantic apology / 'you're right - that's on me!' walk-back — cited at line 279 as characteristic AI behavior; distinct from generic positivity and currently uncaptured",
+        "hallucination / 'makes stuff up' — named as ChatGPT's core tell (line 238); a content-level tell missing from a list that is almost entirely surface-form",
+        "corporate buzzwords / marketing-hype / fluff (unnecessary adjectives) — repeatedly cited (176, 183, 245, 342-344) as a category, broader than the individual diction words listed",
+        "'and honestly?' as an injected AI tic — explicitly named alongside 'it's not X, it's Y' at line 277"
+      ]
+    },
+    {
+      "assessment": "Audited chunk_08.txt (30 posts, scores ~196-220) against the TOP-25. Caveat: this chunk skews heavily toward META-discussion of AI (\"AI slop,\" detection arms race, teacher/professor frustration, dead-internet) rather than itemized lexical tells, so it's a weak corroborator for diction items and a strong surface for behavioral/structural tells. Only a handful of posts cite concrete writing tells. The clearest corroborations in-chunk: em dash (2 posts: r/ChatGPTPro \"Noticing GPT prose style,\" r/ChatGPT manager/writer), \"it's not just X, it's Y\" (1: \"Noticing GPT prose style,\" verbatim), rule of three / three-part structures (1: manager/writer, \"uses three-part structures constantly\"), and uniform/robotic rhythm (1-2: \"Noticing...\" cites \"a specific rhythm,\" and the bypass-detection post frames burstiness/perplexity as the thing AI lacks). These four are genuine and well-placed. Beyond those, almost none of the top-25 DICTION items (delve, unleash, game-changer, tapestry, unlock, comprehensive, elevate, \"in today's fast-paced world,\" \"as an AI language model,\" emoji bullets) appear as cited tells anywhere in this chunk. Meanwhile the chunk surfaces several tells the top-25 omits or fragments: an entire post dedicated to the opener \"Honestly...\", a post dedicated to the word \"resilience\"/\"quiet\"/\"quiet resilience,\" deliberately-inserted fake typos/spelling mistakes to beat detectors, and a recurring verbosity/repetition complaint (marketing briefs \"repeated in 5 different sections,\" 5-page reviews, 6-paragraph emails). Also note two ranking-integrity defects visible in the list itself: #3 and #20 are the SAME tell (\"it's not just X, it's Y\") counted twice, and #17 (\"no contractions\") and #21 (\"no contractions / overly formal\") are near-duplicates; both splits artificially deflate those tells' true totals and waste two top-25 slots.",
+      "overcounted": [
+        "delve (diction) — zero appearances as a cited tell in this chunk despite the chunk being dense with AI-writing complaints; consistent with delve being a meme people repeat rather than actually cite",
+        "tapestry (diction) — absent here",
+        "unleash / game-changer / unlock / unlock-the-power (diction) — none cited in this chunk",
+        "dive in / deep dive (diction) — not cited here",
+        "in today's fast-paced world (phrasing) — not cited here",
+        "as an AI language model (artifact) — not cited here; this chunk is 2023-2026 and the explicit-disclaimer artifact has aged out of how people describe tells",
+        "emoji as bullets/headers (format) — not cited as a tell in-chunk (emoji appear in titles ironically, e.g. wolf/raven, but not flagged as a tell)",
+        "'it's not just X, it's Y' appears TWICE in the list (#3 and #20) — the #20 row is double-counting the #3 tell",
+        "no contractions appears twice (#17, #21) — likely inflating slot count via a near-duplicate"
+      ],
+      "undercounted": [
+        "rule of three / triads (#12, only 7 posts) — explicitly and emphatically cited here ('It uses three-part structures constantly'); for a tell named spontaneously without prompting it is likely under-counted relative to diction memes",
+        "uniform/robotic sentence rhythm (#2) — corroborated here via the burstiness/perplexity bypass prompt and 'a specific rhythm', suggesting it is real and possibly even more central than diction items below it",
+        "no contractions / overly formal (#17/#21) — the formal/hedging-register tell is real here (verbatim 'I understand that the syllabus carefully outlines...', 'I acknowledge the difficulty...') but its true weight is hidden by being split across two rows",
+        "empty/profound-but-hollow phrasing (#16 empty summary) — close kin cited twice here ('phrases meant to sound profound but aren't', restaurant 'word salad' flattery); the family is bigger than its rank suggests"
+      ],
+      "missing_important": [
+        "Opener 'Honestly, ...' — an ENTIRE top-scoring post (r/SideProject, score 220) is devoted to it ('The word is dead. It's been zombified by AI'); a sentence/paragraph-opener tell absent from the top-25",
+        "Specific overused diction 'resilience' and 'quiet' / 'quiet resilience' — a whole r/Professors post built around it; these are concrete lexical tells the list misses while listing rarer ones like tapestry",
+        "Verbosity / overlong / repetitive output — recurring across multiple posts (marketing briefs 'same instructions repeated in 5 different sections,' 5-page review of an 8-page article, 6-paragraph student emails); a major behavioral tell with no top-25 slot",
+        "Deliberately-inserted fake typos/spelling mistakes to evade AI detectors (r/Professors 'excyted', 'annownce') — a distinct anti-detection artifact not represented",
+        "Forced/awkward transitions (cited in r/ChatGPT manager post: 'The transitions are forced') — a structural tell missing from the list",
+        "Em-dash-swapped-for-colon evasion variant (manager post: 'switch out their em-dashes for colons') — a notable wrinkle on the #1 tell worth tracking as people adapt",
+        "Generic flattery / 'word salad' replies (restaurant-review post: 'adds to the charm', 'evoke memories of childhood and travel souvenirs') — sycophancy-adjacent but distinctly the hollow-compliment pattern, only loosely covered by #4"
+      ]
+    },
+    {
+      "assessment": "Audit basis: chunk_12.txt holds 35 posts. The vast majority are ABOUT AI generally (online ed, code automation, \"SEO is dead,\" AI-slop complaints, detectors, model comparisons) and cite NO specific writing tell. Only ~5-6 posts actually name a concrete textual marker, so this chunk is a thin but revealing sample for judging the global TOP-25. The single most important finding concerns counting method: em-dash. This chunk contains 14 literal em-dash characters, but ~13 of them are em-dashes USED as punctuation inside posts (5 as bullet lead-ins in the PromptEngineering tier-list, 3 in the Fable refactor post, 2 in the ChatGPT-sentient rant, etc.). Exactly ONE post cites the em dash AS a tell — \"The Scarlet Em Dash\" satire — and that post ironically contains zero actual em-dash characters (its body uses trailing \"...\" ellipses). If the tally's counting conflated \"em dash present in post\" with \"post cites em dash as a tell,\" then #1 (43 posts, 7.1%) is structurally and badly inflated; in this chunk the genuine-citation-to-incidental-use ratio is ~1:13. By contrast, several real, repeatedly-described tells in this chunk are absent from the top list entirely: fake-relatability/conversational-filler openers (\"Look, I get it...\", \"Imagine this...\", \"Is that familiar, I have been there too\"), trailing-ellipsis \"...\" style, fabricated/hallucinated citations (\"totally made up references\"), rigid repeated template across sections, and generic repetitive jargon. The duplicate split entries (#3 vs #20, #17 vs #21) also show the taxonomy is fragmenting counts rather than reflecting distinct citation behavior. Overall the ranking captures the right vocabulary but likely overweights surface-detectable formatting (em dash, bullets) over the relational/rhythm tells authors describe in prose, and is contaminated by counting incidental usage as citation. The chunk is too AI-topic-heavy (vs tell-focused) to validate the lower diction ranks, but the head of the list is the clear problem.",
+      "overcounted": [
+        "em dash overuse (#1, 43 posts) — in this chunk ~13 of 14 em-dash occurrences are incidental punctuation inside posts, not citations; only 1 post ('The Scarlet Em Dash') actually flags it as a tell, and that post has no literal em dash. Strong sign the count conflates presence with citation and is heavily inflated.",
+        "everything turned into bullet lists (#7) — the PromptEngineering and Nano Banana posts USE bullets/markdown but do not cite bullets as a tell; risk of presence-counted-as-citation, same failure mode as em dash.",
+        "bolded lead-in bullet points (#24) — appears as formatting (bold ** lead-ins in the tier-list and microsaas posts) but is never named as a tell by any author here; likely counts formatting usage as a citation.",
+        "no contractions / overly formal split (#17 and #21 are near-duplicates) — formality/robotic tone IS cited (r/ClaudeAI 'formal, robotic and dumb'), but splitting it across two ranks inflates apparent breadth while the contraction-specific claim isn't actually made in this chunk.",
+        "'it's not just X, it's Y' (#3 and #20 are duplicates of the same tell) — the double-listing double-counts; no post in this chunk uses or cites this construction, so its #3 rank is unsupported by this sample."
+      ],
+      "undercounted": [
+        "uniform/robotic sentence rhythm (#2) — supported here ('formal, robotic and dumb'; 'inhuman and repetitive'), but the description undersells the closely-related repetitiveness/sameness complaints authors actually voice; likely under-credited because it's described in varied prose rather than a fixed phrase.",
+        "positivity/sycophancy (#4) — the Fiverr beta-read post describes a rigid 'praise, criticism, suggestions' formula with generic praise; sycophancy-adjacent signal exists but is being captured under structure instead, so the true sycophancy signal is probably under-counted.",
+        "perfectly-structured/formulaic essay shape (#5) — clearly under-counted: the Fiverr post ('exact same rigid three-paragraph formula') is one of the strongest, most vivid tell-citations in the whole chunk, yet formulaic structure sits below em dash; rhythm/structure complaints in prose are systematically losing to keyword-matchable formatting tells."
+      ],
+      "missing_important": [
+        "Fake-relatability / conversational-filler openers — explicitly enumerated in the 'ChatGPT speech everywhere' post: 'Look, I get it...', 'Imagine this...', 'Is that familiar, I have been there too.' A distinct, concretely-cited tell with no home in the top 25.",
+        "Trailing-ellipsis '...' style — central to both 'The Scarlet Em Dash' (whole body is '......' ellipses) and the ChatGPT-speech post; recurs as a marker yet is entirely absent from the list.",
+        "Fabricated / hallucinated references and citations — cited in r/Professors ('totally made up references') and echoed in the framework posts ('hallucinated'); a high-signal tell of AI text missing from the ranking.",
+        "Generic repeated jargon / repetitiveness — 'same generic writerly jargon over and over again... repetitive' (Fiverr post); distinct from sentence rhythm and not represented.",
+        "Rigid identical template repeated across sections — 'every single chapter's feedback followed the exact same rigid three-paragraph formula'; a structural sameness tell separate from 'formulaic essay shape' that the list doesn't capture.",
+        "'syntactic mad-lib style' — a named pattern in the r/Professors colleagues post describing AI's fill-in-the-blank sentence construction; no top-25 entry covers it."
+      ]
+    },
+    {
+      "assessment": "Audited chunk 16; findings in the arrays.",
+      "overcounted": [
+        "robotic sentence rhythm ranked second but cited zero times in this chunk, only generic sounds like AI complaints appear in posts 5 8 and 40",
+        "positivity and sycophancy not cited once here despite flattery heavy AI texts like the scam email",
+        "dive in and deep dive do not appear in this chunk at all",
+        "delve unleash and game changer have no mentions across the 33 posts",
+        "it is not just X it is Y is one tell split across rows 3 and 20",
+        "no contractions is one tell split across rows 17 and 21 and unlock spans 14 and 19"
+      ],
+      "undercounted": [
+        "tapestry explicitly cited in post 2 as a deliberate AI trigger phrase, rank 15 looks low for so iconic a word",
+        "triplets and rule of three cited in post 2, rank 12 likely low",
+        "not only X but also Y cited in post 2 with inversion yet sits near the bottom at rank 23",
+        "formulaic essay shape supported by post 11 perfect structure zero original thought"
+      ],
+      "missing_important": [
+        "Hallucinated or fake citations that look real but lead nowhere, also sucks at citing and do not invent author names, cited in posts 11 and 13 and the Professors prompt, but absent from the top 25",
+        "Fluent but empty text that made no sense with zero original thought, cited in posts 11 and 13, has no category",
+        "Generic soulless no soul as a named giveaway in posts 5 and 40, not in the top 25",
+        "Process tell where Google Docs version history shows pages typed in under 10 minutes with no edits at line 264, no category exists"
+      ]
+    }
+  ],
+  "synthesis": {
+    "best_quotes": [
+      "Em dashes have become the single most reliable tell of AI-generated text",
+      "I can hear the em dashes through your microphone as you talk",
+      "the “it wasn’t x, it was y” shit, the excessive rule of three, overuse of meaningless similes and paradiastoles, the weird overexplaining",
+      "You're absolutely right! This observation isn't just smart — it shows you're operating on a higher level",
+      "It uses three-part structures constantly. The transitions are forced, and the inspiration is fake. Even when people get clever and switch out their em-dashes for colons... sorry, it's still obvious",
+      "Paragraphs that start with \"Honestly, ...\" The word is dead. It's been zombified by AI.",
+      "AI writes word salad - beautiful looking but has no nutritional value.",
+      "In a world where the tapestry of human emotions unfolds like a delicate symphony, I'm sorry, but as an AI language model, I cannot delve into unlocking your full potential",
+      "If it's a “5 ways to…” post, “7 signs you might be…” or a bullet-pointed life guide, there's a solid chance it came from us. We love structure.",
+      "Never use \"dive into,\" \"unleash,\" \"game-changing,\" \"revolutionary,\" \"transformative,\" \"leverage,\" \"optimize,\" \"unlock potential\"",
+      "no grammar mistakes on essays that use elevated language but ultimately say very little",
+      "Same kind of phrases, same sentence patterns, same boring transitions, same flat tone.",
+      "a series of bullet point **bolded** Every Word Capitalized colon 2-3 sentences",
+      "4.6 now constantly throws in those horizontal line separators (---) throughout the text. It's another obvious AI writing marker",
+      "Default Claude hedges everything. \"It depends on your needs.\" \"There are several approaches.\""
+    ],
+    "category_summary": "Format and phrasing tells dominate genuine citations; diction (single meme-words) is over-represented relative to how often authors actually point to it. The clearest, most-cited tells are a punctuation tell (em dash) and a construction tell (it's not X, it's Y) — both surface-detectable AND repeatedly named in prose, which is why they top both passes. Below the head, the most TRUSTWORTHY signal is phrasing/structure that authors describe in their own words (robotic rhythm, sycophancy, formulaic shape, forced transitions, hallucinated citations), while the diction tier (delve, unleash, tapestry, game-changer, unlock, elevate, comprehensive) is inflated by listicle/prompt-list copying and parody demonstrations rather than independent observation — all five auditors flagged this. Artifacts (as an AI language model) are high-salience but aging out. Format tells (bullets, bolded lead-ins, emoji, horizontal rules) are real but at risk of presence-counted-as-citation inflation.",
+    "final_ranking": [
+      {
+        "rank": 1,
+        "tell": "Em dash overuse (—)",
+        "category": "format",
+        "share_pct": 7.1,
+        "confidence": "high",
+        "note": "Both passes' #1 and confirmed cited in 4-5 posts per audited chunk; reads as AI because the punctuation is 'too polished' for casual typing — use commas, periods, or parentheses, and don't just swap in colons (people now flag that too)."
+      },
+      {
+        "rank": 2,
+        "tell": "\"It's not just X, it's Y\" / \"not X, but Y\" construction (merged with #20, #23 variants)",
+        "category": "phrasing",
+        "share_pct": 2.8,
+        "confidence": "high",
+        "note": "True total is higher than 2.8% once the three split rows are merged; the antithesis cadence is THE 'AI accent' — just state the thing plainly instead of negating-then-asserting."
+      },
+      {
+        "rank": 3,
+        "tell": "Uniform / robotic sentence rhythm",
+        "category": "phrasing",
+        "share_pct": 4,
+        "confidence": "medium",
+        "note": "Cited via 'specific rhythm'/'syntactic mad-lib' complaints but partly padded by generic 'sounds robotic' laments; vary sentence length and let some sentences run long or stop short."
+      },
+      {
+        "rank": 4,
+        "tell": "Positivity / sycophancy (gushing, 'great question!', yes-man)",
+        "category": "phrasing",
+        "share_pct": 2.5,
+        "confidence": "high",
+        "note": "Likely UNDER-ranked — Auditor 2 found it rivals em dash for citation density; drop the flattery and reflexive agreement, disagree or stay neutral when warranted."
+      },
+      {
+        "rank": 5,
+        "tell": "Perfectly-structured / formulaic essay shape",
+        "category": "format",
+        "share_pct": 2.5,
+        "confidence": "high",
+        "note": "Under-counted per Auditors 2 and 4 ('formulaic to the bone', 'exact same rigid three-paragraph formula'); break the intro-body-body-body-conclusion mold and let structure follow the idea."
+      },
+      {
+        "rank": 6,
+        "tell": "Everything turned into bullet lists / listicles",
+        "category": "format",
+        "share_pct": 1.7,
+        "confidence": "high",
+        "note": "'5 ways to…' / '7 signs…' scaffolding screams AI; use prose paragraphs and reserve bullets for genuinely list-like content."
+      },
+      {
+        "rank": 7,
+        "tell": "\"Dive in\" / \"deep dive\"",
+        "category": "phrasing",
+        "share_pct": 2,
+        "confidence": "medium",
+        "note": "Confirmed in cliche-avoidance quotes but some appearances are mocked AI output, not citations; cut the metaphor and just start the topic."
+      },
+      {
+        "rank": 8,
+        "tell": "Rule of three / triads",
+        "category": "format",
+        "share_pct": 1.2,
+        "confidence": "high",
+        "note": "Likely under-ranked — named spontaneously across several chunks ('uses three-part structures constantly'); avoid reflexive three-part lists and parallel triplets."
+      },
+      {
+        "rank": 9,
+        "tell": "Empty summary / polished-but-hollow phrasing ('says nothing', word salad)",
+        "category": "phrasing",
+        "share_pct": 0.7,
+        "confidence": "high",
+        "note": "Under-counted per multiple auditors (folds in 'soulless', 'no opinion', 'word salad'); reads as AI because it's fluent but contentless — make a real claim and cut the restated-prompt filler."
+      },
+      {
+        "rank": 10,
+        "tell": "Bolded lead-in bullets (**Word:** ...) / title-case mini-headings (merged #24, #30)",
+        "category": "format",
+        "share_pct": 0.3,
+        "confidence": "medium",
+        "note": "SOURCE 2 keyword pass puts this higher (2.8%, n=220); the **Bold:** then sentence pattern is a giveaway — write normal sentences without the boldface label."
+      },
+      {
+        "rank": 11,
+        "tell": "\"As an AI language model\" / leftover assistant boilerplate (e.g. 'Want me to tweak the tone?')",
+        "category": "artifact",
+        "share_pct": 1.2,
+        "confidence": "high",
+        "note": "The ultimate proof when present, but aging out as people stop pasting raw output; delete any meta-offer or disclaimer before publishing."
+      },
+      {
+        "rank": 12,
+        "tell": "Single-word diction memes: delve, unleash, tapestry, game-changer, comprehensive, elevate (cluster)",
+        "category": "diction",
+        "share_pct": 1.3,
+        "confidence": "medium",
+        "note": "Inflated — all five auditors found near-zero genuine citations; counts come from listicle/prompt-list copying, but still real corpus-wide; swap for plain words you'd actually say."
+      },
+      {
+        "rank": 13,
+        "tell": "Hallucinated / fabricated citations and references",
+        "category": "artifact",
+        "share_pct": 0,
+        "confidence": "high",
+        "note": "Novel tell surfaced by 4 auditors ('totally made up references'), no SOURCE 1 percentage; a content-level giveaway — verify every source, never invent author names or case law."
+      },
+      {
+        "rank": 14,
+        "tell": "\"Honestly, ...\" / fake-relatability openers ('Look, I get it', 'Imagine this')",
+        "category": "phrasing",
+        "share_pct": 0,
+        "confidence": "medium",
+        "note": "Novel (no SOURCE 1 percentage), but a whole top-scoring post is devoted to 'Honestly' being 'zombified by AI' (3 auditors); cut the throat-clearing opener and start with the actual point."
+      },
+      {
+        "rank": 15,
+        "tell": "\"Unlock the power/potential\" / \"unlock\" (merged #14, #19)",
+        "category": "phrasing",
+        "share_pct": 0.8,
+        "confidence": "medium",
+        "note": "Marketing-flavored and split across two rows; reads as hype — say what the thing actually does."
+      },
+      {
+        "rank": 16,
+        "tell": "Marketing / hype language ('revolutionary', 'transform your life', 'transformative')",
+        "category": "phrasing",
+        "share_pct": 0.3,
+        "confidence": "medium",
+        "note": "Repeatedly cited as a category broader than single words ('This revolutionary product will transform your life'); strip promotional adjectives and state plain facts."
+      },
+      {
+        "rank": 17,
+        "tell": "Verbosity / repetition / restating the same point across sections",
+        "category": "phrasing",
+        "share_pct": 0,
+        "confidence": "medium",
+        "note": "Novel tell (no SOURCE 1 percentage) raised across 3 chunks ('repeated in 5 different sections', 5-page review of an 8-page article); cut length and say each thing once."
+      },
+      {
+        "rank": 18,
+        "tell": "Forced / overly-smooth transitions",
+        "category": "phrasing",
+        "share_pct": 0,
+        "confidence": "medium",
+        "note": "Novel structural tell (no SOURCE 1 percentage; 'The transitions are forced'); the connective tissue is too even — let ideas jump and trim 'moreover/furthermore' scaffolding."
+      },
+      {
+        "rank": 19,
+        "tell": "No contractions / overly formal register (merged #17, #21)",
+        "category": "phrasing",
+        "share_pct": 0.7,
+        "confidence": "medium",
+        "note": "True total higher once merged; stiff register reads as AI — use contractions and write the way you talk."
+      },
+      {
+        "rank": 20,
+        "tell": "Hedging / both-sides balance ('it depends', 'on one hand... on the other')",
+        "category": "phrasing",
+        "share_pct": 0.3,
+        "confidence": "low",
+        "note": "Cited as Claude 'hedges everything' giving a menu instead of committing; take a position rather than listing every option."
+      },
+      {
+        "rank": 21,
+        "tell": "\"In today's fast-paced world\" / dated scene-setting opener",
+        "category": "phrasing",
+        "share_pct": 0.7,
+        "confidence": "low",
+        "note": "Iconic but low citation count; a hollow opener — delete it and start with something specific."
+      },
+      {
+        "rank": 22,
+        "tell": "Emoji as bullets or section headers",
+        "category": "format",
+        "share_pct": 0.8,
+        "confidence": "low",
+        "note": "Real but not cited as a tell in several chunks; decorative emoji-bullets look templated — use plain text headers."
+      },
+      {
+        "rank": 23,
+        "tell": "Horizontal-rule dividers (---) between sections",
+        "category": "format",
+        "share_pct": 0,
+        "confidence": "low",
+        "note": "Novel (no SOURCE 1 percentage), from a single vivid quote ('another obvious AI writing marker'); the markdown line breaks read as generated — use paragraph breaks instead."
+      },
+      {
+        "rank": 24,
+        "tell": "Deliberately-inserted fake typos to beat detectors",
+        "category": "artifact",
+        "share_pct": 0,
+        "confidence": "low",
+        "note": "Novel anti-detection artifact (no SOURCE 1 percentage; 'excyted', 'annownce'); ironically itself a tell — don't fake errors, just write naturally."
+      },
+      {
+        "rank": 25,
+        "tell": "\"In conclusion\" / \"in summary\" closers",
+        "category": "phrasing",
+        "share_pct": 0.2,
+        "confidence": "low",
+        "note": "SOURCE 2 keyword pass puts it higher (~1.0%); the signposted wrap-up is formulaic — end on a real last point, not a recap."
+      }
+    ],
+    "reconciliation_notes": "The two passes AGREE strongly on the head: em dash is #1 in both (SOURCE 1 7.1%, SOURCE 2 4.5%), and 'it's not just X, it's Y', bullets, game-changer, dive in, and delve appear high in both. They DISAGREE on diction weight and on what counts as a citation: SOURCE 2's deterministic regex inflates words that double as ordinary human prose (it explicitly buckets however/thus 6.3%, nuanced 2.3%, leverage 2.1%, comprehensive 1.6% as LOW-CONFIDENCE because the regex matched the poster's OWN writing, not a cited tell) — so I did NOT promote those into the ranking despite high raw rates. The biggest cross-source disagreement is em dash counting: Auditor 4 argues #1 is badly inflated because ~13 of 14 em-dash occurrences in his chunk were incidental punctuation, not citations, whereas Auditors 1, 2, 3 independently confirm em dash is genuinely the most-cited tell in their chunks; I kept it #1 but noted the presence-vs-citation tension. All five auditors independently flagged the same dedup failures (it's-not-just-X-it's-Y split across #3/#20/#23, no-contractions across #17/#21, unlock across #14/#19), which I merged — this is the single biggest correction. All auditors also agreed the single-word diction cluster is over-ranked (zero genuine citations in four separate chunks, attributed to listicle/prompt-list copying and parody), so I collapsed it to one entry at #12 and demoted tapestry/elevate/comprehensive out of standalone slots. Where SOURCE 1 has no percentage (novel tells folded in: hallucinated citations, 'Honestly' opener, verbosity, forced transitions, fake typos, horizontal rules), share_pct is set to 0 as a 'no SOURCE 1 data' sentinel (noted in each row) rather than an invented number, and confidence reflects how many auditors raised each. Items resting only on SOURCE 2 sub-rates (bolded lead-ins, 'in conclusion') are labeled as such in their notes."
+  },
+  "quotesRaw": [
+    {
+      "text": "Em dash + 'thats not just ____, that's ____'",
+      "tell": "em dash overuse + it's not just X it's Y"
+    },
+    {
+      "text": "It's not just any one thing, or it's also more than just one thing, it's a pattern",
+      "tell": "it's not just X, it's Y"
+    },
+    {
+      "text": "Stunning, robust, purplish prose",
+      "tell": "robust / purple prose"
+    },
+    {
+      "text": "you know it *loves* an em-dash",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "I can hear the em dashes through your microphone as you talk",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "It's not just a problem—it's a full blown disaster",
+      "tell": "\"it's not just X, it's Y\""
+    },
+    {
+      "text": "There are no giveaways (“it’s not this, it’s that”, or em-Dashes).",
+      "tell": "it's not just X, it's Y / em dash overuse"
+    },
+    {
+      "text": "Em dashes have become the single most reliable tell of AI-generated text",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "\"Let's delve in\" or \"Let's dive in\"",
+      "tell": "delve / dive in"
+    },
+    {
+      "text": "Em dashes in every paragraph, typical Chatgpt lingo, over the top excitement, cringe metaphors and parallels, self-answered questions, not x but y...",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "the dash \"—\" has become the biggest red flag that something was written (or partially written) by AI",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "You've got the rule of three, stoccato rhythm and \"not X but Y\" all in this tiny segment.",
+      "tell": "rule of three / triads"
+    },
+    {
+      "text": "All those em dashes, triadic list series with Oxford commas (atypical for students",
+      "tell": "rule of three / triads"
+    },
+    {
+      "text": "uses phrases like \"delve into\" and \"tapestry\" and \"in today's fast-paced world.\"",
+      "tell": "delve"
+    },
+    {
+      "text": "I'll find \"it's not X, it's Y\", and \"and honestly?\" thrown in",
+      "tell": "it's not just X, it's Y"
+    },
+    {
+      "text": "Now the dead giveaway for AI writing is somehow the most polished punctuation possible.",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "it now tries to always \"essay-ify\" every response, sound \"punchy\", drop connecting words and funnily enough started constantly using em-dashes",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "no grammar mistakes on essays that use elevated language but ultimately say very little",
+      "tell": "elevated language that says little"
+    },
+    {
+      "tell": "em dash overuse",
+      "text": "imitating ChatGPT's em-dash laden prose"
+    },
+    {
+      "tell": "it's not just X, it's Y",
+      "text": "You're absolutely right! This observation isn't just smart — it shows you're operating on a higher level"
+    },
+    {
+      "tell": "dive in / deep dive",
+      "text": "Don't use clichés like \"dive into,\" \"unleash your potential,\" etc."
+    },
+    {
+      "tell": "not only X but also Y",
+      "text": "it does 4 \"not only, but also\" sentences in a row"
+    },
+    {
+      "tell": "em dash overuse",
+      "text": "ChatGPT loves a good dash. Me too. But now many think I don't do any original writing because of it."
+    },
+    {
+      "tell": "tapestry",
+      "text": "In a world where the tapestry of human emotions unfolds like a delicate symphony, I'm sorry, but as an AI language model, I cannot delve into unlocking your full potential"
+    },
+    {
+      "text": "There are familiar tells, from em dashes to “it’s not just x, it’s y.”",
+      "tell": "it's not just X, it's Y"
+    },
+    {
+      "text": "It uses three-part structures constantly. The transitions are forced, and the inspiration is fake. Even when people get clever and switch out their em-dashes for colons... sorry, it's still obvious",
+      "tell": "rule of three / triads"
+    },
+    {
+      "text": "Paragraphs that start with \"Honestly, ...\" The word is dead. It's been zombified by AI.",
+      "tell": "paragraphs starting with \"Honestly...\""
+    },
+    {
+      "text": "They massively overuse em-dashes and colons.",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "4.6 now constantly throws in those horizontal line separators (---) throughout the text. It's another obvious AI writing marker",
+      "tell": "horizontal rule dividers"
+    },
+    {
+      "text": "Same kind of phrases, same sentence patterns, same boring transitions, same flat tone.",
+      "tell": "uniform/robotic sentence rhythm"
+    },
+    {
+      "text": "Unnecessary and excessive use of em dashes.",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "a series of bullet point **bolded** Every Word Capitalized colon 2-3 sentences",
+      "tell": "bolded lead-in bullet points / title-case headings"
+    },
+    {
+      "text": "If it's a “5 ways to…” post, “7 signs you might be…” or a bullet-pointed life guide, there's a solid chance it came from us. We love structure.",
+      "tell": "everything turned into bullet lists"
+    },
+    {
+      "text": "AI writes word salad - beautiful looking but has no nutritional value.",
+      "tell": "polished but empty / word salad"
+    },
+    {
+      "text": "Don't use clichés like \"dive into,\" \"unleash your potential,\" etc.",
+      "tell": "dive in / unleash your potential"
+    },
+    {
+      "text": "\\[X, not Y\\]. Or just stating what something is not. (probably my #1 dislike actually).",
+      "tell": "it's not X, it's Y / stating what something is not"
+    },
+    {
+      "text": "one girl refused to delete the dash that connected her to truth",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "followed the exact same rigid three-paragraph formula of praise, criticism, and suggestions",
+      "tell": "rule of three / formulaic structure"
+    },
+    {
+      "text": "the usual syntactic mad-lib style",
+      "tell": "uniform/robotic sentence rhythm"
+    },
+    {
+      "tell": "it's not just X, it's Y / Not X but Y",
+      "text": "Not X, but Y. Let's delve into the hum of the echo of the intricate tapestry. Not X. Not Y. Just Z."
+    },
+    {
+      "tell": "dive in / deep dive",
+      "text": "Don't use clichés like \"dive into,\" \"unleash your potential,\" etc."
+    },
+    {
+      "tell": "say goodbye to / marketing hype",
+      "text": "Avoid: \"This revolutionary product will transform your life.\""
+    },
+    {
+      "text": "the AI accent, \"it's not this, it's that\"",
+      "tell": "it's not just X, it's Y"
+    },
+    {
+      "text": "It spews words like \"delve,\" \"rich tapestry,\" and \"enigmatic\" to fake depth",
+      "tell": "delve"
+    },
+    {
+      "text": "Never use \"dive into,\" \"unleash,\" \"game-changing,\" \"revolutionary,\" \"transformative,\" \"leverage,\" \"optimize,\" \"unlock potential\"",
+      "tell": "leverage"
+    },
+    {
+      "text": "Never use \"dive into,\" \"unleash,\" \"game-changing,\" \"revolutionary,\" \"transformative,\" \"leverage,\" \"optimize,\" \"unlock potential\"",
+      "tell": "AI buzzword diction list"
+    },
+    {
+      "text": "the em dashes piling up in every paragraph, paragraphs you could swap and nobody would notice",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "beginning each paragraph with a short fragment that sounds like a bolded heading in ChatGPT",
+      "tell": "bolded lead-in headings"
+    },
+    {
+      "text": "em dashes were an obvious sign of AI because “you can’t even type them on a keyboard”",
+      "tell": "em dash overuse"
+    },
+    {
+      "text": "they'll have an em-dash every single sentence, three or four \"It's not just x, it's Y\"",
+      "tell": "it's not just X, it's Y"
+    },
+    {
+      "text": "I even intentionally use triplets and the not only… but also",
+      "tell": "rule of three / triads"
+    },
+    {
+      "text": "Too many em dashes, the tone feels robotic, and certain cheesy slang it uses.",
+      "tell": "em dash overuse / robotic tone"
+    },
+    {
+      "text": "the “it wasn’t x, it was y” shit, the excessive rule of three, overuse of meaningless similes and paradiastoles, the weird overexplaining",
+      "tell": "it's not just X, it's Y / rule of three"
+    },
+    {
+      "text": "the same stupid bullet points, the same silly em-dashes",
+      "tell": "bullet points / em dash overuse"
+    },
+    {
+      "text": "Right now it's pretty easy to spot AI content (See: Delve and writing style in general)",
+      "tell": "delve"
+    },
+    {
+      "text": "this is as much a ChatGPT tell as emdashes were IMO, it will almost exclusively refer to these two models",
+      "tell": "model-name fixation / em dash"
+    },
+    {
+      "text": "Seeing one more ChatGPT response with the word “testament” or “embark” on it",
+      "tell": "testament to / embark"
+    },
+    {
+      "text": "Default Claude hedges everything. \"It depends on your needs.\" \"There are several approaches.\"",
+      "tell": "overly hedged/balanced (menu instead of committing)"
+    },
+    {
+      "text": "\"Word 1. Word 2. Word 3.\" (bullet points for everything)",
+      "tell": "everything turned into bullet lists / triads"
+    },
+    {
+      "text": "The usual gushing email to my website written by AI",
+      "tell": "positivity/sycophancy (gushing)"
+    }
+  ]
+}

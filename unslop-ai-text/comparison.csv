@@ -1,0 +1,43 @@
+tell,cite_share_sample_pct,cite_posts,regex_share_sample_pct,regex_share_fullcorpus_pct,verdict
+"em dash (""—"") as a tell",7.1,43,6.0,4.5,agree
+everything in bullet points / lists,3.1,19,1.7,1.8,agree
+"""it's not just X, it's Y""",3.1,19,0.8,1.9,regex under-counts
+perfectly structured / formulaic,2.5,15,0.5,0.5,regex under-counts
+"""dive in"" / ""deep dive"" / ""let's dive""",2.0,12,2.3,1.6,agree
+delve,1.3,8,1.3,1.5,agree
+game-changer,1.3,8,1.8,1.6,agree
+unleash,1.3,8,1.7,0.6,agree
+headers / bold everywhere / markdown,1.2,7,0.5,1.4,regex under-counts
+"""rule of three"" / triads",1.2,7,0.5,0.3,regex under-counts
+"""as an AI language model""",1.2,7,0.3,0.2,regex under-counts
+bolded lead-in bullets (**Word:**),0.8,5,0.8,2.8,agree
+emoji bullets / emoji headers,0.8,5,0.0,0.0,REGEX UNDER-COUNTS (missed wording)
+"""unlock/unleash the power/potential""",0.8,5,0.5,0.2,agree
+tapestry,0.8,5,0.8,0.6,agree
+"""in today's fast-paced/digital world""",0.7,4,0.2,0.4,regex under-counts
+leverage,0.3,2,0.7,2.1,agree
+comprehensive,0.3,2,0.7,1.6,agree
+"""great question!""",0.3,2,0.0,0.4,regex under-counts
+"""in conclusion"" / ""in summary""",0.2,1,0.2,1.0,agree
+"""it's important to note/remember""",0.2,1,0.2,0.6,agree
+"testament (""a testament to"")",0.2,1,0.2,0.4,agree
+seamless(ly),0.2,1,0.2,0.9,agree
+robust,0.2,1,0.5,0.6,regex over-counts
+"overuse of ""moreover/furthermore/additionally""",0.2,1,0.5,1.7,regex over-counts
+"""I hope this helps!""",0.2,1,0.2,0.3,agree
+"""would you like me to ...?""",0.2,1,0.0,0.2,regex under-counts
+"""I cannot/can't assist/fulfill""",0.2,1,0.3,0.3,agree
+rhetorical question then answer,0.0,0,0.0,0.2,agree
+"""it's worth noting""",0.0,0,0.0,0.4,agree
+underscore(s),0.0,0,0.0,0.3,agree
+ever-evolving / ever-changing,0.0,0,0.2,0.3,regex over-counts
+"embark (""embark on a journey"")",0.0,0,0.3,0.3,regex over-counts
+"utilize (instead of ""use"")",0.0,0,0.3,1.3,regex over-counts
+nuanced / nuance,0.0,0,1.8,2.3,REGEX OVER-COUNTS (noise: poster's own prose)
+navigate / navigating,0.0,0,0.2,1.5,regex over-counts
+"overuse of ""however,"" / ""thus,"" / ""hence""",0.0,0,3.3,6.3,REGEX OVER-COUNTS (noise: poster's own prose)
+"""when it comes to""",0.0,0,1.0,1.9,REGEX OVER-COUNTS (noise: poster's own prose)
+"""let me know if you'd like / feel free""",0.0,0,0.0,0.4,agree
+"""knowledge cutoff / as of my last update""",0.0,0,0.0,0.3,agree
+"""I hope this email finds you well""",0.0,0,0.0,0.3,agree
+"""Certainly!"" / ""Absolutely!"" openers",0.0,0,0.0,0.2,agree

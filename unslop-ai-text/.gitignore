@@ -1,0 +1,3 @@
+# corpus is too large to ship (gz exceeds GitHub's 100 MB limit); regenerate with collect.py
+corpus_raw.jsonl
+corpus_raw.jsonl.gz

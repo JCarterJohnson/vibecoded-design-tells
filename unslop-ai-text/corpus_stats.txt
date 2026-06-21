@@ -1,0 +1,38 @@
+unique posts (all queries): 89239
+Family-A on-topic posts: 7984
+
+by lane: {'ai': 4673, 'writing': 1309, 'saas': 2002}
+
+by year: {2021: 26, 2022: 86, 2023: 587, 2024: 717, 2025: 3174, 2026: 3394}
+
+top 30 subs:
+  ChatGPT                  1454
+  WritingWithAI            457
+  SaaS                     433
+  aiwars                   409
+  ArtificialInteligence    393
+  SideProject              375
+  ClaudeAI                 320
+  Professors               284
+  OpenAI                   272
+  ChatGPTPromptGenius      244
+  artificial               238
+  microsaas                216
+  PromptEngineering        214
+  singularity              208
+  LocalLLaMA               201
+  SEO                      201
+  Entrepreneur             177
+  Teachers                 169
+  AI_Agents                160
+  GeminiAI                 125
+  selfpublish              110
+  ChatGPTPro               100
+  indiehackers             97
+  EntrepreneurRideAlong    96
+  copywriting              95
+  content_marketing        95
+  Blogging                 82
+  marketing                74
+  smallbusiness            67
+  freelanceWriters         64

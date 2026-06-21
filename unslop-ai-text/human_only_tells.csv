@@ -1,0 +1,32 @@
+tell_cited_by_humans,posts,cite_share_sample_pct
+uniform/robotic sentence rhythm,24,4.0
+positivity/sycophancy,15,2.5
+empty summary sentence that restates the prompt,4,0.7
+no contractions,4,0.7
+unlock,3,0.5
+no contractions / overly formal,2,0.3
+elevate,2,0.3
+not only x but also y / not x but y,2,0.3
+not only x but also y,2,0.3
+intricate,2,0.3
+"overly hedged/balanced ""on one hand / on the other""",2,0.3
+verbosity / wordiness,2,0.3
+"marketing/hype promotional language (""revolutionary"", ""transform your life"")",2,0.3
+more than just,1,0.2
+overly hedged/balanced on one hand / on the other,1,0.2
+streamline,1,0.2
+positivity/sycophancy (over-the-top excitement),1,0.2
+profound,1,0.2
+harness,1,0.2
+captivating,1,0.2
+horizontal rule dividers,1,0.2
+overly hedged language (might/could),1,0.2
+"overly polite/formal, no opinion",1,0.2
+redundancy / repetition,1,0.2
+say goodbye to,1,0.2
+overly hedged/balanced,1,0.2
+plethora,1,0.2
+realm,1,0.2
+treasure trove,1,0.2
+"overly hedged/balanced (""it depends"", menu of options instead of committing)",1,0.2
+positivity/sycophancy (gushing/over-flattering),1,0.2
