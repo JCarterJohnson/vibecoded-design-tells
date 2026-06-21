@@ -49,6 +49,18 @@ The conversation barely existed before 2023, then jumped almost vertically in 20
 
 ![Growth](chart_growth_byyear.png)
 
+## The skill
+
+The findings are packaged as `unslop-code`, a Claude skill that strips these tells while
+writing or auditing code. It does not write the code for you and it has no preferred style. It
+removes the mechanical surface tells (chat artifacts, placeholder comments, emoji, swallowed
+errors, narrating comments, generic placeholder names) and points you at the structural tells a
+linter passes: boilerplate, hallucinated APIs, over-engineering, and code that ignores the
+surrounding repo. It includes a standalone multi-language scanner
+(`skill/scripts/unslop_code_scan.py`) that flags the surface tells with severity weighted by the
+verified shares, prints a slop score, and gates CI on the exit code. See
+[skill/README.md](skill/README.md) to install it or run the scanner.
+
 ## How to reproduce
 
 Run in this order. The harvesters are sequential and resumable (they checkpoint
@@ -69,8 +81,12 @@ python3 prep_posts.py             # build candidates_posts.jsonl (tell-bearing p
 # run via the Claude Code Workflow tool against classify_workflow.js; it writes the
 # return JSON, which you save as workflow_output.json.
 python3 finalize.py               # verified ranking + quote bank from workflow_output.json
-python3 final_charts.py           # the four charts
+gunzip -k corpus.jsonl.gz         # recover the raw corpus the charts read
+python3 make_charts2.py           # the twelve charts (purple house style)
 ```
+
+The committed `corpus.jsonl.gz` is a snapshot, so `gunzip -k corpus.jsonl.gz` is enough to
+make the charts without re-harvesting.
 
 `analyze.py` / `analyze_comments.py` / `calibrate.py` are the regex first pass.
 They are kept for transparency: they are what showed the keyword approach was too
@@ -85,13 +101,24 @@ why the LLM classification + verification step exists.
   tell), `finalize.py`.
 - **Regex first pass (kept for transparency):** `analyze.py`, `analyze_comments.py`,
   `calibrate.py`.
-- **Charts:** `final_charts.py` and the four PNGs.
+- **Charts:** `make_charts2.py` and the twelve PNGs (see the chart index below).
 - **Raw data:** `corpus.jsonl` (11,906 posts), `comments.jsonl` (11,306 comments).
   Fields: id, subreddit, created_utc, score, num_comments, title/selftext or body,
   permalink. No usernames. See `DATA_NOTE.md`.
 - **Tables:** `final_tell_counts.csv` (the verified ranking with raw share,
   precision, verdict, and verified share), `final_quote_bank.md`, `final_summary.txt`.
 - **The post:** `AI Code Tells Reddit Post FINAL.md`.
+
+### Charts
+
+Twelve PNGs, built by `make_charts2.py` in the design study's purple house style:
+`chart_verified_ranking.png` (the verified, precision-adjusted ranking), `chart_raw_vs_verified.png`
+(how much the precision check moved each tell), `chart_tells_ranked.png` (the raw LLM
+classification), `chart_post_vs_comment.png`, `chart_by_category.png`, `chart_growth_byyear.png`,
+`chart_tell_trend.png`, `chart_scanned_by_sub.png`, `chart_raw_counts_by_tell.png`,
+`chart_funnel.png`, `chart_top_threads.png`, and `chart_lens2_terms.png`. Sentiment-by-tell is
+replaced by by-category; co-occurrence and concentration are skipped because the classifier
+assigns one tell per comment and the on-topic harvest was capped per query.
 
 ## Method and caveats
 
