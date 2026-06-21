@@ -259,10 +259,12 @@
     for(let i=0;i<thumbs.length;i++){thumbs[i].classList.add("in");await T(200);if(!live())return;}
     await T(2900);if(!live())return;
 
-    // end
-    $("variety").classList.remove("show");await T(350);
+    // end: fade the end card in OVER the variety grid (endcard is z-index 60, variety 50),
+    // so the browser frame underneath never flashes through during the hand-off.
     $("endcard").classList.add("show");
-    await T(2500);if(!live())return;
+    await T(700);if(!live())return;          // end card now fully opaque
+    $("variety").classList.remove("show");   // safe to drop, it is hidden behind the end card
+    await T(2300);if(!live())return;
     if(live())run(); // loop
   }
 
