@@ -77,3 +77,10 @@ This is a proxy for vocal, online opinion, so trust the relative ordering more t
 ## License
 
 Code is MIT (see `LICENSE`). The harvested text is public Reddit content collected via Arctic Shift and belongs to its original authors; see `DATA_NOTE.md`.
+
+## Companion studies
+
+The same Reddit-mining method has been applied to two other media. Each lives in its own folder with its scripts, verified findings, quote bank, and a `skill/` folder scaffolded for an accompanying Claude skill (packaged separately):
+
+- [`unslop-ai-code/`](unslop-ai-code/) — the tells that give away AI-**written code**, ranked and adversarially verified the same way. Ships its corpus as `corpus.jsonl.gz`.
+- [`unslop-ai-text/`](unslop-ai-text/) — the tells that give away AI-**written text** (prose, marketing, academic). Its raw corpus is too large to ship, so it regenerates from `collect.py` (see that folder's `DATA_NOTE.md`).
