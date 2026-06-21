@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>unslop-code demo</title>
+<style>
+  :root{
+    --bg:#0b0c12; --panel:#14161f; --line:#262b38; --txt:#e9ebf2; --mut:#969cab;
+    --red:#ff6b6b; --redbg:#2a1416; --grn:#3ad98a; --grnbg:#0f231a; --amb:#ffc759; --ambbg:#241d0f;
+    --vio:#b3a7ff; --viobg:#191633;
+    --code:#d7dbe6; --kw:#c39bff; --str:#7fd6a0; --num:#e6a86b; --com:#6b7283; --ty:#7cc6ff; --fn:#9fe0ff;
+    --mono:'SF Mono',ui-monospace,'Cascadia Code',Menlo,Consolas,monospace;
+    --sans:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#06070a;font-family:var(--sans);display:flex;align-items:center;justify-content:center;min-height:100vh}
+  .stage{position:relative;width:1200px;height:744px;overflow:hidden;color:var(--txt);
+    background:
+      radial-gradient(90% 80% at 84% -8%, rgba(110,90,200,.22) 0%, rgba(110,90,200,0) 46%),
+      radial-gradient(120% 120% at 70% -10%, #16182300 0%, #0c0e14 55%, #08090d 100%),
+      #0a0b11;
+    border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+
+  /* topbar */
+  .topbar{position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 24px;z-index:40}
+  .wordmark{font-weight:600;letter-spacing:.2px;font-size:15px;display:flex;align-items:center;gap:9px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--vio);box-shadow:0 0 12px var(--vio)}
+  .phase{font-family:var(--mono);font-size:12px;color:var(--mut);letter-spacing:.4px;transition:opacity .3s}
+
+  /* editor */
+  .editor{position:absolute;top:84px;left:40px;width:660px;height:520px;background:#0d0f16;
+    border:1px solid var(--line);border-radius:11px;overflow:hidden;z-index:20;
+    box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  .ehead{height:36px;background:#15171f;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px}
+  .lights{display:flex;gap:7px}.lt{width:10px;height:10px;border-radius:50%}
+  .l1{background:#ec6a5e}.l2{background:#f4bf4f}.l3{background:#61c554}
+  .tab{margin-left:8px;font-family:var(--mono);font-size:11.5px;color:#aab0c0;display:flex;align-items:center;gap:7px}
+  .tab .fdot{width:6px;height:6px;border-radius:50%;background:var(--vio);opacity:.85}
+  .ebody{position:relative;height:484px;overflow:hidden}
+  .codelayer{position:absolute;inset:0;padding:12px 8px 12px 0;font-family:var(--mono);font-size:13px;line-height:1.62;
+    transition:opacity .55s ease}
+  #codeAfter{opacity:0}
+  .cl{display:flex;align-items:flex-start;position:relative}
+  .cl .g{flex:0 0 42px;text-align:right;padding-right:14px;color:#454b5a;user-select:none;font-size:12px}
+  .cl .t{white-space:pre;color:var(--code)}
+  .cl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .25s}
+  .cl.hit{background:rgba(255,107,107,.10)}
+  .cl.hit::before{background:var(--red)}
+  .cl.hit .g{color:#b06b72}
+  .cl.struct{background:rgba(255,199,89,.09)}
+  .cl.struct::before{background:var(--amb)}
+  .cl.flash{background:rgba(255,107,107,.30)}
+  .c{color:var(--com)}.s{color:var(--str)}.n{color:var(--num)}.k{color:var(--kw)}.ty{color:var(--ty)}.fn{color:var(--fn)}.cn{color:var(--num)}
+
+  /* terminal */
+  .terminal{position:absolute;top:118px;right:-460px;width:420px;height:472px;background:rgba(13,15,21,.97);
+    border:1px solid var(--line);border-radius:11px;backdrop-filter:blur(6px);
+    display:flex;flex-direction:column;z-index:30;transition:right .7s cubic-bezier(.7,0,.2,1);box-shadow:0 22px 64px rgba(0,0,0,.55)}
+  .terminal.show{right:40px}
+  .term-head{height:33px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 13px;
+    font-family:var(--mono);font-size:11px;color:var(--mut)}
+  .term-head .tdot{width:8px;height:8px;border-radius:50%;background:var(--vio);box-shadow:0 0 8px var(--vio)}
+  .term-body{flex:1;overflow:hidden;padding:12px 15px;font-family:var(--mono);font-size:12px;line-height:1.6}
+  .ln{white-space:pre-wrap;opacity:0;transform:translateY(4px);transition:opacity .22s,transform .22s;margin-bottom:1px}
+  .ln.in{opacity:1;transform:none}
+  .cmd{color:#cfd3dd}.cmd .pr{color:var(--vio)}
+  .fx .mk{color:var(--red);font-weight:700}.fx .lab{color:#ecc!important;color:#f0c9c9}.fx .meta{color:#7c8494}
+  .sevH{color:var(--red)}.sevM{color:var(--amb)}
+  .note{color:var(--amb);opacity:.92}.note .mk{color:var(--amb)}
+  .ok{color:var(--grn)}.dim{color:#7c8494}
+  /* gauge */
+  .gauge{border-top:1px solid var(--line);padding:13px 15px}
+  .gauge .row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .gauge .lab{font-family:var(--mono);font-size:11px;color:var(--mut);letter-spacing:.3px}
+  .gauge .num{font-family:var(--mono);font-size:31px;font-weight:600}
+  .bar{height:8px;border-radius:5px;background:#23262f;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0%;border-radius:5px;background:var(--red);transition:width .35s,background .5s}
+  .badge{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:11px;font-weight:700;
+    padding:5px 13px;border-radius:6px;background:var(--redbg);color:var(--red);letter-spacing:.6px;
+    opacity:0;transform:translateY(3px);transition:opacity .35s,transform .35s}
+  .badge.show{opacity:1;transform:none}
+
+  /* caption lower-third (own backing panel, opaque so code never bleeds through) */
+  .caption{position:absolute;left:40px;bottom:30px;max-width:620px;z-index:36;pointer-events:none;
+    --cap:var(--vio);
+    background:rgba(10,11,17,.94);border:1px solid #2a3142;border-left:3px solid var(--cap);border-radius:11px;
+    padding:14px 19px;box-shadow:0 14px 44px rgba(0,0,0,.5);
+    opacity:0;transform:translateY(8px);transition:opacity .32s,transform .32s}
+  .caption.show{opacity:1;transform:none}
+  .caption .k{font-family:var(--mono);font-size:12px;color:var(--cap);letter-spacing:1px;margin-bottom:6px}
+  .caption .t{font-size:22px;font-weight:600;line-height:1.32;max-width:580px}
+
+  /* variety */
+  .variety{position:absolute;inset:0;z-index:50;opacity:0;pointer-events:none;transition:opacity .5s;
+    background:radial-gradient(100% 90% at 50% -10%, rgba(110,90,200,.18), rgba(8,9,13,0) 55%), #0a0b11;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 40px 70px}
+  .variety.show{opacity:1}
+  .vhead{font-family:var(--mono);font-size:12px;color:var(--vio);letter-spacing:1px;margin-bottom:14px;
+    opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+  .variety.show .vhead{opacity:1;transform:none}
+  .vgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;width:1090px;height:506px}
+  .card{position:relative;background:#0d0f16;border:1px solid var(--line);border-radius:11px;overflow:hidden;
+    opacity:0;transform:translateY(26px) scale(.965) perspective(900px) rotateX(7deg);
+    transition:opacity .55s cubic-bezier(.6,0,.2,1),transform .55s cubic-bezier(.6,0,.2,1),border-color .4s,box-shadow .4s}
+  .card.in{opacity:1;transform:none;box-shadow:0 16px 44px rgba(0,0,0,.45)}
+  .card.pass{border-color:rgba(58,217,138,.5);box-shadow:0 0 0 1px rgba(58,217,138,.25),0 16px 44px rgba(0,0,0,.45)}
+  .chead{height:34px;background:#15171f;border-bottom:1px solid var(--line);display:flex;align-items:center;
+    justify-content:space-between;padding:0 13px;font-family:var(--mono);font-size:11px}
+  .chead .lang{color:var(--txt);font-weight:600;display:flex;align-items:center;gap:8px}
+  .chead .lang .sq{width:8px;height:8px;border-radius:2px}
+  .chead .file{color:var(--mut)}
+  .cbody{padding:9px 6px 9px 0;font-family:var(--mono);font-size:10.5px;line-height:1.5;overflow:hidden;height:calc(100% - 34px)}
+  .cbody .cl .g{flex-basis:30px;padding-right:9px;font-size:9.5px}
+  .cbody .cl .t{font-size:10.5px}
+  .pill{position:absolute;right:11px;bottom:11px;display:flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.4px;color:var(--grn);
+    background:var(--grnbg);border:1px solid rgba(58,217,138,.4);border-radius:20px;padding:4px 11px 4px 9px;
+    opacity:0;transform:translateY(6px) scale(.9);transition:opacity .3s,transform .3s}
+  .pill.show{opacity:1;transform:none}
+  .pill svg{width:13px;height:13px}
+  .pill svg path{stroke:var(--grn);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .4s ease .05s}
+  .pill.show svg path{stroke-dashoffset:0}
+  .sheen{position:absolute;inset:0;z-index:55;pointer-events:none;opacity:0;
+    background:linear-gradient(115deg,transparent 38%,rgba(179,167,255,.16) 48%,rgba(255,255,255,.06) 50%,transparent 60%);
+    transform:translateX(-30%)}
+  .variety .vcap{position:absolute;left:50%;transform:translateX(-50%);bottom:24px;z-index:58;
+    background:rgba(10,11,17,.94);border:1px solid #2a3142;border-radius:10px;padding:11px 20px;
+    font-size:14.5px;color:var(--txt);text-align:center;max-width:840px;
+    opacity:0;transition:opacity .4s}
+  .variety .vcap.show{opacity:1}
+  .variety .vcap b{color:var(--vio);font-weight:600}
+
+  /* end card */
+  .endcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;
+    z-index:60;opacity:0;pointer-events:none;transition:opacity .6s;padding:0 60px;
+    background:radial-gradient(80% 70% at 50% 38%, rgba(110,90,200,.18), rgba(8,9,13,0) 60%), #08090d}
+  .endcard.show{opacity:1}
+  .endcard .mk{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:13px;color:var(--vio);letter-spacing:1.5px}
+  .endcard .mk .dot{width:9px;height:9px}
+  .endcard .big{font-size:44px;font-weight:600;letter-spacing:-.5px}
+  .endcard .sub{color:var(--mut);font-size:16px;max-width:660px;text-align:center;line-height:1.55}
+  .endcard .tag{font-size:15px;color:var(--txt);font-weight:500}
+  .endcard .repo{font-family:var(--mono);font-size:14px;color:var(--vio);border:1px solid var(--line);
+    background:rgba(25,22,51,.4);padding:10px 17px;border-radius:8px;margin-top:8px}
+
+  /* progress bar driven by run clock; the only chrome on the stage */
+  .controls{position:absolute;bottom:0;left:0;right:0;z-index:70}
+  .prog{width:100%;height:3px;background:rgba(255,255,255,.05)}
+  .prog>i{display:block;height:100%;width:0;background:var(--vio);opacity:.7}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="topbar">
+    <div class="wordmark"><span class="dot"></span> unslop-code</div>
+    <div class="phase" id="phase">a guardrail against AI-written-code tells</div>
+  </div>
+
+  <div class="editor" id="editor">
+    <div class="ehead">
+      <div class="lights"><span class="lt l1"></span><span class="lt l2"></span><span class="lt l3"></span></div>
+      <div class="tab"><span class="fdot"></span><span id="fname">checkout.py</span></div>
+    </div>
+    <div class="ebody">
+      <div class="codelayer" id="codeBefore"></div>
+      <div class="codelayer" id="codeAfter"></div>
+    </div>
+  </div>
+
+  <div class="terminal" id="terminal">
+    <div class="term-head"><span class="tdot"></span> unslop_code_scan.py</div>
+    <div class="term-body" id="termBody"></div>
+    <div class="gauge">
+      <div class="row"><span class="lab">slop score</span><span class="num" id="score">0</span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <span class="badge" id="badge">SCANNING</span>
+    </div>
+  </div>
+
+  <div class="caption" id="caption"><div class="k" id="capK"></div><div class="t" id="capT"></div></div>
+
+  <div class="variety" id="variety">
+    <div class="vhead" id="vhead">one function, four codebases</div>
+    <div class="vgrid" id="vgrid"></div>
+    <div class="sheen" id="sheen"></div>
+    <div class="vcap" id="vcap">The skill imposes no style. Each clean version follows <b>its own codebase</b>, and all four pass the scanner at <b>0</b>.</div>
+  </div>
+
+  <div class="endcard" id="endcard">
+    <div class="mk"><span class="dot"></span> UNSLOP-CODE</div>
+    <div class="big">Code that does not read as AI-written.</div>
+    <div class="sub">A Claude skill and scanner that strip the tells that give away machine-written code, grounded in a Reddit study of 55 developer and SaaS subreddits. It removes the surface tells and points you at the ones a scanner cannot see.</div>
+    <div class="tag">It strips the tells. You still write the code.</div>
+    <div class="repo">github.com/JCarterJohnson/vibecoded-design-tells</div>
+  </div>
+
+  <div class="controls"><div class="prog"><i id="prog"></i></div></div>
+</div>
+
+<script>
+  const $=id=>document.getElementById(id);
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  /* ---- source samples (rendered as text; the real files live in ./samples and were
+        verified against scripts/unslop_code_scan.py: before.py = 39/STRONG, the four
+        clean files = 0/clean) ---- */
+  const BEFORE=[
+    '```python',
+    "# Here's the complete implementation you requested! 🚀",
+    '',
+    '# This class handles all the data processing logic',
+    'class DataProcessorFactory:',
+    '    # create the processor',
+    '    def build(self):',
+    '        return DataProcessor()',
+    '',
+    'class DataProcessor:',
+    '    def __init__(self, config=None):',
+    '        self.config = config or {}',
+    '',
+    '    def process_data(self, data):',
+    '        # Step 1: initialize the total',
+    '        total = 0',
+    '        # Step 2: loop through the items',
+    '        for item in data:',
+    '            # increment the total by price times quantity',
+    '            total += item["price"] * item["quantity"]',
+    '        # Now we apply the discount 🎉',
+    '        try:',
+    '            total = total * (1 - self.config["discount"])',
+    '        except:',
+    '            pass',
+    '        # ... rest of your logic here',
+    '        # Step 3: return the result',
+    '        return total',
+    '',
+    "# I hope this helps! Let me know if you'd like me to add tax handling. 😊",
+    '```'
+  ];
+  const AFTER_PY=[
+    'from dataclasses import dataclass',
+    '',
+    '@dataclass(frozen=True)',
+    'class LineItem:',
+    '    price_cents: int',
+    '    quantity: int',
+    '',
+    'def order_total(items: list[LineItem], discount: float, tax_rate: float) -> int:',
+    '    if not 0 <= discount <= 1:',
+    '        raise ValueError(f"discount must be a fraction in [0, 1], got {discount}")',
+    '    subtotal = sum(item.price_cents * item.quantity for item in items)',
+    '    discounted = round(subtotal * (1 - discount))',
+    '    return round(discounted * (1 + tax_rate))'
+  ];
+  const AFTER_TS=[
+    'interface LineItem {',
+    '  priceCents: number;',
+    '  quantity: number;',
+    '}',
+    '',
+    'export function orderTotal(items: LineItem[], discount: number, taxRate: number): number {',
+    '  if (discount < 0 || discount > 1) {',
+    '    throw new RangeError(`discount must be a fraction in [0, 1], got ${discount}`);',
+    '  }',
+    '  const subtotal = items.reduce((sum, item) => sum + item.priceCents * item.quantity, 0);',
+    '  const discounted = Math.round(subtotal * (1 - discount));',
+    '  return Math.round(discounted * (1 + taxRate));',
+    '}'
+  ];
+  const AFTER_GO=[
+    'package checkout',
+    '',
+    'import (',
+    '    "errors"',
+    '    "math"',
+    ')',
+    '',
+    'type LineItem struct {',
+    '    PriceCents int',
+    '    Quantity   int',
+    '}',
+    '',
+    'func OrderTotal(items []LineItem, discount, taxRate float64) (int, error) {',
+    '    if discount < 0 || discount > 1 {',
+    '        return 0, errors.New("discount must be a fraction in [0, 1]")',
+    '    }',
+    '    subtotal := 0',
+    '    for _, item := range items {',
+    '        subtotal += item.PriceCents * item.Quantity',
+    '    }',
+    '    discounted := math.Round(float64(subtotal) * (1 - discount))',
+    '    return int(math.Round(discounted * (1 + taxRate))), nil',
+    '}'
+  ];
+  const AFTER_RS=[
+    'pub struct LineItem {',
+    '    pub price_cents: u64,',
+    '    pub quantity: u64,',
+    '}',
+    '',
+    'pub fn order_total(items: &[LineItem], discount: f64, tax_rate: f64) -> Result<u64, String> {',
+    '    if !(0.0..=1.0).contains(&discount) {',
+    '        return Err(format!("discount must be a fraction in [0, 1], got {discount}"));',
+    '    }',
+    '    let subtotal: u64 = items.iter().map(|item| item.price_cents * item.quantity).sum();',
+    '    let discounted = (subtotal as f64 * (1.0 - discount)).round();',
+    '    Ok((discounted * (1.0 + tax_rate)).round() as u64)',
+    '}'
+  ];
+
+  /* ---- lightweight syntax highlighter (token pass, HTML-safe) ---- */
+  const KW={
+    py:new Set(['def','class','return','for','in','if','not','or','and','raise','from','import','None','True','False','self','lambda','with','as','try','except','pass','elif','else','while','is']),
+    ts:new Set(['interface','export','function','return','const','let','var','if','else','throw','new','number','string','boolean','void','for','of','type','import','from']),
+    go:new Set(['package','import','type','struct','func','for','range','return','if','else','nil','int','float64','error','var','int64','string','bool']),
+    rs:new Set(['pub','struct','fn','let','return','if','else','as','impl','match','mut','use','enum','for','in','where','f64','u64','i64'])
+  };
+  const CONST=new Set(['None','True','False','nil','true','false','Ok','Err','Result','Some','Option','String']);
+  function hl(line,lang){
+    if(line.replace(/^\s+/,'').slice(0,3)==='```') return '<span class="c">'+esc(line)+'</span>';
+    const cpat=lang==='py'?'#':'\\/\\/';
+    const re=new RegExp('('+cpat+'.*$)|(`(?:[^`\\\\]|\\\\.)*`|"(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\')|(\\b\\d[\\d_]*\\.?\\d*\\b)|([A-Za-z_]\\w*)|(\\s+)|([^])','g');
+    let out='',m;
+    while((m=re.exec(line))){
+      if(m[1]!=null) out+='<span class="c">'+esc(m[1])+'</span>';
+      else if(m[2]!=null) out+='<span class="s">'+esc(m[2])+'</span>';
+      else if(m[3]!=null) out+='<span class="n">'+esc(m[3])+'</span>';
+      else if(m[4]!=null){
+        const w=m[4];let cls='';
+        if(KW[lang]&&KW[lang].has(w)) cls='k';
+        else if(CONST.has(w)) cls='cn';
+        else if(/^[A-Z]/.test(w)) cls='ty';
+        else if(/^\s*\(/.test(line.slice(re.lastIndex))) cls='fn';
+        out+=cls?'<span class="'+cls+'">'+esc(w)+'</span>':esc(w);
+      }
+      else if(m[5]!=null) out+=esc(m[5]);
+      else out+=esc(m[6]);
+      if(m.index===re.lastIndex) re.lastIndex++;
+    }
+    return out||' ';
+  }
+  function renderCode(el,lines,lang,prefix){
+    el.innerHTML=lines.map((ln,i)=>{
+      const n=i+1;
+      return '<div class="cl" id="'+prefix+n+'"><span class="g">'+n+'</span><span class="t">'+hl(ln,lang)+'</span></div>';
+    }).join('');
+  }
+
+  /* ---- the scan findings: faithful to unslop_code_scan.py on samples/before.py ----
+     grouped + ordered exactly as the scanner reports (severity, then count desc) ---- */
+  const FINDINGS=[
+    {label:'leftover chat / assistant artifact', n:4, sev:'HIGH', lines:[1,2,30,31]},
+    {label:'placeholder / ellipsis comment',     n:1, sev:'HIGH', lines:[26]},
+    {label:'narrating comment  (# Step 1)',      n:7, sev:'MED',  lines:[4,6,15,17,19,21,27]},
+    {label:'emoji in code',                      n:3, sev:'MED',  lines:[2,21,30]},
+    {label:'generic name  (process_data)',       n:1, sev:'MED',  lines:[14]},
+    {label:'swallowed error  (bare except)',     n:1, sev:'MED',  lines:[24]},
+  ];
+  const W={HIGH:3,MED:2,LOW:1};
+
+  let token=0,myToken=0;
+  const live=()=>token===myToken;
+
+  function caption(k,t,accent){
+    $("caption").style.setProperty('--cap',accent||'var(--vio)');
+    $("capK").textContent=k;$("capT").textContent=t;$("caption").classList.add("show");
+  }
+  function hideCaption(){$("caption").classList.remove("show");}
+  function setScore(n){$("score").textContent=n;$("bar").style.width=Math.min(100,n/39*100)+"%";}
+  async function tick(from,to,ms){
+    const steps=Math.abs(to-from)||1,dt=ms/steps;let v=from;
+    for(let i=0;i<steps;i++){v+=(to>from?1:-1);setScore(v);await sleep(dt);if(!live())return;}
+    setScore(to);
+  }
+  async function termLine(html,cls){
+    const d=document.createElement("div");d.className="ln "+(cls||"");d.innerHTML=html;
+    $("termBody").appendChild(d);await sleep(18);d.classList.add("in");
+  }
+  function clearTerm(){$("termBody").innerHTML="";}
+
+  function hitLines(arr,kind){
+    arr.forEach(n=>{
+      const el=$("b"+n);if(!el)return;
+      el.classList.add(kind||"hit","flash");
+      setTimeout(()=>el.classList.remove("flash"),260);
+    });
+  }
+  function clearHits(){document.querySelectorAll('#codeBefore .cl').forEach(el=>el.classList.remove('hit','struct','flash'));}
+
+  const CHECK='<svg viewBox="0 0 16 16"><path d="M3 8.4 L6.4 12 L13 4"/></svg>';
+  function buildVariety(){
+    const langs=[
+      {lang:'py',name:'Python',file:'checkout.py',color:'#5b9bd5',code:AFTER_PY},
+      {lang:'ts',name:'TypeScript',file:'checkout.ts',color:'#3aa6ff',code:AFTER_TS},
+      {lang:'go',name:'Go',file:'checkout.go',color:'#37c0c8',code:AFTER_GO},
+      {lang:'rs',name:'Rust',file:'checkout.rs',color:'#e08a5a',code:AFTER_RS},
+    ];
+    const g=$("vgrid");g.innerHTML="";
+    langs.forEach((L,i)=>{
+      const card=document.createElement("div");card.className="card";card.id="card"+i;
+      const body='<div class="cbody">'+L.code.map((ln,j)=>'<div class="cl"><span class="g">'+(j+1)+'</span><span class="t">'+hl(ln,L.lang)+'</span></div>').join('')+'</div>';
+      card.innerHTML='<div class="chead"><span class="lang"><span class="sq" style="background:'+L.color+'"></span>'+L.name+'</span><span class="file">'+L.file+'</span></div>'+body+
+        '<div class="pill" id="pill'+i+'">'+CHECK+' slop 0 · clean</div>';
+      g.appendChild(card);
+    });
+  }
+
+  let runStart=0;
+  let TOTAL_MS=15650; // run-clock length to the end card; bar fills to 100% as it appears
+
+  async function run(){
+    myToken=++token;
+    runStart=performance.now();
+    // reset
+    clearTerm();setScore(0);clearHits();
+    $("bar").style.background="var(--red)";
+    $("badge").textContent="SCANNING";$("badge").style.background="var(--redbg)";$("badge").style.color="var(--red)";$("badge").classList.remove("show");
+    $("terminal").classList.remove("show");
+    $("codeBefore").style.opacity=1;$("codeAfter").style.opacity=0;$("fname").textContent="checkout.py";
+    $("variety").classList.remove("show");$("vcap").classList.remove("show");$("endcard").classList.remove("show");
+    document.querySelectorAll('.card').forEach(c=>c.classList.remove('in','pass'));
+    document.querySelectorAll('.pill').forEach(p=>p.classList.remove('show'));
+    $("phase").textContent="a guardrail against AI-written-code tells";
+    const T=ms=>sleep(ms);
+
+    // 1. BEFORE
+    caption("vibe-coded","A function pasted straight out of a chat window. You have seen this one.","var(--vio)");
+    await T(1500);if(!live())return;
+
+    // 2. SCAN
+    $("phase").textContent="audit mode";
+    $("terminal").classList.add("show");hideCaption();await T(360);if(!live())return;
+    await termLine('<span class="cmd"><span class="pr">$</span> python3 unslop_code_scan.py checkout.py</span>');
+    await T(300);if(!live())return;
+    caption("the scan","One scan flags every surface tell, with the file, the line, and the fix.","var(--vio)");
+    await T(260);if(!live())return;
+    let score=0;
+    for(const f of FINDINGS){
+      const sc=f.sev==='HIGH'?'sevH':'sevM';
+      await termLine('<span class="fx"><span class="mk">✗</span> <span class="lab">'+f.label+'</span> <span class="meta">×'+f.n+' [<span class="'+sc+'">'+f.sev+'</span>]</span></span>','fx');
+      hitLines(f.lines,"hit");
+      const next=score+W[f.sev]*f.n;
+      await tick(score,next,240);score=next;if(!live())return;
+      await T(120);if(!live())return;
+    }
+    await termLine('<span class="ok">→ 17 findings · slop score 39</span>');
+    await T(120);if(!live())return;
+    $("badge").textContent="STRONG  AI-WRITTEN";$("badge").classList.add("show");
+    await T(140);if(!live())return;
+    // faithful closing note: the loudest tells are structural, no regex sees them
+    await termLine('<span class="note"><span class="mk">!</span> over-engineering, repo-fit: a reader’s call, not the regex’s</span>','note');
+    hitLines([5,7,8],"struct");
+    await T(540);if(!live())return;
+    caption("39 / strong","Chat voice, narrated steps, a swallowed error, a stubbed-out line. None of it chosen.","var(--red)");
+    await T(1800);if(!live())return;
+
+    // 3. REBUILD
+    $("phase").textContent="build mode · fit it to the project";
+    clearTerm();clearHits();
+    await termLine('<span class="cmd"><span class="pr">$</span> python3 unslop_code_scan.py checkout.py</span>');
+    caption("the rebuild","Same function, rewritten to belong in the project. The tells are gone.","var(--vio)");
+    $("codeBefore").style.opacity=0;$("codeAfter").style.opacity=1;
+    await T(360);if(!live())return;
+    await tick(39,0,820);if(!live())return;
+    $("bar").style.background="var(--grn)";
+    await termLine('<span class="ok">→ 0 findings · slop score 0</span>');
+    await T(200);if(!live())return;
+    $("badge").textContent="CLEAN";$("badge").style.background="var(--grnbg)";$("badge").style.color="var(--grn)";
+    await T(140);if(!live())return;
+    await termLine('<span class="dim">no surface tells, and a shape that fits the codebase</span>');
+    await T(620);if(!live())return;
+    caption("0 / clean","No surface tells left, and a shape that fits the codebase instead of the model average.","var(--grn)");
+    await T(1800);if(!live())return;
+
+    // 4. VARIETY (the showcase)
+    $("terminal").classList.remove("show");hideCaption();await T(340);if(!live())return;
+    $("phase").textContent="it works across languages";
+    $("variety").classList.add("show");
+    const cards=document.querySelectorAll('.card');
+    for(let i=0;i<cards.length;i++){cards[i].classList.add('in');await T(180);if(!live())return;}
+    await T(180);if(!live())return;
+    // sheen sweep across the grid
+    const sh=$("sheen");
+    sh.style.transition="none";sh.style.opacity="0";sh.style.transform="translateX(-35%)";
+    void sh.offsetWidth;
+    sh.style.transition="transform .9s cubic-bezier(.5,0,.3,1),opacity .9s";
+    sh.style.opacity="1";sh.style.transform="translateX(35%)";
+    // stamp each card clean in turn, just behind the sheen
+    for(let i=0;i<cards.length;i++){
+      await T(150);if(!live())return;
+      cards[i].classList.add('pass');$("pill"+i).classList.add('show');
+    }
+    setTimeout(()=>{sh.style.opacity="0";},300);
+    await T(260);if(!live())return;
+    $("vcap").classList.add("show");
+    await T(2000);if(!live())return;
+
+    // 5. END CARD (fades in over variety so nothing flashes through)
+    $("endcard").classList.add("show");
+    await T(820);if(!live())return;
+    $("variety").classList.remove("show");
+    await T(1500);if(!live())return;
+    if(live())run();
+  }
+
+  // progress bar from the run clock: empty when "before" appears, full at the end card
+  function progLoop(){
+    const w=runStart?Math.min(100,(performance.now()-runStart)/TOTAL_MS*100):0;
+    $("prog").style.width=w+"%";requestAnimationFrame(progLoop);
+  }
+  // scale the fixed stage to fit any viewport, so it screen-records cleanly at any size
+  function fit(){const s=Math.min(window.innerWidth/1200,window.innerHeight/748,1);
+    $("stage").style.transform="scale("+s+")";}
+
+  renderCode($("codeBefore"),BEFORE,'py','b');
+  renderCode($("codeAfter"),AFTER_PY,'py','a');
+  buildVariety();
+  window.addEventListener("resize",fit);
+  window.addEventListener("load",()=>{fit();progLoop();run();});
+  fit();
+</script>
+</body></html>
