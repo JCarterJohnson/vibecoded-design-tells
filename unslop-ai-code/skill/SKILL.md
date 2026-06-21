@@ -35,6 +35,34 @@ about it: boilerplate (18.6%), hallucinated APIs (11.2%), and over-engineering (
 over the cosmetic stuff (emoji 3.9%, verbose names 0.4%). So removing surface tells is the easy
 40% of the job, not the job. Do not mistake a clean scan for clean code.
 
+## Two kinds of tell: bugs and cosmetics
+
+Sort every tell by one question before any other: is the code wrong, or does it just look
+machine-made?
+
+- **Bugs.** Swallowed and over-broad exception handling eats the failure you needed. A
+  hallucinated or nonexistent API will not run. A `// rest of your code` stub means the file is
+  unfinished. These are not style. Fix them because the code is broken, the same way you would
+  fix any bug, whether or not anyone ever suspected AI.
+- **Cosmetics.** Emoji, leftover chat artifacts, narrating comments, generic and over-verbose
+  names. These are the model's chat voice leaking into the file. Worth removing because they
+  read as AI, but nothing breaks if one survives. This is the lighter class.
+
+The scanner reports both, tagged with the class; the catalog tags every tell the same way. The
+point of the split: do not spend an audit polishing cosmetics while a swallowed error or a
+made-up call ships. (There is a third class, *substance*: tutorial shape, over-engineering, and
+repo mismatch. It is wrong for the job rather than locally broken, and needs a human reading the
+diff. See references/tells.md.)
+
+## The over-correction trap
+
+Told to "write clean code" or "make this not look AI," a model does not become restrained; it
+over-corrects. It adds defensive checks for cases that cannot happen, a type annotation on every
+local, a comment on every block, an abstraction for a thing with one caller. It is trying to
+look senior, and trying-to-look-senior is itself a tell. The fix is not more polish; it is the
+same anchor as everything else here: match the level the surrounding code actually operates at.
+Do not add a check, a type, a comment, or a layer the neighboring code would not have.
+
 ## How this differs from a linter or a formatter
 
 A linter enforces style and catches a fixed set of bugs; a formatter makes everything uniform,
@@ -64,13 +92,30 @@ Establish, concretely:
   production.
 
 [references/tells.md](references/tells.md) is the full ranked catalog. [references/fitting-the-codebase.md](references/fitting-the-codebase.md)
-is the method for making the code deliberate and project-specific, written as a process rather
-than a prescription, precisely so it does not become the next default.
+is the method for making the code fit the project instead of the model's average, written as a
+process rather than a prescription, so it does not become the next default.
 
 ## Mode 2: Audit (the guardrail)
 
-When reviewing or cleaning existing code, or when the user says "does this look AI-written,"
-"de-slop this," run the scanner first, then fix in priority order.
+When reviewing or cleaning existing code, or when the user says "does this look AI-written" or
+"de-slop this," work in this order. The order matters: the scanner is a regex and is blind to
+the bug-class tells, so it is the second pass, not the first.
+
+**1. Run what only code allows.** Unlike prose or a design, code can be executed, and that is
+your strongest tool. This step catches the bug-class structural tells, hallucinated APIs above
+all, which no regex can see. Build it, type-check it, lint it, and resolve its imports and calls
+against real docs:
+
+- Python: `python -m py_compile <files>`, `ruff check` or `pyflakes`, `mypy`, and actually
+  import the module so a missing dependency fails loudly.
+- JS / TS: `tsc --noEmit`, `eslint`, `node --check`, with a real install so a made-up package errors.
+- Go: `go build ./...`, `go vet ./...`.
+- Rust: `cargo check`, `cargo clippy`.
+
+If the code will not build, or a call resolves to nothing, you have found the loudest tell in
+the data before reading a line. Fix that first.
+
+**2. Run the scanner** for the mechanical surface tells.
 
 ```bash
 python3 scripts/unslop_code_scan.py <path>                 # full report + slop score
@@ -78,21 +123,26 @@ python3 scripts/unslop_code_scan.py <path> --severity high # only the strongest 
 python3 scripts/unslop_code_scan.py <path> --json          # machine-readable, for CI
 ```
 
-It scans Python, JS/TS, Java, Go, Rust, Ruby, PHP, C/C++, C#, and more, reports each finding
-with file, line, the matched text, the data share it carries, and the fix, and gives a slop
-score. The exit code is the high-severity count, so CI can gate on it. The scanner catches the
-mechanical tells (chat artifacts, placeholder comments, emoji, swallowed errors, narrating
-comments, generic names). It cannot see boilerplate shape, hallucinated APIs, over-engineering,
-or whether the code matches the repo, and those are the loudest tells, so after the scan, read
-the diff for those by hand against references/tells.md.
+It scans Python, JS/TS, Java, Go, Rust, Ruby, PHP, C/C++, C#, and more; reports each finding
+with file, line, the matched text, the severity, the class (bug or cosmetic), the data share it
+carries, and the fix; and gives a slop score. The exit code is the high-severity count, so CI
+can gate on it. Severity is how loudly a finding reads as AI; class is whether it is broken. Fix
+every bug-class finding regardless of severity.
+
+**3. Read the diff for what neither step can see:** tutorial shape, over-engineering, and
+whether the code matches the repo. These are the substance tells in references/tells.md, and
+they are the loudest in the data.
 
 **Respecting intentional choices.** A line containing `unslop-ignore` is skipped. Use it when a
 flagged construct is a real decision (a broad catch at a boundary, an emoji in a CLI banner), so
 the audit stays trustworthy.
 
-**Fixing well.** Do not "fix" `process_data()` by renaming it `processDataFunction()`, which is
-just a different tell. Name it for what it does. A fix that adds a new unchosen default is not a
-fix.
+**Fixing well: the anchor is correct, and fits this codebase.** Do not "fix" `process_data()`
+by renaming it `processDataFunction()`, which is just a different tell. Name it for what it does,
+the way the rest of the repo names things. Code has far less aesthetic latitude than prose or a
+UI: there is rarely a "tasteful choice" to make here, only "is it correct, and does it match
+what is already in this project." A fix that swaps the model's default for your own invented
+default is not a fix; a fix that makes the line look like the code around it is.
 
 ## What this deliberately does not flag
 

@@ -12,12 +12,20 @@ code (18.6%), hallucinated APIs (11.2%), and over-engineering (7.8%), none of wh
 see. This skill flags the mechanical surface tells AND tells you, explicitly, where the scanner is
 blind so you read for the structural ones by hand.
 
+Two axes run through the whole skill. **Severity** is how loudly a finding reads as AI; **class**
+is whether it is a bug or a cosmetic. A swallowed error or a hallucinated API is a bug you fix
+because the code is wrong; an emoji is cosmetic. And because code, unlike prose or a design, can
+be run, the audit leans on that first: build, type-check, and lint to catch the hallucinated
+calls, then the scanner for the surface tells, then a human read for shape and repo-fit.
+
 ## What is here
 
 - `SKILL.md` - the skill itself (build mode + audit mode).
 - `references/tells.md` - the full ranked catalog: verified and raw share, a real quote, the
   code-level signature, and the fix for each tell, split into Part A (what the scanner catches)
-  and Part B (the louder structural tells a regex cannot see).
+  and Part B (the louder structural tells a regex cannot see). Every tell is tagged bug /
+  substance / cosmetic, and a language-coverage section says which tells are universal versus
+  language-specific.
 - `references/fitting-the-codebase.md` - a method for making generated code deliberate and
   project-specific, built around the data's single most-repeated fix: make it follow the existing
   code instead of guessing the average.
@@ -47,8 +55,9 @@ python3 scripts/unslop_code_scan.py ./src --json          # machine-readable, fo
 ```
 
 It scans Python, JS/TS, Java, Go, Rust, Ruby, PHP, C/C++, C#, and more, and prints each finding
-with the file, the line, the matched text, the data share it carries, and the fix, plus a slop
-score. The exit code is the number of high-severity findings, so a CI step can fail on it:
+with the file, the line, the matched text, its severity, its class (bug or cosmetic), the data
+share it carries, and the fix, plus a slop score. The exit code is the number of high-severity
+findings, so a CI step can fail on it:
 
 ```yaml
 - run: python3 skill/scripts/unslop_code_scan.py ./src --severity high

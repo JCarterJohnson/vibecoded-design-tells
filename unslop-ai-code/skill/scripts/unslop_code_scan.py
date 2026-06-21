@@ -18,6 +18,24 @@ a compiler. This scanner catches the mechanical, surface tells: leftover chat/as
 placeholder comments, emoji, swallowed errors, narrating comments, and generic placeholder
 names.
 
+Two axes, not one. Severity is how loudly a finding reads as an AI tell (how conclusive it is
+when present). Class is whether it is a bug or a cosmetic. They are independent: a swallowed
+error is a quiet tell but a real bug; an emoji is a loud tell but harmless. Fix every bug-class
+finding because it is wrong, not because it looks AI-written; treat the cosmetic ones as the
+lighter pass.
+
+The highest-impact bug, hallucinated APIs, is invisible to this scanner. Catch it the way only
+code allows: build it, type-check it, run it, resolve every import and call against real docs.
+The scanner is the cheap second pass, never the first.
+
+Language coverage. Some tells are language-universal because they live in comments or strings:
+emoji, leftover chat artifacts, placeholder/ellipsis comments, narrating comments. Others key
+on syntax and are language-specific. Swallowed errors are matched for Python / JS / TS / Java /
+C# / Ruby try-catch and for Go's single-line empty `if err != nil {}`; Rust's `.unwrap()` /
+`let _ =` and Go's `_`-discard are too overloaded to flag by regex without noise, so they are a
+human pass (see references/tells.md). Generic-name detection keys on def / function / func /
+fn / fun / sub.
+
 Usage:
     python3 unslop_code_scan.py <path>                 # scan a dir or file
     python3 unslop_code_scan.py <path> --severity high # only the strongest signals
@@ -39,12 +57,17 @@ CMT = r"(?://|#|/\*|\*|--|<!--)"   # comment openers across common languages
 EMOJI = ("\U0001F300-\U0001FAFF\U00002600-\U000027BF\U0001F000-\U0001F0FF"
          "\U00002B00-\U00002BFF\U0001F900-\U0001F9FF\U00002764")
 
-# Each rule: id, label, severity, share (the verified data share), fix, patterns.
+# Each rule: id, label, severity, class, share (the verified data share), fix, patterns.
 # Severity follows the verified shares, with the two conclusive paste-in artifacts raised
 # to HIGH because when they survive into committed code they are unmistakable.
+# Class is the orthogonal axis the goal cares about: "bug" means the code is wrong (it eats a
+# failure, ships unfinished, or will not run) and you fix it on those grounds alone; "cosmetic"
+# means it is the model's chat voice leaking into the file, a lighter surface pass. Severity and
+# class are independent: a swallowed error is MEDIUM severity but a bug; a chat artifact is HIGH
+# severity but cosmetic. The biggest bug (hallucinated APIs) is structural and not in this list.
 RULES = [
     # ---------- HIGH: the conclusive paste-in artifacts ----------
-    {"id": "chat-artifact", "label": "Leftover chat / assistant / markdown artifact in the code", "sev": "high",
+    {"id": "chat-artifact", "label": "Leftover chat / assistant / markdown artifact in the code", "sev": "high", "class": "cosmetic",
      "share": "verified 1.2%, but unmistakable when present",
      "fix": "Delete the assistant's voice before committing: code fences, 'Here's the updated code', 'As an AI', 'Good catch!', a trailing 'Note:'.",
      "pats": [r"^\s*```", r"\bhere'?s the (updated|complete|full|fixed|revised|new) (code|version|implementation|file)\b",
@@ -53,9 +76,9 @@ RULES = [
               r"^\s*" + CMT + r"\s*(note|remember|important|keep in mind|tip)\s*:",
               r"\b(certainly|sure)! here('?s| is)\b", r"\bi'?ll (add|update|fix|implement) .{0,40}\bnow\b",
               r"\bi hope this helps\b", r"\blet me know if you'?d?\s*(like|need|want)\b"]},
-    {"id": "placeholder-comment", "label": "Placeholder / ellipsis comment left in (\"// rest of your code\")", "sev": "high",
+    {"id": "placeholder-comment", "label": "Placeholder / ellipsis comment left in (\"// rest of your code\")", "sev": "high", "class": "bug",
      "share": "verified 1.6%, precision ~100%",
-     "fix": "Write the actual code. These '... rest of the code' stubs mean the file was pasted from a chat, not finished.",
+     "fix": "Write the actual code. These '... rest of the code' stubs mean the file is unfinished, not just untidy.",
      "pats": [r"" + CMT + r"\s*\.{2,}\s*(rest|the rest|your|remaining|existing|previous|other)\b",
               r"" + CMT + r"\s*(rest|remainder) of (your |the |my )?(code|implementation|logic|function|file|owl)\b",
               r"" + CMT + r"\s*(your|the) (code|logic|implementation|stuff) (goes )?here\b",
@@ -66,35 +89,36 @@ RULES = [
               r"" + CMT + r"\s*TODO:?\s*(implement|add|fill in|finish)\b"]},
 
     # ---------- MEDIUM: the surface tells ----------
-    {"id": "emoji-in-code", "label": "Emoji in code, comments, strings, logs, or commit text", "sev": "medium",
+    {"id": "emoji-in-code", "label": "Emoji in code, comments, strings, logs, or commit text", "sev": "medium", "class": "cosmetic",
      "share": "verified 3.9%, precision ~77% (the highest-precision cosmetic tell)",
      "fix": "Remove emoji from source. They survive from the model's chat output and read as vibe-coded.",
      "pats": [r"[" + EMOJI + r"]"]},
-    {"id": "swallowed-errors", "label": "Catch-all / swallowed errors (bare except, empty catch)", "sev": "medium",
+    {"id": "swallowed-errors", "label": "Catch-all / swallowed errors (bare except, empty catch, empty Go err block)", "sev": "medium", "class": "bug",
      "share": "verified 3.1% (try/except wrapped around everything)",
-     "fix": "Catch specific exceptions and handle them. A bare except or an empty catch eats the one clue you needed.",
+     "fix": "Catch specific exceptions and handle them. A bare except, an empty catch, or an empty `if err != nil {}` eats the one clue you needed.",
      "pats": [r"^\s*except\s*:", r"^\s*except\s+(Exception|BaseException)\s*:\s*(pass|\.\.\.|$)",
               r"\bcatch\s*\([^)]*\)\s*\{\s*\}", r"\bcatch\s*\{\s*\}",
-              r"\brescue\s*=>\s*\w+\s*$", r"\bcatch\s*\([^)]*\)\s*\{\s*//"]},
-    {"id": "narrating-comment", "label": "Narrating comment that restates the obvious / step-by-step '# Step 1'", "sev": "medium",
+              r"\brescue\s*=>\s*\w+\s*$", r"\bcatch\s*\([^)]*\)\s*\{\s*//",
+              r"\bif\s+err\s*!=\s*nil\s*\{\s*\}", r"\bif\s+err\s*!=\s*nil\s*\{\s*//"]},
+    {"id": "narrating-comment", "label": "Narrating comment that restates the obvious / step-by-step '# Step 1'", "sev": "medium", "class": "cosmetic",
      "share": "verified 8.5% (over-commenting; the regex catches the obvious-restatement subset)",
      "fix": "Cut comments that say what the next line plainly does. Comment why, not what.",
      "pats": [r"" + CMT + r"\s*(step\s*\d+\b|now we\b|first,|next,|then,|finally,)",
               r"" + CMT + r"\s*(increment|decrement|initialize|declare|define|create|instantiate|loop (over|through)|iterate over|return the|set the|get the|assign|call the)\b",
               r"" + CMT + r"\s*this (function|method|line|loop|variable|class|block) (does|is|will|handles|returns|creates)\b",
               r"" + CMT + r"\s*(import|importing) (the |required )?(libraries|modules|dependencies)\b"]},
-    {"id": "generic-naming", "label": "Generic placeholder function name (process_data, handleData, doStuff)", "sev": "medium",
+    {"id": "generic-naming", "label": "Generic placeholder function name (process_data, handleData, doStuff)", "sev": "medium", "class": "cosmetic",
      "share": "verified 1.9%, precision ~100% (process_data() is the canonical example)",
      "fix": "Name it for what it actually does in this domain. process_data() that does 11 things is the AI tell.",
      "pats": [r"\b(def|function|func|fn|fun|sub)\s+(process_?[Dd]ata|handle_?[Dd]ata|do_?[Ss]tuff|do_?[Ss]omething|my_?[Ff]unction|process_?[Ii]tem|process_?[Ii]nput|main_?[Ff]unction)\b",
               r"\b(process_?[Dd]ata|handle_?[Dd]ata|do_?[Ss]tuff|do_?[Ss]omething)\s*\("]},
 
     # ---------- LOW: weak / inflated signals ----------
-    {"id": "verbose-naming", "label": "Over-verbose, robotically self-documenting identifier", "sev": "low",
+    {"id": "verbose-naming", "label": "Over-verbose, robotically self-documenting identifier", "sev": "low", "class": "cosmetic",
      "share": "verified 0.4% (inflated; people mostly argue FOR descriptive names)", "cs": True,
      "fix": "A name that is a whole sentence (getUserDataFromApiResponseHandler) reads as machine-generated. Trim it.",
      "pats": [r"\b[a-z]+([A-Z][a-z0-9]+){4,}\b", r"\b[a-z]+(_[a-z0-9]+){5,}\b"]},
-    {"id": "boilerplate-marker", "label": "Boilerplate / dummy-data marker (placeholder keys, sample data, 'Successfully' logs)", "sev": "low",
+    {"id": "boilerplate-marker", "label": "Boilerplate / dummy-data marker (placeholder keys, sample data, 'Successfully' logs)", "sev": "low", "class": "cosmetic",
      "share": "weak proxy for the #1 tell (tutorial-shaped code), which is otherwise not regex-detectable",
      "fix": "Replace generated dummy data and placeholders with the real thing. Tutorial-shaped sample data is the loudest tell, but only a human can judge the shape.",
      "pats": [r"\blorem ipsum\b", r"\b(your|my)[-_]?api[-_]?key\b", r"\bYOUR_API_KEY\b", r"\bexample\.com\b",
@@ -145,7 +169,8 @@ def scan(path, min_sev):
                     m = rx.search(line)
                     if m:
                         findings.append({"rule": r["id"], "label": r["label"], "sev": r["sev"],
-                                         "share": r["share"], "fix": r["fix"], "file": fp, "line": i,
+                                         "class": r["class"], "share": r["share"], "fix": r["fix"],
+                                         "file": fp, "line": i,
                                          "match": m.group(0).strip()[:50], "snippet": line.strip()[:160]})
                         break
     return findings
@@ -172,17 +197,18 @@ def main():
         print(f"path not found: {args.path}", file=sys.stderr); sys.exit(2)
 
     findings = scan(args.path, args.severity)
-    by_sev, by_rule = {}, {}
+    by_sev, by_class, by_rule = {}, {}, {}
     for f in findings:
         by_sev[f["sev"]] = by_sev.get(f["sev"], 0) + 1
+        by_class[f["class"]] = by_class.get(f["class"], 0) + 1
         by_rule.setdefault(f["rule"], []).append(f)
     weighted = sum(W[s] * n for s, n in by_sev.items())
     files_scanned = sum(1 for _ in iter_files(args.path))
 
     if args.json:
         print(json.dumps({"path": args.path, "files_scanned": files_scanned, "counts": by_sev,
-                          "slop_score": weighted, "verdict": verdict(by_sev, weighted),
-                          "findings": findings}, indent=2))
+                          "class_counts": by_class, "slop_score": weighted,
+                          "verdict": verdict(by_sev, weighted), "findings": findings}, indent=2))
         sys.exit(by_sev.get("high", 0))
 
     sev_order = {"high": 0, "medium": 1, "low": 2}
@@ -190,16 +216,20 @@ def main():
     print(f"\n  unslop-code scan: {args.path}")
     print(f"  files scanned: {files_scanned}   findings: {len(findings)}   slop score: {weighted}")
     print(f"  verdict: {verdict(by_sev, weighted)}")
-    print(f"  high: {by_sev.get('high',0)}   medium: {by_sev.get('medium',0)}   low: {by_sev.get('low',0)}\n")
+    print(f"  high: {by_sev.get('high',0)}   medium: {by_sev.get('medium',0)}   low: {by_sev.get('low',0)}")
+    print(f"  bug-class: {by_class.get('bug',0)} (wrong code, fix regardless of severity)   "
+          f"cosmetic: {by_class.get('cosmetic',0)} (surface giveaways)\n")
     if not findings:
         print("  No surface tells flagged. The loudest tells are structural and a regex cannot see\n"
               "  them: boilerplate / tutorial-shaped code, hallucinated APIs, over-engineering, and\n"
-              "  code that ignores the surrounding repo. Review those by hand against references/tells.md.\n")
+              "  code that ignores the surrounding repo. Hallucinated APIs are a bug, not a style\n"
+              "  issue: build it, type-check it, run it, resolve every import. Then read the diff for\n"
+              "  the rest by hand against references/tells.md.\n")
         return
     for rid in rule_ids:
         items = by_rule[rid]
         f0 = items[0]
-        print(f"  [{f0['sev'].upper()}] {f0['label']}  ({len(items)} hit{'s' if len(items)!=1 else ''})  [{f0['share']}]")
+        print(f"  [{f0['sev'].upper()} · {f0['class']}] {f0['label']}  ({len(items)} hit{'s' if len(items)!=1 else ''})  [{f0['share']}]")
         print(f"        fix: {f0['fix']}")
         for it in items[:args.max]:
             print(f"        {it['file']}:{it['line']}  ({it['match']})  {it['snippet']}")
@@ -208,7 +238,9 @@ def main():
         print()
     top = [by_rule[rid][0]['label'] for rid in rule_ids[:3]]
     print("  Top things to change: " + "; ".join(top))
-    print("  The big tells (boilerplate, hallucinated APIs, over-engineering) need eyes. See references/tells.md.\n")
+    print("  Fix the bug-class findings first; they are wrong, not just AI-looking.")
+    print("  The big tells (boilerplate, hallucinated APIs, over-engineering) the regex cannot see:")
+    print("  build / type-check / run for the hallucinated calls, read the diff for the rest. See references/tells.md.\n")
     sys.exit(by_sev.get("high", 0))
 
 if __name__ == "__main__":

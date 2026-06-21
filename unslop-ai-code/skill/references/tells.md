@@ -13,6 +13,49 @@ named it, so it verifies at 8.5%. Trust verified over raw. And note the split be
 loudest tells (Part B) are about shape and substance, and no regex can see them. The scanner
 catches the mechanical surface tells in Part A.
 
+## The line that matters most: correctness vs cosmetics
+
+The Part A / Part B split is about what a regex can see. That is not the split that should
+drive your effort. The one that should cuts across both parts: is the tell a bug, a substance
+problem, or a cosmetic. Each entry below is tagged with its class.
+
+- **Bug.** The code is wrong, and you fix it on those grounds, not because it looks
+  AI-written. Swallowed or over-broad exception handling (3) eats the failure you needed; a
+  placeholder stub (5) means the file is unfinished; a hallucinated API (9) will not run. A
+  scanner sees the first two; it is blind to the third, which is the worst of them.
+- **Substance.** Not a localized bug, but wrong for the job: tutorial-shaped boilerplate (8),
+  over-engineering (10), code that ignores the surrounding repo (12), mixed skill level (14). A
+  compiler will not catch these; a human reading the diff against the neighboring code will.
+- **Cosmetic.** The model's chat voice leaking into the file: emoji (2), narrating comments
+  (1), chat artifacts (6), generic (4) and over-verbose (7) names. Worth removing, but nothing
+  breaks if you leave one. This is the lighter pass.
+
+Fix bugs and substance because the code is wrong or wrong-for-the-job. Strip cosmetics because
+they read as machine-generated. A clean cosmetic pass does not stand in for the other two.
+
+## Language coverage: universal vs language-specific
+
+A tell that lives in a comment or a string looks the same in every language, so the scanner
+catches it everywhere: emoji (2), placeholder / ellipsis comments (5), narrating comments (1),
+chat artifacts (6). A tell that keys on syntax does not, and the scanner's coverage is uneven
+on purpose, because forcing a regex past what it can do reliably costs precision:
+
+- **Swallowed errors (3)** read differently per language. Matched: Python `except:` and
+  `except Exception: pass`, JS / TS / Java / C# empty `catch {}` or `catch (e) {}`, Ruby
+  `rescue => e` with nothing after, and Go's single-line empty `if err != nil {}`. A human
+  pass: Go's multi-line empty error block and its discarded `_` (too common to flag without
+  noise), and Rust's `.unwrap()` / `.expect()` / `let _ = result` (the same idioms are
+  legitimate in tests and prototypes). If you write Go or Rust, read for these by hand.
+- **Generic names (4)** key on the definition keyword, so `def` / `function` / `func` / `fn` /
+  `fun` / `sub` are covered (Python, JS / TS, Go, Rust, Kotlin, VB); the placeholder
+  vocabulary is English in every language.
+- **Over-broad-but-handled exceptions** (a `catch (Exception)` that logs and moves on) are not
+  flagged in any language. That can be a deliberate boundary, so it is a human call, not a
+  regex one.
+
+If your language is outside Python, JS / TS, Java, C#, Ruby, and Go, assume the syntax-keyed
+rules under-report and read for swallowed errors and generic names by hand.
+
 ## Contents
 
 Part A, the tells the scanner catches:
@@ -36,11 +79,11 @@ Part B, the cited tells a regex cannot see (human or compiler pass required):
 Part C, cleared by the data (do not chase):
 15. Left-in debug logging, reinventing the wheel, defensive checks for impossible cases
 
----
-
 ## Part A: the tells the scanner catches
 
 ### 1. Over-commenting / narrating comments
+
+**Class.** Cosmetic. Surface noise, no effect on whether the code runs.
 
 **Evidence.** Raw 18.2%, verified 8.5%, precision ~47.5% (inflated). The most over-claimed
 tell: only about half the people who blamed "the comments" were naming this one. A regex
@@ -61,6 +104,8 @@ on nearly every line, saying what the line plainly does, is the tell.
 
 ### 2. Emoji in code
 
+**Class.** Cosmetic.
+
 **Evidence.** Verified 3.9%, precision ~77%, the highest-precision cosmetic tell. When people
 name it, they are almost always right.
 
@@ -78,6 +123,9 @@ purpose and mark the line `unslop-ignore`.
 
 ### 3. Catch-all / swallowed errors
 
+**Class.** Bug. An empty or bare catch eats the failure you needed to see. Fix it because it
+is wrong, not because it reads as AI.
+
 **Evidence.** Verified 3.1% (try/except or try/catch wrapped around everything).
 
 **Quote.** "they throw their own exception then catch it and convert it into a generic
@@ -85,7 +133,10 @@ purpose and mark the line `unslop-ignore`.
 the one clue you needed."
 
 **Code signature (scanner).** A bare `except:`, an `except Exception: pass`, an empty
-`catch (e) {}`, a catch block that only swallows.
+`catch (e) {}`, a catch block that only swallows, and Go's single-line empty `if err != nil
+{}`. This tell is language-specific (see "Language coverage" above): Rust's `.unwrap()` /
+`let _ = result` and Go's multi-line empty block or discarded `_` are a human pass, not a regex
+one.
 
 **Why it reads as AI.** The model wraps everything to make the happy path pass, which hides
 the failure you needed to see.
@@ -93,6 +144,9 @@ the failure you needed to see.
 **Fix.** Catch specific exceptions and handle them. Let unexpected failures surface.
 
 ### 4. Generic placeholder names
+
+**Class.** Cosmetic, but it often flags a substance problem underneath: a name like
+`process_data` hides a function doing eleven things.
 
 **Evidence.** Verified 1.9%, precision ~100% (solid). Every tagged quote was real, and they
 all cite the same canonical example.
@@ -112,6 +166,9 @@ instead of naming the thing for what it does in your domain.
 
 ### 5. Placeholder / ellipsis comments left in
 
+**Class.** Bug. The stub means the file is unfinished, not just untidy. The code does not yet
+do what it claims.
+
 **Evidence.** Verified 1.6%, precision ~100%. Shows up more in posted screenshots than in
 conversation, but it is unmistakable.
 
@@ -127,6 +184,8 @@ verbatim. The stub means the file was never actually finished.
 **Fix.** Write the real code the comment is standing in for.
 
 ### 6. Leftover chat / assistant artifacts
+
+**Class.** Cosmetic.
 
 **Evidence.** Verified 1.2%. Aging out as people learn to delete it, but conclusive when it
 survives into a file or a commit.
@@ -147,6 +206,8 @@ the closing offer.
 
 ### 7. Over-verbose identifiers
 
+**Class.** Cosmetic.
+
 **Evidence.** Verified 0.4%, precision ~16.7% (inflated). People mostly argue *for* descriptive
 names; only the truly robotic, whole-sentence identifier is mocked.
 
@@ -160,14 +221,15 @@ paragraph.
 
 **Fix.** Trim the name to the precise noun or verb. Descriptive is good; a sentence is not.
 
----
-
 ## Part B: the cited tells a regex cannot see
 
 These are the loudest tells in the data, and no pattern can catch them. The scanner will not
 flag them. They are about shape and substance, so they need a human reader or a compiler.
 
 ### 8. Boilerplate / tutorial-shaped code (the #1 tell)
+
+**Class.** Substance. The shape is wrong for the job. A compiler passes it; a reviewer reading
+it against the real requirement does not.
 
 **Evidence.** Verified 18.6%, precision ~90% (solid), the top tell by a wide margin and the
 cleanest in the set.
@@ -185,6 +247,9 @@ rule in the scanner is only a weak proxy; judging "tutorial-shaped" is a human c
 
 ### 9. Hallucinated APIs and made-up libraries
 
+**Class.** Bug, the headline one. It will not run, and only running, building, type-checking,
+or resolving the import catches it. A regex never will.
+
 **Evidence.** Verified 11.2%, precision ~62.5%. The tell that bites in production.
 
 **Quote.** "those blocks didn't exist. At all. It just made them up." And: "hallucinated
@@ -199,6 +264,9 @@ and a test catch this; a regex never will.
 
 ### 10. Over-engineering
 
+**Class.** Substance. Needless structure is correctness-adjacent: every extra layer is more
+surface for a bug to hide in.
+
 **Evidence.** Verified 7.8%, precision ~60.6%.
 
 **Quote.** "Giant functions, hidden side effects, random abstractions that nobody would
@@ -211,6 +279,8 @@ training data is full of enterprise patterns.
 **Fix.** Ask whether a simple if/else would do. Delete the abstraction that has one caller.
 
 ### 11. "You can just tell" (the umbrella)
+
+**Class.** Not a single tell; the feeling the rest of this catalog resolves to when you press.
 
 **Evidence.** 17.8% of tell-naming comments, the near-as-loud second voice, but it names no
 specific feature.
@@ -225,6 +295,9 @@ saw. The specific tells in this catalog are what that feeling resolves to when y
 
 ### 12. Style that ignores the surrounding codebase
 
+**Class.** Substance. The code works in isolation and is wrong for this repo. This is the
+spine of the fix: correct plus fits the codebase, not correct in a vacuum.
+
 **Evidence.** Verified 3.5%, precision ~64.3%.
 
 **Quote.** "a PR that should be 50 LoC because it follows naturally from the existing codebase
@@ -237,6 +310,8 @@ to log, a new decorator approach, a new structure, mid-file.
 repeated fix in the whole dataset: give the model the existing code, not a blank slate.
 
 ### 13. Too clean, no human mess
+
+**Class.** A meta-signal, not a fix target for the author. Weakest of the Part B tells.
 
 **Evidence.** Verified 2.3%, precision ~42.9% (genuinely contested).
 
@@ -252,6 +327,8 @@ careful humans write clean code), so weight it last.
 
 ### 14. Mixed skill level
 
+**Class.** Substance. You cannot explain it, so you cannot own it.
+
 **Evidence.** Verified 1.9%, precision ~50%.
 
 **Quote.** "use programming practices that were outdated 10 years ago or even mix
@@ -264,7 +341,25 @@ explain any of it, because no single developer wrote it.
 
 **Fix.** If you cannot explain a line, do not ship it. Understand the code before it is yours.
 
----
+## The over-correction trap (the moving target when you try to de-slop)
+
+Telling a model "write clean code" or "make this not look AI-generated" does not produce
+restraint. It produces the opposite swing: defensive null checks for cases that cannot occur, a
+type annotation on every local, a docstring and a comment on every function, an interface and a
+factory for a thing with one caller. The model is performing seniority, and performed seniority
+is its own tell.
+
+This is the moving target. As the loud tells (emoji, chat artifacts) get stripped by habit, the
+trying-to-look-senior default is what is left, and it reads as AI for the same reason the
+boilerplate does: it is the average of "what careful code looks like," not a response to this
+problem in this repo.
+
+Note the asymmetry with Part C below. Over-defensive validation did not survive verification as
+a tell to *flag in code you are reviewing* (half the complaints were about the opposite). But it
+is a real failure mode to *avoid when you are the one generating*. Detection and generation are
+different jobs. The anchor for both is the same: match the level the surrounding code actually
+operates at. Do not add a check, a type, a comment, or a layer the neighboring code would not
+have.
 
 ## Part C: cleared by the data (do not chase)
 
@@ -279,7 +374,8 @@ The verification step exists to catch over-claims, and three popular ones did no
   read.
 - **Over-defensive validation** (null checks for cases that cannot happen): inflated, precision
   ~40%. Half the tagged comments were complaining about the opposite, AI code with *no*
-  validation at all.
+  validation at all. Do not flag it in code you review. Do still avoid producing it yourself,
+  for the reason in "The over-correction trap" above.
 
 Flag what the data supports, at the weight it supports. Over-flagging trains people to ignore
 the tool.
