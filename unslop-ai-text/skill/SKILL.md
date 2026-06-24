@@ -1,19 +1,17 @@
 ---
 name: unslop-text
 description: >-
-  Strips the cues that make prose read as AI-generated and forces a deliberate, human voice
-  instead of the model's default register. It does not write the piece for you and it has no
-  preferred style. It removes the cited tells (the em dash, the "it's not just X, it's Y"
-  cadence, leftover assistant boilerplate, sycophantic openers, the delve/tapestry/leverage
-  diction, listicle scaffolding, the "in conclusion" wrap-up) AND warns against the newer
-  over-corrected "trying not to sound like AI" register that swaps one default for another.
-  Grounded in a Reddit analysis of 89,239 posts pulled and 7,984 on-topic, across roughly 50
-  AI, writing, and SaaS subreddits, of what people actually name as a giveaway. Use whenever
-  writing, drafting, editing, rewriting, reviewing, or auditing any prose meant for a reader
-  (a post, an email, an essay, an article, a README, marketing copy), and especially when the
-  user wants it to sound human rather than AI-generated, or says it "sounds like ChatGPT,"
-  "reads like AI," "is too polished," "de-slop this," or "make it sound like me." Trigger even
-  if they never say "AI tell."
+  Strips the cues that make prose read as AI-generated and forces a deliberate human voice
+  instead of the model's default register. It has no house style and does not write for you.
+  It removes the cited tells (the em dash, the "it's not just X, it's Y" cadence, assistant
+  boilerplate, the delve/tapestry diction, listicle scaffolding, the "in conclusion" wrap-up)
+  and warns against the over-corrected "trying not to sound like AI" register that swaps one
+  default for another. Grounded in a Reddit analysis of 89,239 posts (7,984 on-topic) across
+  roughly 50 AI, writing, and SaaS subreddits of what people name as a giveaway. Use when
+  writing, drafting, editing, rewriting, reviewing, or auditing any prose for a reader (a post,
+  email, essay, README, or marketing copy), and especially when the user wants it to sound
+  human rather than AI, or says it "sounds like ChatGPT," "reads like AI," "is too polished,"
+  "de-slop this," or "make it sound like me." Trigger even if they never say "AI tell."
 ---
 
 # unslop-text
